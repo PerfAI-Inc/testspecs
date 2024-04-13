@@ -47,7 +47,7 @@ paths:
       - name: "petId"
         in: "path"
         description: "ID of pet to update"
-        required: true
+        required: false
         type: "integer"
         format: "int64"
       - name: "additionalMetadata"
