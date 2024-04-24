@@ -167,6 +167,13 @@ paths:
         - "write:pets"
         - "read:pets"
       deprecated: true
+      400:
+          description: "Invalid tag value"
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+      deprecated: false
   /pet/{petId}:
     get:
       tags:
