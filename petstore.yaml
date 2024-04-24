@@ -65,10 +65,6 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-      security:
-      - petstore_auth:
-        - "write:pets"
-        - "read:pets"
  /pet:
     post:
       tags:
