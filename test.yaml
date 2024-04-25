@@ -47,7 +47,7 @@ paths:
       - name: "petId"
         in: "path"
         description: "ID of pet to update"
-        required: false
+        required: true
         type: "integer"
         format: "int64"
       - name: "additionalMetadata"
@@ -96,7 +96,7 @@ paths:
       - petstore_auth:
         - "write:pets"
         - "read:pets"
-    put:
+    post:
       tags:
       - "pet"
       summary: "Update an existing pet"
@@ -196,7 +196,7 @@ paths:
       - petstore_auth:
         - "write:pets"
         - "read:pets"
-      deprecated: true
+      deprecated: false
   /pet/{petId}:
     get:
       tags:
