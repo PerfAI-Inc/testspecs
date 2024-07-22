@@ -1,0 +1,1900 @@
+openapi: 3.0.0
+info:
+  title: ContentAPI
+  description: >-
+    `CONTENTAPI has been designed to retrieve all the details of the hotels
+    available in our BOOKINGAPI. CONTENTAPI contains several methods that allow
+    you to obtain the details of the hotels as well as list of destinations,
+    countries and the master types that complement the hotels informatoin (like
+    room type descriptions, accommodation type descriptions, categories
+    descriptions...).`
+
+
+    `The main operation that we have is the Hotels Operation which is connected
+    to the rest of methods, we can consider three different connections based on
+    the information returned in each operation:`
+
+
+    `Note that the Languages operation will be connected to all the operations
+    in which a description is returned, since we will return the language code
+    in which that description has been returned.`
+  version: 1.0.0
+servers:
+  - url: http://{{endpoint}}
+tags:
+  - name: Hotels
+    description: >-
+      This operations will bring up a list of hotels and all the individual
+      hotel's details in a JSON or XML.
+  - name: Locations
+    description: "These operations retrieve the lists of locations (countries, destinations, and zones) in a JSON or XML response.\r\n\r\nThe destination tree divides the destinations into three parts (Destination, Zone and Group of Zones), which limits the area covered by each one."
+  - name: Types
+    description: >-
+      These operations retrieve the different master lists needed to use with
+      the ContentAPI response. There are several operations, all of which have
+      common request parameters.
+paths:
+  /hotel-content-api/1.0/hotels:
+    get:
+      tags:
+        - Hotels
+      summary: Hotels
+      description: This operation will bring up a list of hotels in a JSON or XML response.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the hotelCode is returned. See below for the complete
+            list. "All" returns all fields available.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            Language Code in which you want the descriptions to be returned. If
+            not specifically indicated, English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            Number of the initial record to receive, if nothing is indicated 1
+            is the default value.  
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            Number of the final record to receive, if nothing is indicated 100
+            is the default value. 
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: boolean
+          description: >-
+            "True" if you want to receive the descriptions in English if the
+            description is not available in the language requested.
+
+            "False" (default value) if you dont want to receive the description
+            in English if the language requested is not available.
+          example: 'false'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/hotels/{hotelCode}/details:
+    get:
+      tags:
+        - Hotels
+      summary: HotelDetails
+      description: >-
+        This operation will bring up all details of an specifc hotel in a JSON
+        or XML response.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            Language Code in which you want the descriptions to be returned. If
+            not specifically indicated, English is the default language.
+          example: ENG
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            "True" if you want to receive the descriptions in English if the
+            description is not available in the language requested. "False"
+            (default value) if you dont want to receive the description in
+            English if the language requested is not available. 
+          example: 'False'
+        - name: hotelCode
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/locations/countries:
+    get:
+      tags:
+        - Locations
+      summary: Countries
+      description: It will return the list of available countries.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            List of fields you want to receive in the response. If nothing is
+            specified the countryCode will be returned. Values: isoCode,
+            description, all
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            Language Code in which you want the descriptions to be returned. If
+            it is not indicated English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            Number of the initial record to receive, if nothing is indicated 1
+            is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            Number of the final record to receive, if nothing is indicated 100
+            is the default value.
+          example: '203'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/locations/destinations:
+    get:
+      tags:
+        - Locations
+      summary: Destinations
+      description: >-
+        It will return the list of available destinations, zones and grouping
+        zones.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            List of fields you want to receive in the response. If nothing is
+            specified the hotelCode will be returned. Values: countryCode,
+            isoCode, name, zones, groupZones, all
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            Language Code in which you want the descriptions to be returned. If
+            not otherwise indicated, English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            Number of the initial record to receive, if nothing is indicated 1
+            is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            Number of the final record to receive, if nothing is indicated 100
+            is the default value. 
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: boolean
+          description: >-
+            "True" if you want to receive the descriptions in English if the
+            description is not available in the language requested.
+
+            "False" (default value) if you dont want to receive the description
+            in English if the language requested is not available.
+          example: 'false'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/accommodations:
+    get:
+      tags:
+        - Types
+      summary: Accommodations
+      description: Returns the list of available accommodation types.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available.
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/boards:
+    get:
+      tags:
+        - Types
+      summary: Boards
+      description: Returns the list of available board types.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available. 
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/categories:
+    get:
+      tags:
+        - Types
+      summary: Categories
+      description: Returns the list of available categories.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available. 
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/chains:
+    get:
+      tags:
+        - Types
+      summary: Chains
+      description: Returns the list of available chains.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available.
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/currencies:
+    get:
+      tags:
+        - Types
+      summary: Currencies
+      description: Returns the list of available currencies.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available. 
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/facilities:
+    get:
+      tags:
+        - Types
+      summary: Facilities
+      description: Returns the list of available facilities.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available.
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/facilitygroups:
+    get:
+      tags:
+        - Types
+      summary: FacilityGroups
+      description: Returns the list of available facility groups.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available. 
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/facilitytypologies:
+    get:
+      tags:
+        - Types
+      summary: FacilityTypologies
+      description: Returns the list of available facility typologies.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available. 
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/issues:
+    get:
+      tags:
+        - Types
+      summary: Issues
+      description: Returns the list of available issues.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available.
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/languages:
+    get:
+      tags:
+        - Types
+      summary: Languages
+      description: Returns the list of available languages.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available. 
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/promotions:
+    get:
+      tags:
+        - Types
+      summary: Promotions
+      description: Returns the list of available promotions.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available. 
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/rooms:
+    get:
+      tags:
+        - Types
+      summary: Rooms
+      description: Returns the list of available rooms.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available. 
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/segments:
+    get:
+      tags:
+        - Types
+      summary: Segments
+      description: Returns the list of available segments.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available.
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/terminals:
+    get:
+      tags:
+        - Types
+      summary: Terminals
+      description: Returns the list of available terminals.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available. 
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/imagetypes:
+    get:
+      tags:
+        - Types
+      summary: ImageTypes
+      description: Returns the descriptions of the different image types.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available.
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/groupcategories:
+    get:
+      tags:
+        - Types
+      summary: GroupCategories
+      description: Returns the descriptions of the different category groups.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available. 
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/ratecomments:
+    get:
+      tags:
+        - Types
+      summary: RateComments
+      description: >+
+        Returns the descriptions of the Rate Comments associated with the hotel
+        that the hotelier wants the client to read before confirming the
+        booking. You can check the use of Rate Comments in
+        https://developer.hotelbeds.com/docs/read/apitude_content/Use_of_Rate_Comments.
+
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: code
+          in: query
+          schema:
+            type: string
+          description: Rate comment code
+          example: '{{rateCommentsId}}'
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available. 
+          example: 'True'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /hotel-content-api/1.0/types/ratecommentdetails:
+    get:
+      tags:
+        - Types
+      summary: RateCommentDetails
+      description: >-
+        Returns the descriptions of the rate comments associated with the hotel
+        that the hotelier wants the client to read before confirming the booking
+        with the given date.
+      parameters:
+        - name: Api-key
+          in: header
+          schema:
+            type: string
+          description: API Key used in the request
+          example: '{{Api-key}}'
+        - name: X-Signature
+          in: header
+          schema:
+            type: string
+          description: >-
+            SHA256 hash in Hex format from your API Key, your secret plus
+            current timestamps in seconds
+          example: '{{X-Signature}}'
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          description: >-
+            Defines response format, posible values: application/xml,
+            application/json
+          example: '{{format}}'
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: Defines type of encoding used on the data
+          example: gzip
+        - name: code
+          in: query
+          schema:
+            type: string
+          description: Rate comment code.
+          example: '{{rateCommentsId}}'
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: >-
+            The list of fields to be received in the response. If nothing is
+            specified, the accommodation type code is returned. To retrieve all
+            the fields use ‘all’. See the complete list of available fields in
+            the response.
+          example: all
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: >-
+            The language code for the language in which you want the
+            descriptions to be returned. If the language is not specified,
+            English is the default language.
+          example: ENG
+        - name: from
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the initial record to receive. If nothing is
+            specified, 1 is the default value.
+          example: '1'
+        - name: to
+          in: query
+          schema:
+            type: integer
+          description: >-
+            The number of the final record to receive. If nothing is indicated,
+            100 is the default value.
+          example: '100'
+        - name: useSecondaryLanguage
+          in: query
+          schema:
+            type: string
+          description: >-
+            Specify "True" if you want to receive the descriptions in English if
+            the description is not available in the language requested. Specify
+            "False" (default value) if you do not want to receive the
+            description in English if the language requested is not available. 
+          example: 'True'
+        - name: date
+          in: query
+          schema:
+            type: string
+          description: 'Check in date. Format: YYYY-MM-DD'
+          example: '{{checkIn}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
