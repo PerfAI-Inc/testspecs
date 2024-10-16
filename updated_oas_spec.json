@@ -1,0 +1,4263 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Seamailer.app",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.dev.seamailer.app"
+    },
+    {
+      "url": "https://api.seamailer.app"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Analytics"
+    },
+    {
+      "name": "Account"
+    },
+    {
+      "name": "Billings and Plans"
+    },
+    {
+      "name": "Contacts"
+    },
+    {
+      "name": "Contacts > Contacts Generator"
+    },
+    {
+      "name": "Contacts > Metrics"
+    },
+    {
+      "name": "Contacts > Others"
+    },
+    {
+      "name": "Contacts > Contact Custom Properties"
+    },
+    {
+      "name": "Contacts Import"
+    },
+    {
+      "name": "Contacts Segments"
+    },
+    {
+      "name": "Contacts Segments > Segment Filters"
+    },
+    {
+      "name": "Email Templates"
+    },
+    {
+      "name": "Email Templates > Custom HTML"
+    },
+    {
+      "name": "Groups"
+    },
+    {
+      "name": "Senders"
+    },
+    {
+      "name": "Senders > Admin / Senders"
+    },
+    {
+      "name": "Campaigns"
+    },
+    {
+      "name": "Campaigns > Metrics"
+    },
+    {
+      "name": "Campaigns > Scheduled Campaign"
+    },
+    {
+      "name": "Campaigns > Crud Campaign"
+    },
+    {
+      "name": "User"
+    },
+    {
+      "name": "User > Test apis"
+    },
+    {
+      "name": "Group Automation"
+    },
+    {
+      "name": "Api Keys"
+    },
+    {
+      "name": "Team"
+    },
+    {
+      "name": "New Folder"
+    },
+    {
+      "name": "Admin"
+    },
+    {
+      "name": "Lemon Squeezy"
+    },
+    {
+      "name": "Automation Workflow"
+    },
+    {
+      "name": "Automation Workflow > workflow data"
+    }
+  ],
+  "paths": {
+    "/v1.0/analytics/contacts/1/email-metrics": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Contacts/Email Metrics",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/accounts/user-profile": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Get User Profile",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/accounts/testing": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Testing Route",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/accounts/user-details": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Get User Details",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "477"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"1dd-rfTAwGR4VfdWSkhfPsR1DvCyMj8\""
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 30 Apr 2024 09:37:19 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "int"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "userId": {
+                          "type": "str"
+                        },
+                        "verified": {
+                          "type": "bool"
+                        },
+                        "verifiedMemberOtp": {
+                          "type": "bool"
+                        },
+                        "isOwner": {
+                          "type": "bool"
+                        },
+                        "workRole": {
+                          "type": "nonetype"
+                        },
+                        "email": {
+                          "type": "str"
+                        },
+                        "firstName": {
+                          "type": "str"
+                        },
+                        "lastName": {
+                          "type": "str"
+                        },
+                        "phoneNumber": {
+                          "type": "str"
+                        },
+                        "companyName": {
+                          "type": "str"
+                        },
+                        "teamName": {
+                          "type": "str"
+                        },
+                        "teamOwnerEmail": {
+                          "type": "str"
+                        },
+                        "teamId": {
+                          "type": "str"
+                        },
+                        "isActive": {
+                          "type": "bool"
+                        },
+                        "has2FA": {
+                          "type": "bool"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "str"
+                    },
+                    "devMessage": {
+                      "type": "str"
+                    },
+                    "success": {
+                      "type": "bool"
+                    }
+                  }
+                },
+                "example": {
+                  "code": 200,
+                  "data": {
+                    "userId": "d8543975-fdc4-4600-a1f2-8e2e12767c39",
+                    "verified": false,
+                    "verifiedMemberOtp": false,
+                    "isOwner": true,
+                    "workRole": null,
+                    "email": "oladosulek@gmail.com",
+                    "firstName": "Friday",
+                    "lastName": "Ms. Jolapo",
+                    "phoneNumber": "234090876534",
+                    "companyName": "Sunday Kimited",
+                    "teamName": "Sunday Kimited",
+                    "teamOwnerEmail": "oladosulek@gmail.com",
+                    "teamId": "e68b97ef-a097-461b-b11f-a42b52d182b2",
+                    "isActive": true,
+                    "has2FA": false
+                  },
+                  "message": "Success",
+                  "devMessage": "",
+                  "success": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/accounts/plans": {
+      "get": {
+        "tags": [
+          "Billings and Plans"
+        ],
+        "summary": "Plans List",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/accounts/payments/start-checkout": {
+      "post": {
+        "tags": [
+          "Billings and Plans"
+        ],
+        "summary": "FX - Start Checkout",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/contacts/generate-test-contacts": {
+      "get": {
+        "tags": [
+          "Contacts > Contacts Generator"
+        ],
+        "summary": "Generate Contacts",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/contacts/generate-test-ses-contacts": {
+      "get": {
+        "tags": [
+          "Contacts > Contacts Generator"
+        ],
+        "summary": "Generate Ses Contacts",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/contacts/statistics": {
+      "get": {
+        "tags": [
+          "Contacts > Metrics"
+        ],
+        "summary": "Contacts Stats",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2023-10-10"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2023-11-30"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/contacts/remove-null": {
+      "get": {
+        "tags": [
+          "Contacts > Others"
+        ],
+        "summary": "Clean Null",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/contacts/custom/properties-keys": {
+      "post": {
+        "tags": [
+          "Contacts > Contact Custom Properties"
+        ],
+        "summary": "Create Custom Property",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "str"
+                    },
+                    "type": {
+                      "type": "str"
+                    },
+                    "isRequired": {
+                      "type": "bool"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Contacts > Contact Custom Properties"
+        ],
+        "summary": "Get Custom Properties",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/contacts/custom/properties-keys/1": {
+      "patch": {
+        "tags": [
+          "Contacts > Contact Custom Properties"
+        ],
+        "summary": "Update Custom Key",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "str"
+                  },
+                  "type": {
+                    "type": "str"
+                  },
+                  "isRequired": {
+                    "type": "bool"
+                  },
+                  "isActive": {
+                    "type": "bool"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/contacts/custom/properties-keys/2": {
+      "delete": {
+        "tags": [
+          "Contacts > Contact Custom Properties"
+        ],
+        "summary": "Get Custom Property Copy",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/contacts": {
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Create Contact",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "contacts": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "firstName": {
+                          "type": "str"
+                        },
+                        "lastName": {
+                          "type": "str"
+                        },
+                        "email": {
+                          "type": "str"
+                        },
+                        "customFields": {
+                          "type": "object",
+                          "properties": {
+                            "lifetime_amount": {
+                              "type": "int"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Get All Contacts Copy",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/contacts/6": {
+      "patch": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Update Contact",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "str"
+                  },
+                  "lastName": {
+                    "type": "str"
+                  },
+                  "phoneCountry": {
+                    "type": "str"
+                  },
+                  "phoneNumber": {
+                    "type": "str"
+                  },
+                  "website": {
+                    "type": "str"
+                  },
+                  "timezone": {
+                    "type": "str"
+                  },
+                  "utcOffset": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/contacts/1": {
+      "patch": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Update Contact - Custom",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "str"
+                  },
+                  "lastName": {
+                    "type": "str"
+                  },
+                  "phoneCountry": {
+                    "type": "str"
+                  },
+                  "phoneNumber": {
+                    "type": "str"
+                  },
+                  "city": {
+                    "type": "str"
+                  },
+                  "customFields": {
+                    "type": "object",
+                    "properties": {
+                      "last_purchase": {
+                        "type": "str"
+                      },
+                      "game_amount": {
+                        "type": "str"
+                      },
+                      "lifetime_value": {
+                        "type": "str"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/contacts/single": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Get Single Contact",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/groups/73/import": {
+      "post": {
+        "tags": [
+          "Contacts Import"
+        ],
+        "summary": "Import Contact to Group",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "columns": {
+                    "type": "string",
+                    "example": "[{\"fileHeader\":\"name\",\"mappedHeader\":\"firstname\"},{\"fileHeader\":\"phone\",\"mappedHeader\":\"phonenumber\"},{\"fileHeader\":\"email\",\"mappedHeader\":\"email\"}]"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/contacts/import": {
+      "post": {
+        "tags": [
+          "Contacts Import"
+        ],
+        "summary": "Import Contact",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/segments/filters": {
+      "get": {
+        "tags": [
+          "Contacts Segments > Segment Filters"
+        ],
+        "summary": "Get Filters",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/segments/query": {
+      "post": {
+        "tags": [
+          "Contacts Segments > Segment Filters"
+        ],
+        "summary": "Segment Query Copy",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "object",
+                    "properties": {
+                      "or": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "and": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "key": {
+                                    "type": "str"
+                                  },
+                                  "match": {
+                                    "type": "str"
+                                  },
+                                  "value": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "str"
+                                    }
+                                  },
+                                  "compOperator": {
+                                    "type": "str"
+                                  },
+                                  "selectionOption": {
+                                    "type": "str"
+                                  },
+                                  "index": {
+                                    "type": "int"
+                                  },
+                                  "groupIndex": {
+                                    "type": "int"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/segments/listings": {
+      "get": {
+        "tags": [
+          "Contacts Segments"
+        ],
+        "summary": "Get Segments",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/segments/item/1": {
+      "get": {
+        "tags": [
+          "Contacts Segments"
+        ],
+        "summary": "Get Segment By Id",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/segments/item/34/contacts": {
+      "get": {
+        "tags": [
+          "Contacts Segments"
+        ],
+        "summary": "Get Contacts in Segment",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/segments/create": {
+      "post": {
+        "tags": [
+          "Contacts Segments"
+        ],
+        "summary": "Create Segment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "str"
+                  },
+                  "filter": {
+                    "type": "object",
+                    "properties": {
+                      "query": {
+                        "type": "object",
+                        "properties": {
+                          "or": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "and": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "key": {
+                                        "type": "str"
+                                      },
+                                      "match": {
+                                        "type": "str"
+                                      },
+                                      "value": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "str"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "tags": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/segments/1/update": {
+      "patch": {
+        "tags": [
+          "Contacts Segments"
+        ],
+        "summary": "Update Segment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "str"
+                  },
+                  "tags": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/templates/custom/compile": {
+      "post": {
+        "tags": [
+          "Email Templates > Custom HTML"
+        ],
+        "summary": "Compile & Preview",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "htmlBody": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/templates/custom/82396": {
+      "patch": {
+        "tags": [
+          "Email Templates > Custom HTML"
+        ],
+        "summary": "Update Html Template",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "templateName": {
+                    "type": "str"
+                  },
+                  "templateHtml": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/templates/custom/create": {
+      "post": {
+        "tags": [
+          "Email Templates > Custom HTML"
+        ],
+        "summary": "Create Html Template",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "templateName": {
+                    "type": "str"
+                  },
+                  "tags": {
+                    "type": "str"
+                  },
+                  "type": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/templates/3/send": {
+      "post": {
+        "tags": [
+          "Email Templates"
+        ],
+        "summary": "Send Template (Testing)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "templateId": {
+                    "type": "int"
+                  },
+                  "toEmails": {
+                    "type": "array",
+                    "items": {
+                      "type": "str"
+                    }
+                  },
+                  "subject": {
+                    "type": "str"
+                  },
+                  "fromEmail": {
+                    "type": "str"
+                  },
+                  "fromName": {
+                    "type": "str"
+                  },
+                  "variables": {
+                    "type": "object",
+                    "properties": {
+                      "firstName": {
+                        "type": "str"
+                      },
+                      "lastName": {
+                        "type": "str"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "87"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"57-KdggLs26mzMzG7fDlJG0wcNDObs\""
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Sun, 04 Dec 2022 08:34:01 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "Send Template (Testing)",
+                    "value": {
+                      "code": 200,
+                      "data": {
+                        "success": true
+                      },
+                      "message": "Success",
+                      "devMessage": "",
+                      "success": true
+                    }
+                  },
+                  "example-1": {
+                    "summary": "Aws Sandbox Send Testing",
+                    "value": {
+                      "code": 200,
+                      "data": {
+                        "success": true
+                      },
+                      "message": "Success",
+                      "devMessage": "",
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/templates/7293/send": {
+      "post": {
+        "tags": [
+          "Email Templates"
+        ],
+        "summary": "Send Template Test 2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "templateId": {
+                    "type": "int"
+                  },
+                  "toEmails": {
+                    "type": "array",
+                    "items": {
+                      "type": "str"
+                    }
+                  },
+                  "subject": {
+                    "type": "str"
+                  },
+                  "fromEmail": {
+                    "type": "str"
+                  },
+                  "fromName": {
+                    "type": "str"
+                  },
+                  "variables": {
+                    "type": "object",
+                    "properties": {
+                      "firstName": {
+                        "type": "str"
+                      },
+                      "lastName": {
+                        "type": "str"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/templates": {
+      "get": {
+        "tags": [
+          "Email Templates"
+        ],
+        "summary": "Get User Templates",
+        "parameters": [
+          {
+            "name": "onlyGallery",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/templates/list/mini": {
+      "get": {
+        "tags": [
+          "Email Templates"
+        ],
+        "summary": "Get Templates List Mini",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/templates/transactional": {
+      "get": {
+        "tags": [
+          "Email Templates"
+        ],
+        "summary": "Get Transactional Templates",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/templates/marketing": {
+      "get": {
+        "tags": [
+          "Email Templates"
+        ],
+        "summary": "Get Marketing Templates",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/templates/create": {
+      "post": {
+        "tags": [
+          "Email Templates"
+        ],
+        "summary": "Create Template",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fromTemplateId": {
+                    "type": "int"
+                  },
+                  "templateName": {
+                    "type": "str"
+                  },
+                  "type": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/templates/6443": {
+      "get": {
+        "tags": [
+          "Email Templates"
+        ],
+        "summary": "Get Template",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/groups": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Groups",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Create Group",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "str"
+                  },
+                  "description": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/groups/116/contacts": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Group Contacts List",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/groups/5": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "One Group",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/groups/5/add-contact": {
+      "post": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Add Contact To Group",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "groupId": {
+                    "type": "int"
+                  },
+                  "contactIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "int"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/groups/1": {
+      "patch": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Update Group",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "str"
+                  },
+                  "description": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/groups/5/remove-contact": {
+      "patch": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Remove Contacts From Groups",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "contactIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "int"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/groups/5/delete-contacts": {
+      "patch": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Delete Contacts From Groups",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "contactIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "int"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/senders/admin/create-template": {
+      "get": {
+        "tags": [
+          "Senders > Admin / Senders"
+        ],
+        "summary": "Create Template - Verification",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "616"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"268-8uMtxHpoBMSm6jnWxpxcEpiICTs\""
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Fri, 03 Nov 2023 21:44:15 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "int"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "$metadata": {
+                          "type": "object",
+                          "properties": {
+                            "httpStatusCode": {
+                              "type": "int"
+                            },
+                            "requestId": {
+                              "type": "str"
+                            },
+                            "attempts": {
+                              "type": "int"
+                            },
+                            "totalRetryDelay": {
+                              "type": "int"
+                            }
+                          }
+                        },
+                        "CustomVerificationEmailTemplates": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "CancelFailureRedirectionURL": {
+                                "type": "nonetype"
+                              },
+                              "CancelSuccessRedirectionURL": {
+                                "type": "nonetype"
+                              },
+                              "FailureRedirectionURL": {
+                                "type": "str"
+                              },
+                              "FromEmailAddress": {
+                                "type": "str"
+                              },
+                              "SuccessRedirectionURL": {
+                                "type": "str"
+                              },
+                              "TemplateName": {
+                                "type": "str"
+                              },
+                              "TemplateSubject": {
+                                "type": "str"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "str"
+                    },
+                    "devMessage": {
+                      "type": "str"
+                    },
+                    "success": {
+                      "type": "bool"
+                    }
+                  }
+                },
+                "example": {
+                  "code": 200,
+                  "data": {
+                    "$metadata": {
+                      "httpStatusCode": 200,
+                      "requestId": "f42f2644-1141-4d06-8f16-08a9ac6fa0f7",
+                      "attempts": 1,
+                      "totalRetryDelay": 0
+                    },
+                    "CustomVerificationEmailTemplates": [
+                      {
+                        "CancelFailureRedirectionURL": null,
+                        "CancelSuccessRedirectionURL": null,
+                        "FailureRedirectionURL": "https://seamailer.app/verification/domain/failure",
+                        "FromEmailAddress": "support@seamailer.app",
+                        "SuccessRedirectionURL": "https://seamailer.app/verification/domain/success",
+                        "TemplateName": "seamailer-verification-email",
+                        "TemplateSubject": "Please verify your email to complete your domain setup"
+                      }
+                    ]
+                  },
+                  "message": "Success",
+                  "devMessage": "",
+                  "success": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/senders/admin/verification-templates": {
+      "get": {
+        "tags": [
+          "Senders > Admin / Senders"
+        ],
+        "summary": "Get Verification Templates",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/senders/admin/configure-ses-notifications": {
+      "get": {
+        "tags": [
+          "Senders > Admin / Senders"
+        ],
+        "summary": "Admin - Activate SNS Notifications",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/senders": {
+      "post": {
+        "tags": [
+          "Senders"
+        ],
+        "summary": "Create Sender",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fromName": {
+                    "type": "str"
+                  },
+                  "senderEmail": {
+                    "type": "str"
+                  },
+                  "url": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "424"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"1a8-OeZYyud5buwxMCZV/a3lFzI88mU\""
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Fri, 03 Nov 2023 22:28:57 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "int"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "sender": {
+                          "type": "object",
+                          "properties": {
+                            "verified": {
+                              "type": "bool"
+                            },
+                            "sesCreated": {
+                              "type": "bool"
+                            },
+                            "id": {
+                              "type": "int"
+                            },
+                            "fromName": {
+                              "type": "str"
+                            },
+                            "senderEmail": {
+                              "type": "str"
+                            },
+                            "url": {
+                              "type": "str"
+                            },
+                            "teamId": {
+                              "type": "str"
+                            },
+                            "teamMemberId": {
+                              "type": "str"
+                            },
+                            "updatedAt": {
+                              "type": "str"
+                            },
+                            "createdAt": {
+                              "type": "str"
+                            },
+                            "identityType": {
+                              "type": "str"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "str"
+                    },
+                    "devMessage": {
+                      "type": "str"
+                    },
+                    "success": {
+                      "type": "bool"
+                    }
+                  }
+                },
+                "example": {
+                  "code": 200,
+                  "data": {
+                    "sender": {
+                      "verified": false,
+                      "sesCreated": true,
+                      "id": 2,
+                      "fromName": "Bisi",
+                      "senderEmail": "oladosulek@gmail.com",
+                      "url": "https://www.semailer.com",
+                      "teamId": "d1b06385-c3a1-419c-a3cb-57dcbcd2125d",
+                      "teamMemberId": "921211a8-4736-4485-a86f-e71cfc059e39",
+                      "updatedAt": "2023-11-03T22:28:57.893Z",
+                      "createdAt": "2023-11-03T22:28:56.891Z",
+                      "identityType": "email_address"
+                    }
+                  },
+                  "message": "Success",
+                  "devMessage": "",
+                  "success": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Senders"
+        ],
+        "summary": "Senders List",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/senders/create/email": {
+      "post": {
+        "tags": [
+          "Senders"
+        ],
+        "summary": "Create Email Sender",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fromName": {
+                    "type": "str"
+                  },
+                  "senderEmail": {
+                    "type": "str"
+                  },
+                  "url": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/senders/domains": {
+      "get": {
+        "tags": [
+          "Senders"
+        ],
+        "summary": "Senders Domains List",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/senders/9/info": {
+      "get": {
+        "tags": [
+          "Senders"
+        ],
+        "summary": "One Sender Info",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/senders/9/info/dns": {
+      "get": {
+        "tags": [
+          "Senders"
+        ],
+        "summary": "Sender DNS Info",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/senders/9/verify-dkim": {
+      "post": {
+        "tags": [
+          "Senders"
+        ],
+        "summary": "Verify DKIM",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/senders/10/verify-dmarc": {
+      "post": {
+        "tags": [
+          "Senders"
+        ],
+        "summary": "Verify DMARC",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/6/metrics": {
+      "get": {
+        "tags": [
+          "Campaigns > Metrics"
+        ],
+        "summary": "Campaign Metric",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "356"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"164-RvSRymFh3WipuRVHkjMS89UmlMc\""
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 13 Nov 2023 13:01:21 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "int"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "metrics": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "int"
+                            },
+                            "campaignId": {
+                              "type": "int"
+                            },
+                            "totalEmailsSent": {
+                              "type": "int"
+                            },
+                            "spamComplaints": {
+                              "type": "int"
+                            },
+                            "emailsDelivered": {
+                              "type": "int"
+                            },
+                            "emailsOpened": {
+                              "type": "int"
+                            },
+                            "emailsHardBounce": {
+                              "type": "int"
+                            },
+                            "emailsSoftBounce": {
+                              "type": "int"
+                            },
+                            "emailsClicked": {
+                              "type": "int"
+                            },
+                            "emailsRejected": {
+                              "type": "int"
+                            },
+                            "createdAt": {
+                              "type": "str"
+                            },
+                            "updatedAt": {
+                              "type": "str"
+                            },
+                            "deletedAt": {
+                              "type": "nonetype"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "str"
+                    },
+                    "devMessage": {
+                      "type": "str"
+                    },
+                    "success": {
+                      "type": "bool"
+                    }
+                  }
+                },
+                "example": {
+                  "code": 200,
+                  "data": {
+                    "metrics": {
+                      "id": 3,
+                      "campaignId": 6,
+                      "totalEmailsSent": 2,
+                      "spamComplaints": 0,
+                      "emailsDelivered": 0,
+                      "emailsOpened": 0,
+                      "emailsHardBounce": 0,
+                      "emailsSoftBounce": 0,
+                      "emailsClicked": 0,
+                      "emailsRejected": 0,
+                      "createdAt": "2023-11-13T12:58:36.000Z",
+                      "updatedAt": "2023-11-13T12:58:36.000Z",
+                      "deletedAt": null
+                    }
+                  },
+                  "message": "Success",
+                  "devMessage": "",
+                  "success": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/metrics/monthly-list": {
+      "get": {
+        "tags": [
+          "Campaigns > Metrics"
+        ],
+        "summary": "Campaign Monthly Metrics",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2023-10-01"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2023-11-23"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/metrics/sum": {
+      "get": {
+        "tags": [
+          "Campaigns > Metrics"
+        ],
+        "summary": "Sum All Campaign Metric",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2023-11-14"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2023-11-23"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/schedule": {
+      "post": {
+        "tags": [
+          "Campaigns > Scheduled Campaign"
+        ],
+        "summary": "Schedule Campaign",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "campaignId": {
+                    "type": "int"
+                  },
+                  "date": {
+                    "type": "str"
+                  },
+                  "time": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/16": {
+      "get": {
+        "tags": [
+          "Campaigns > Crud Campaign"
+        ],
+        "summary": "Get Campaign",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/7": {
+      "delete": {
+        "tags": [
+          "Campaigns > Crud Campaign"
+        ],
+        "summary": "Delete Campaign",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns": {
+      "get": {
+        "tags": [
+          "Campaigns > Crud Campaign"
+        ],
+        "summary": "Campaigns List",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.1/campaigns/create": {
+      "post": {
+        "tags": [
+          "Campaigns > Crud Campaign"
+        ],
+        "summary": "Campaigns Create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "353"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"161-5X6AgqrE/9Go3945F3PcTLEEMDg\""
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Sun, 02 Oct 2022 14:39:15 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "int"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "campaign": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "int"
+                            },
+                            "userId": {
+                              "type": "int"
+                            },
+                            "name": {
+                              "type": "nonetype"
+                            },
+                            "subject": {
+                              "type": "nonetype"
+                            },
+                            "senderId": {
+                              "type": "nonetype"
+                            },
+                            "templateId": {
+                              "type": "nonetype"
+                            },
+                            "groupId": {
+                              "type": "nonetype"
+                            },
+                            "isPublished": {
+                              "type": "bool"
+                            },
+                            "status": {
+                              "type": "str"
+                            },
+                            "trackType": {
+                              "type": "str"
+                            },
+                            "isArchived": {
+                              "type": "bool"
+                            },
+                            "createdAt": {
+                              "type": "str"
+                            },
+                            "updatedAt": {
+                              "type": "str"
+                            },
+                            "deletedAt": {
+                              "type": "nonetype"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "str"
+                    },
+                    "devMessage": {
+                      "type": "str"
+                    },
+                    "success": {
+                      "type": "bool"
+                    }
+                  }
+                },
+                "example": {
+                  "code": 200,
+                  "data": {
+                    "campaign": {
+                      "id": 3,
+                      "userId": 3,
+                      "name": null,
+                      "subject": null,
+                      "senderId": null,
+                      "templateId": null,
+                      "groupId": null,
+                      "isPublished": false,
+                      "status": "not-sent",
+                      "trackType": "track",
+                      "isArchived": false,
+                      "createdAt": "2022-10-02T14:39:14.000Z",
+                      "updatedAt": "2022-10-02T14:39:14.000Z",
+                      "deletedAt": null
+                    }
+                  },
+                  "message": "Success",
+                  "devMessage": "",
+                  "success": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/{campaignId}/update": {
+      "patch": {
+        "tags": [
+          "Campaigns > Crud Campaign"
+        ],
+        "summary": "Campaigns Update",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "senderId": {
+                    "type": "int"
+                  },
+                  "senderFromName": {
+                    "type": "str"
+                  },
+                  "groupId": {
+                    "type": "list"
+                  },
+                  "subject": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "campaignId",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "9"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/{campaignId}/update/template": {
+      "patch": {
+        "tags": [
+          "Campaigns > Crud Campaign"
+        ],
+        "summary": "Campaigns Template Update",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fromTemplateUid": {
+                    "type": "int"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "campaignId",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "9"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/1/update": {
+      "patch": {
+        "tags": [
+          "Campaigns > Crud Campaign"
+        ],
+        "summary": "Campaigns Update - Receipts",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "groupIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "int"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/send": {
+      "post": {
+        "tags": [
+          "Campaigns"
+        ],
+        "summary": "Send Campaign",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "campaignId": {
+                    "type": "int"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/simulation/send": {
+      "post": {
+        "tags": [
+          "Campaigns"
+        ],
+        "summary": "Simulating Send Campaign",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "campaignId": {
+                    "type": "int"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/last-campaign": {
+      "get": {
+        "tags": [
+          "Campaigns"
+        ],
+        "summary": "Last Editable Campaign",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/campaigns/last-campaign-metrics": {
+      "get": {
+        "tags": [
+          "Campaigns"
+        ],
+        "summary": "Last Campaign Metrics",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "844"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"34c-EdoM4xZfOz9bGHkNnWM7zMqCB9w\""
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 15 Nov 2023 12:45:35 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "int"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "campaignMetric": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "int"
+                            },
+                            "campaignId": {
+                              "type": "int"
+                            },
+                            "teamId": {
+                              "type": "str"
+                            },
+                            "totalEmailsSent": {
+                              "type": "int"
+                            },
+                            "spamComplaints": {
+                              "type": "int"
+                            },
+                            "emailsDelivered": {
+                              "type": "int"
+                            },
+                            "emailsOpened": {
+                              "type": "int"
+                            },
+                            "emailsHardBounce": {
+                              "type": "int"
+                            },
+                            "emailsSoftBounce": {
+                              "type": "int"
+                            },
+                            "emailsClicked": {
+                              "type": "int"
+                            },
+                            "emailsRejected": {
+                              "type": "int"
+                            },
+                            "sentDay": {
+                              "type": "str"
+                            },
+                            "createdAt": {
+                              "type": "str"
+                            },
+                            "updatedAt": {
+                              "type": "str"
+                            },
+                            "campaign": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "int"
+                                },
+                                "teamId": {
+                                  "type": "str"
+                                },
+                                "teamMemberId": {
+                                  "type": "nonetype"
+                                },
+                                "name": {
+                                  "type": "str"
+                                },
+                                "subject": {
+                                  "type": "str"
+                                },
+                                "senderId": {
+                                  "type": "int"
+                                },
+                                "senderFromName": {
+                                  "type": "str"
+                                },
+                                "templateId": {
+                                  "type": "int"
+                                },
+                                "recipientInfo": {
+                                  "type": "nonetype"
+                                },
+                                "isPublished": {
+                                  "type": "bool"
+                                },
+                                "status": {
+                                  "type": "str"
+                                },
+                                "trackType": {
+                                  "type": "str"
+                                },
+                                "isArchived": {
+                                  "type": "bool"
+                                },
+                                "createdAt": {
+                                  "type": "str"
+                                },
+                                "updatedAt": {
+                                  "type": "str"
+                                },
+                                "deletedAt": {
+                                  "type": "nonetype"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "str"
+                    },
+                    "devMessage": {
+                      "type": "str"
+                    },
+                    "success": {
+                      "type": "bool"
+                    }
+                  }
+                },
+                "example": {
+                  "code": 200,
+                  "data": {
+                    "campaignMetric": {
+                      "id": 7,
+                      "campaignId": 5,
+                      "teamId": "e68b97ef-a097-461b-b11f-a42b52d182b2",
+                      "totalEmailsSent": 17,
+                      "spamComplaints": 0,
+                      "emailsDelivered": 0,
+                      "emailsOpened": 6,
+                      "emailsHardBounce": 0,
+                      "emailsSoftBounce": 0,
+                      "emailsClicked": 0,
+                      "emailsRejected": 0,
+                      "sentDay": "2023-11-14",
+                      "createdAt": "2023-11-14T12:49:52.000Z",
+                      "updatedAt": "2023-11-14T13:09:13.000Z",
+                      "campaign": {
+                        "id": 5,
+                        "teamId": "e68b97ef-a097-461b-b11f-a42b52d182b2",
+                        "teamMemberId": null,
+                        "name": "Announcing our Vibrant Community",
+                        "subject": "Meet out expert in the field of business",
+                        "senderId": 5,
+                        "senderFromName": "Abike",
+                        "templateId": 7,
+                        "recipientInfo": null,
+                        "isPublished": true,
+                        "status": "sent",
+                        "trackType": "track",
+                        "isArchived": false,
+                        "createdAt": "2023-11-13T05:47:33.000Z",
+                        "updatedAt": "2023-11-14T12:49:52.000Z",
+                        "deletedAt": null
+                      }
+                    }
+                  },
+                  "message": "Success",
+                  "devMessage": "",
+                  "success": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/users/t/request-otp": {
+      "post": {
+        "tags": [
+          "User > Test apis"
+        ],
+        "summary": "Test 1 Real - Request Verification OTP",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "array",
+                    "items": {
+                      "type": "str"
+                    }
+                  },
+                  "name": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/users/profile/key/generate": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Generate API Key",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/users/request-otp": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Request Verifications",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/users/verify-otp": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Verify Email OTP",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "otp": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/groups/auto/create": {
+      "post": {
+        "tags": [
+          "Group Automation"
+        ],
+        "summary": "Create Auto Group",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "str"
+                  },
+                  "splitType": {
+                    "type": "str"
+                  },
+                  "splitDivision": {
+                    "type": "int"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/accounts/teams/api-keys": {
+      "get": {
+        "tags": [
+          "Api Keys"
+        ],
+        "summary": "Get API Keys",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/accounts/teams/team-members/send-invite": {
+      "post": {
+        "tags": [
+          "Team"
+        ],
+        "summary": "Invite Team Member",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/accounts/teams/team-members": {
+      "get": {
+        "tags": [
+          "Team"
+        ],
+        "summary": "Get Team Members",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/admin/templates/create": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Admin - Create Template",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fromTemplateId": {
+                    "type": "int"
+                  },
+                  "templateName": {
+                    "type": "str"
+                  },
+                  "type": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/admin/templates/internal/migrate": {
+      "patch": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Migrate",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/stores/4909": {
+      "get": {
+        "tags": [
+          "Lemon Squeezy"
+        ],
+        "summary": "Retrieve a store",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/products": {
+      "get": {
+        "tags": [
+          "Lemon Squeezy"
+        ],
+        "summary": "List all products",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/variants": {
+      "get": {
+        "tags": [
+          "Lemon Squeezy"
+        ],
+        "summary": "List all variants",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/checkouts": {
+      "post": {
+        "tags": [
+          "Lemon Squeezy"
+        ],
+        "summary": "Create Checkout",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "str"
+                      },
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "product_options": {
+                            "type": "object",
+                            "properties": {
+                              "redirect_url": {
+                                "type": "str"
+                              }
+                            }
+                          },
+                          "checkout_data": {
+                            "type": "object",
+                            "properties": {
+                              "email": {
+                                "type": "str"
+                              },
+                              "name": {
+                                "type": "str"
+                              },
+                              "custom": {
+                                "type": "object",
+                                "properties": {
+                                  "user_id": {
+                                    "type": "str"
+                                  },
+                                  "team_id": {
+                                    "type": "str"
+                                  },
+                                  "email": {
+                                    "type": "str"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "relationships": {
+                        "type": "object",
+                        "properties": {
+                          "store": {
+                            "type": "object",
+                            "properties": {
+                              "data": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "str"
+                                  },
+                                  "id": {
+                                    "type": "str"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "variant": {
+                            "type": "object",
+                            "properties": {
+                              "data": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "str"
+                                  },
+                                  "id": {
+                                    "type": "str"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Sun, 19 May 2024 09:18:35 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/vnd.api+json"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "1890"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "location": {
+                "schema": {
+                  "type": "string",
+                  "example": "https://api.lemonsqueezy.com/v1/checkouts/8aab1bbd-c5cc-4997-9f99-999f4c03c752"
+                }
+              },
+              "x-ratelimit-limit": {
+                "schema": {
+                  "type": "integer",
+                  "example": "300"
+                }
+              },
+              "x-ratelimit-remaining": {
+                "schema": {
+                  "type": "integer",
+                  "example": "299"
+                }
+              },
+              "access-control-allow-origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "apigw-requestid": {
+                "schema": {
+                  "type": "string",
+                  "example": "YAuMyi8GCYcEPOQ="
+                }
+              },
+              "CF-Cache-Status": {
+                "schema": {
+                  "type": "string",
+                  "example": "DYNAMIC"
+                }
+              },
+              "Report-To": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=6pS29UApmyUV2lwLzX%2F92QcmI9xFlpvNEhVTJMJIyRQFsO%2BgCBqsFw846MVUwKugcTxSF0E0UO%2BgQZLgbdx%2Fcu4a9Svk6YVCGhKQFQQbK2FAnVLfV1EWyiz%2FL35amzyjnDrBobK27w%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+                }
+              },
+              "NEL": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "cloudflare"
+                }
+              },
+              "CF-RAY": {
+                "schema": {
+                  "type": "string",
+                  "example": "8863001a29fd95ef-JNB"
+                }
+              },
+              "alt-svc": {
+                "schema": {
+                  "type": "string",
+                  "example": "h3=\":443\"; ma=86400"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "jsonapi": {
+                      "type": "object",
+                      "properties": {
+                        "version": {
+                          "type": "str"
+                        }
+                      }
+                    },
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "str"
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "str"
+                        },
+                        "id": {
+                          "type": "str"
+                        },
+                        "attributes": {
+                          "type": "object",
+                          "properties": {
+                            "store_id": {
+                              "type": "int"
+                            },
+                            "variant_id": {
+                              "type": "int"
+                            },
+                            "custom_price": {
+                              "type": "nonetype"
+                            },
+                            "product_options": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "str"
+                                },
+                                "description": {
+                                  "type": "str"
+                                },
+                                "media": {
+                                  "type": "list"
+                                },
+                                "redirect_url": {
+                                  "type": "str"
+                                },
+                                "receipt_button_text": {
+                                  "type": "str"
+                                },
+                                "receipt_link_url": {
+                                  "type": "str"
+                                },
+                                "receipt_thank_you_note": {
+                                  "type": "str"
+                                },
+                                "enabled_variants": {
+                                  "type": "list"
+                                },
+                                "confirmation_title": {
+                                  "type": "str"
+                                },
+                                "confirmation_message": {
+                                  "type": "str"
+                                },
+                                "confirmation_button_text": {
+                                  "type": "str"
+                                }
+                              }
+                            },
+                            "checkout_options": {
+                              "type": "object",
+                              "properties": {
+                                "embed": {
+                                  "type": "bool"
+                                },
+                                "media": {
+                                  "type": "bool"
+                                },
+                                "logo": {
+                                  "type": "bool"
+                                },
+                                "desc": {
+                                  "type": "bool"
+                                },
+                                "discount": {
+                                  "type": "bool"
+                                },
+                                "skip_trial": {
+                                  "type": "bool"
+                                },
+                                "quantity": {
+                                  "type": "int"
+                                },
+                                "dark": {
+                                  "type": "bool"
+                                },
+                                "subscription_preview": {
+                                  "type": "bool"
+                                },
+                                "button_color": {
+                                  "type": "str"
+                                }
+                              }
+                            },
+                            "checkout_data": {
+                              "type": "object",
+                              "properties": {
+                                "email": {
+                                  "type": "str"
+                                },
+                                "name": {
+                                  "type": "str"
+                                },
+                                "billing_address": {
+                                  "type": "list"
+                                },
+                                "tax_number": {
+                                  "type": "str"
+                                },
+                                "discount_code": {
+                                  "type": "str"
+                                },
+                                "custom": {
+                                  "type": "object",
+                                  "properties": {
+                                    "email": {
+                                      "type": "str"
+                                    },
+                                    "team_id": {
+                                      "type": "str"
+                                    },
+                                    "user_id": {
+                                      "type": "str"
+                                    }
+                                  }
+                                },
+                                "variant_quantities": {
+                                  "type": "list"
+                                }
+                              }
+                            },
+                            "preview": {
+                              "type": "bool"
+                            },
+                            "expires_at": {
+                              "type": "nonetype"
+                            },
+                            "created_at": {
+                              "type": "str"
+                            },
+                            "updated_at": {
+                              "type": "str"
+                            },
+                            "test_mode": {
+                              "type": "bool"
+                            },
+                            "url": {
+                              "type": "str"
+                            }
+                          }
+                        },
+                        "relationships": {
+                          "type": "object",
+                          "properties": {
+                            "store": {
+                              "type": "object",
+                              "properties": {
+                                "links": {
+                                  "type": "object",
+                                  "properties": {
+                                    "related": {
+                                      "type": "str"
+                                    },
+                                    "self": {
+                                      "type": "str"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "variant": {
+                              "type": "object",
+                              "properties": {
+                                "links": {
+                                  "type": "object",
+                                  "properties": {
+                                    "related": {
+                                      "type": "str"
+                                    },
+                                    "self": {
+                                      "type": "str"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "links": {
+                          "type": "object",
+                          "properties": {
+                            "self": {
+                              "type": "str"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "jsonapi": {
+                    "version": "1.0"
+                  },
+                  "links": {
+                    "self": "https://api.lemonsqueezy.com/v1/checkouts/8aab1bbd-c5cc-4997-9f99-999f4c03c752"
+                  },
+                  "data": {
+                    "type": "checkouts",
+                    "id": "8aab1bbd-c5cc-4997-9f99-999f4c03c752",
+                    "attributes": {
+                      "store_id": 4909,
+                      "variant_id": 382865,
+                      "custom_price": null,
+                      "product_options": {
+                        "name": "",
+                        "description": "",
+                        "media": [],
+                        "redirect_url": "https://dashboard.seamailer.app",
+                        "receipt_button_text": "",
+                        "receipt_link_url": "",
+                        "receipt_thank_you_note": "",
+                        "enabled_variants": [],
+                        "confirmation_title": "",
+                        "confirmation_message": "",
+                        "confirmation_button_text": ""
+                      },
+                      "checkout_options": {
+                        "embed": false,
+                        "media": true,
+                        "logo": true,
+                        "desc": true,
+                        "discount": true,
+                        "skip_trial": false,
+                        "quantity": 1,
+                        "dark": false,
+                        "subscription_preview": true,
+                        "button_color": "#7047EB"
+                      },
+                      "checkout_data": {
+                        "email": "hello@seamailer.app",
+                        "name": "Seamailer Mannor",
+                        "billing_address": [],
+                        "tax_number": "",
+                        "discount_code": "",
+                        "custom": {
+                          "email": "ola@gmail.com",
+                          "team_id": "team_id",
+                          "user_id": "39999"
+                        },
+                        "variant_quantities": []
+                      },
+                      "preview": false,
+                      "expires_at": null,
+                      "created_at": "2024-05-19T09:18:35.000000Z",
+                      "updated_at": "2024-05-19T09:18:35.000000Z",
+                      "test_mode": true,
+                      "url": "https://seamailer.lemonsqueezy.com/checkout/custom/8aab1bbd-c5cc-4997-9f99-999f4c03c752?signature=50789895b844dba26ce3511eb32b406b51e790deac2a407a2f085f56c0a49ac0"
+                    },
+                    "relationships": {
+                      "store": {
+                        "links": {
+                          "related": "https://api.lemonsqueezy.com/v1/checkouts/8aab1bbd-c5cc-4997-9f99-999f4c03c752/store",
+                          "self": "https://api.lemonsqueezy.com/v1/checkouts/8aab1bbd-c5cc-4997-9f99-999f4c03c752/relationships/store"
+                        }
+                      },
+                      "variant": {
+                        "links": {
+                          "related": "https://api.lemonsqueezy.com/v1/checkouts/8aab1bbd-c5cc-4997-9f99-999f4c03c752/variant",
+                          "self": "https://api.lemonsqueezy.com/v1/checkouts/8aab1bbd-c5cc-4997-9f99-999f4c03c752/relationships/variant"
+                        }
+                      }
+                    },
+                    "links": {
+                      "self": "https://api.lemonsqueezy.com/v1/checkouts/8aab1bbd-c5cc-4997-9f99-999f4c03c752"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/workflows/item/{id}/data": {
+      "get": {
+        "tags": [
+          "Automation Workflow > workflow data"
+        ],
+        "summary": "Workflow Graph Data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/workflows/{id}/save": {
+      "patch": {
+        "tags": [
+          "Automation Workflow > workflow data"
+        ],
+        "summary": "Save Graph Data",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/workflows/actions/categories": {
+      "get": {
+        "tags": [
+          "Automation Workflow"
+        ],
+        "summary": "Categories",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/workflows/create": {
+      "post": {
+        "tags": [
+          "Automation Workflow"
+        ],
+        "summary": "Create Workflow",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "str"
+                  },
+                  "description": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/workflows/lists": {
+      "get": {
+        "tags": [
+          "Automation Workflow"
+        ],
+        "summary": "List all workflows",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/workflows/{id}/steps/create": {
+      "post": {
+        "tags": [
+          "Automation Workflow"
+        ],
+        "summary": "Create Step",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "parentId": {
+                    "type": "str"
+                  },
+                  "nodeId": {
+                    "type": "str"
+                  },
+                  "type": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/workflows/{id}/steps": {
+      "get": {
+        "tags": [
+          "Automation Workflow"
+        ],
+        "summary": "Get Steps",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "7"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/workflows/{id}/trigger/create": {
+      "post": {
+        "tags": [
+          "Automation Workflow"
+        ],
+        "summary": "Create Trigger",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "parentId": {
+                    "type": "str"
+                  },
+                  "nodeId": {
+                    "type": "str"
+                  },
+                  "type": {
+                    "type": "str"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/admin/users-teams/users": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Get All Users",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/admin/users-teams/users/{id}": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Get Users By ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "0ac34cdb-94f9-449f-9119-112e1b3614ce"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
