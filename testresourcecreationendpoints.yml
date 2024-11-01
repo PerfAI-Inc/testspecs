@@ -2,6 +2,129 @@
   "swagger": "2.0",
   "basePath": "/",
   "paths": {
+    "/analysis_history/user_review/{history_id}": {
+      "parameters": [
+        {
+          "description": "The ID of the analysis history",
+          "name": "history_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UserReview"
+            }
+          }
+        },
+        "operationId": "put_analysis_history_update",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/UserReview"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "analysis_history"
+        ]
+      }
+    },
+    "/analysis_history/{submission_id}": {
+      "parameters": [
+        {
+          "description": "The ID of the submission",
+          "name": "submission_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AnalysisHistory"
+              }
+            }
+          }
+        },
+        "operationId": "get_analysis_history_list",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "analysis_history"
+        ]
+      }
+    },
+    "/analysis_history/{submission_id}/{user_id}": {
+      "parameters": [
+        {
+          "description": "The ID of the submission",
+          "name": "submission_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "The ID of the user",
+          "name": "user_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AnalysisHistory"
+              }
+            }
+          }
+        },
+        "operationId": "get_analysis_history_by_user",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "analysis_history"
+        ]
+      }
+    },
     "/assignments/": {
       "get": {
         "responses": {
@@ -58,6 +181,1671 @@
         ],
         "tags": [
           "assignments"
+        ]
+      }
+    },
+    "/assignments/classroom/{id}": {
+      "parameters": [
+        {
+          "description": "The ID of the assignment for classroom",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Assignment"
+              }
+            }
+          }
+        },
+        "operationId": "get_assignment_item",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "assignments"
+        ]
+      }
+    },
+    "/assignments/course_id/{course_id}/course_work_id/{course_work_id}/assignment_id/{assignment_id}/attachment_id/{attachment_id}": {
+      "parameters": [
+        {
+          "description": "The course_id given by google",
+          "name": "id",
+          "type": "string",
+          "in": "query"
+        },
+        {
+          "description": "The course_work_id is post_id given by user",
+          "name": "course_work_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "The assignment_id is created assignment",
+          "name": "assignment_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "This is Google classroom attachment_id",
+          "name": "attachment_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "course_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          }
+        },
+        "operationId": "post_assignment_item_by_user",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "assignments"
+        ]
+      }
+    },
+    "/assignments/delete/course_id/{course_id}/course_work_id/{course_work_id}/assignment_id/{assignment_id}/attachment_id/{attachment_id}": {
+      "parameters": [
+        {
+          "description": "The course_id given by google",
+          "name": "id",
+          "type": "string",
+          "in": "query"
+        },
+        {
+          "description": "The course_work_id is post_id given by user",
+          "name": "course_work_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "The assignment_id is created assignment",
+          "name": "assignment_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "This is Google classroom attachment_id",
+          "name": "attachment_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "course_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "post_assignment_item_by_user",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          }
+        ],
+        "tags": [
+          "assignments"
+        ]
+      }
+    },
+    "/assignments/{id}": {
+      "parameters": [
+        {
+          "description": "The ID of the assignment",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          }
+        },
+        "operationId": "put_assignment_item",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "assignments"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssignmentWithLTI"
+            }
+          }
+        },
+        "operationId": "get_assignment_item",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "assignments"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "delete_assignment_item",
+        "tags": [
+          "assignments"
+        ]
+      }
+    },
+    "/assignments/{id}/report/{type}": {
+      "parameters": [
+        {
+          "description": "The ID of the assignment",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "The type of the report",
+          "name": "type",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "get_assignment_report",
+        "tags": [
+          "assignments"
+        ]
+      }
+    },
+    "/assignments/{id}/{userId}": {
+      "parameters": [
+        {
+          "description": "The ID of the assignment",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "The ID of the teacher who created the assignment",
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          }
+        },
+        "operationId": "put_assignment_item_by_user",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "assignments"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssignmentWithLTI"
+            }
+          }
+        },
+        "operationId": "get_assignment_item_by_user",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "assignments"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "delete_assignment_item_by_user",
+        "tags": [
+          "assignments"
+        ]
+      }
+    },
+    "/classroom/": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ClassroomAttachment"
+              }
+            }
+          }
+        },
+        "operationId": "get_classroom_attachments_list",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "classroom_attachments"
+        ]
+      }
+    },
+    "/classroom/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ClassroomAttachment"
+              }
+            }
+          }
+        },
+        "operationId": "get_classroom_attachments_list",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "classroom_attachments"
+        ]
+      }
+    },
+    "/classroom/{id}/{gc_course_id}/{gc_attachment_id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "gc_course_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "gc_attachment_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "put_classroom_attachments_list",
+        "tags": [
+          "classroom_attachments"
+        ]
+      }
+    },
+    "/email_verification": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "post_email_verification",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/EmailVerification"
+            }
+          }
+        ],
+        "tags": [
+          "login"
+        ]
+      }
+    },
+    "/email_verification_verified/{token}": {
+      "parameters": [
+        {
+          "name": "token",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "post_email_verification_verified",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/EmailVerificationVerified"
+            }
+          }
+        ],
+        "tags": [
+          "login"
+        ]
+      }
+    },
+    "/feedback_templates/": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FeedbackTemplate"
+              }
+            }
+          }
+        },
+        "operationId": "get_feedback_template_list",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "feedback_templates"
+        ]
+      },
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/FeedbackTemplate"
+            }
+          }
+        },
+        "operationId": "post_feedback_template_list",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/FeedbackTemplate"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "feedback_templates"
+        ]
+      }
+    },
+    "/feedback_templates/{id}": {
+      "parameters": [
+        {
+          "description": "The ID of the feedback template",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/FeedbackTemplate"
+            }
+          }
+        },
+        "operationId": "put_feedback_template_item",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/FeedbackTemplate"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "feedback_templates"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/FeedbackTemplate"
+            }
+          }
+        },
+        "operationId": "get_feedback_template_item",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "feedback_templates"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "delete_feedback_template_item",
+        "tags": [
+          "feedback_templates"
+        ]
+      }
+    },
+    "/files/assignment/{assignment_id}": {
+      "parameters": [
+        {
+          "description": "The ID of the assignment",
+          "name": "assignment_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/File"
+              }
+            }
+          }
+        },
+        "operationId": "get_assignment_files",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "files"
+        ]
+      }
+    },
+    "/files/{created_by}/quiz/{quiz_id}": {
+      "parameters": [
+        {
+          "description": "The ID of the user who created the assignment",
+          "name": "created_by",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "The ID of the quiz",
+          "name": "quiz_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/File"
+              }
+            }
+          }
+        },
+        "operationId": "get_file_list",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "files"
+        ]
+      },
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          }
+        },
+        "operationId": "post_file_list",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "files"
+        ]
+      }
+    },
+    "/files/{id}": {
+      "parameters": [
+        {
+          "description": "The ID of the file",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          }
+        },
+        "operationId": "get_file_item",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "files"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "delete_file_item",
+        "tags": [
+          "files"
+        ]
+      }
+    },
+    "/login/application": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "post_login",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ExistingUser"
+            }
+          }
+        ],
+        "tags": [
+          "login"
+        ]
+      }
+    },
+    "/login/google": {
+      "get": {
+        "responses": {
+          "302": {
+            "description": "Redirect to Google for authentication"
+          }
+        },
+        "summary": "Redirect to Google for authentication",
+        "operationId": "get_google_login",
+        "tags": [
+          "login"
+        ]
+      }
+    },
+    "/login/google/authorized": {
+      "get": {
+        "responses": {
+          "302": {
+            "description": "Handle the authorization callback from Google"
+          }
+        },
+        "summary": "Handle the authorization callback from Google",
+        "operationId": "get_google_authorized",
+        "tags": [
+          "login"
+        ]
+      }
+    },
+    "/logout": {
+      "get": {
+        "responses": {
+          "302": {
+            "description": "Logout the current user"
+          }
+        },
+        "summary": "Logout the current user",
+        "operationId": "get_logout",
+        "tags": [
+          "login"
+        ]
+      }
+    },
+    "/lti/assignments": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "post_lti_assignments",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          }
+        ],
+        "tags": [
+          "lti"
+        ]
+      }
+    },
+    "/lti/assignments/{id}": {
+      "parameters": [
+        {
+          "description": "The related LTI assignment ID",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssignmentWithLTI"
+            }
+          }
+        },
+        "operationId": "get_lti_assignment",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "lti"
+        ]
+      }
+    },
+    "/lti/assignments/{id}/submissions": {
+      "parameters": [
+        {
+          "description": "The related LTI assignment ID",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LTISubmission"
+            }
+          }
+        },
+        "operationId": "post_lti_assignment_submission",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/LTISubmission"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "lti"
+        ]
+      }
+    },
+    "/lti/deeplinking": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "get_deep_linking",
+        "tags": [
+          "lti"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "delete_deep_linking",
+        "tags": [
+          "lti"
+        ]
+      }
+    },
+    "/lti/file/download/{token}": {
+      "parameters": [
+        {
+          "description": "The file token",
+          "name": "token",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "get_lti_file_download",
+        "tags": [
+          "lti"
+        ]
+      }
+    },
+    "/lti/launch": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "get_launch_info",
+        "tags": [
+          "lti"
+        ]
+      }
+    },
+    "/lti/login": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "post_login_lti",
+        "tags": [
+          "lti"
+        ]
+      }
+    },
+    "/lti/publish/{id}": {
+      "parameters": [
+        {
+          "description": "The submission ID",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "post_lti_publish_submission",
+        "tags": [
+          "lti"
+        ]
+      }
+    },
+    "/lti/submission": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Submission"
+            }
+          }
+        },
+        "operationId": "get_lti_context_submission",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "lti"
+        ]
+      }
+    },
+    "/lti/user": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "get_user_info",
+        "tags": [
+          "lti"
+        ]
+      }
+    },
+    "/password_reset": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "post_password_reset",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PasswordReset"
+            }
+          }
+        ],
+        "tags": [
+          "login"
+        ]
+      }
+    },
+    "/password_reset_verified/{token}": {
+      "parameters": [
+        {
+          "name": "token",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "post_password_reset_verified",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PasswordResetVerified"
+            }
+          }
+        ],
+        "tags": [
+          "login"
+        ]
+      }
+    },
+    "/register": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "post_register",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/NewUser"
+            }
+          }
+        ],
+        "tags": [
+          "login"
+        ]
+      }
+    },
+    "/rubrics/": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Rubric"
+              }
+            }
+          }
+        },
+        "operationId": "get_rubric_list",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "rubrics"
+        ]
+      },
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Rubric"
+            }
+          }
+        },
+        "operationId": "post_rubric_list",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Rubric"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "rubrics"
+        ]
+      }
+    },
+    "/rubrics/{id}": {
+      "parameters": [
+        {
+          "description": "The ID of the rubric",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Rubric"
+            }
+          }
+        },
+        "operationId": "put_rubric_item",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Rubric"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "rubrics"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Rubric"
+            }
+          }
+        },
+        "operationId": "get_rubric_item",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "rubrics"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "delete_rubric_item",
+        "tags": [
+          "rubrics"
+        ]
+      }
+    },
+    "/submissions/{created_by}/quiz/{quiz_id}": {
+      "parameters": [
+        {
+          "description": "The ID of the user who created the assignment",
+          "name": "created_by",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "The ID of the quiz",
+          "name": "quiz_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Submission"
+              }
+            }
+          }
+        },
+        "operationId": "get_submission_list",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "submissions"
+        ]
+      },
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/NewSubmission"
+            }
+          }
+        },
+        "operationId": "post_submission_list",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/NewSubmission"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "submissions"
+        ]
+      }
+    },
+    "/submissions/{created_by}/quiz/{quiz_id}/student/{student_name}": {
+      "parameters": [
+        {
+          "description": "The ID of the user who created the assignment",
+          "name": "created_by",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "The ID of the quiz",
+          "name": "quiz_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "The name of the student",
+          "name": "student_name",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Submission"
+              }
+            }
+          }
+        },
+        "operationId": "get_submission_by_student",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "submissions"
+        ]
+      }
+    },
+    "/submissions/{id}": {
+      "parameters": [
+        {
+          "description": "The ID of the submission",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Submission"
+            }
+          }
+        },
+        "operationId": "put_submission_item",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Submission"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "submissions"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Submission"
+            }
+          }
+        },
+        "operationId": "get_submission_item",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "submissions"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "delete_submission_item",
+        "tags": [
+          "submissions"
+        ]
+      }
+    },
+    "/submissions/{id}/report/{type}": {
+      "parameters": [
+        {
+          "description": "The ID of the submission",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "The type of the report",
+          "name": "type",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "get_submission_report",
+        "tags": [
+          "submissions"
+        ]
+      }
+    },
+    "/submissions/{id}/report/{type}/teacher/{teacherId}": {
+      "parameters": [
+        {
+          "description": "The ID of the submission",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "description": "The type of the report",
+          "name": "type",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Assignment created by teacher",
+          "name": "teacherId",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "get_submission_report_by_student",
+        "tags": [
+          "submissions"
+        ]
+      }
+    },
+    "/submissions/{submission_id}/gcsubmission/{assignmentId}": {
+      "parameters": [
+        {
+          "description": "The GC submission id",
+          "name": "submission_id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "assignmentId",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Submission"
+            }
+          }
+        },
+        "operationId": "get_submission_by_gc_id",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "submissions"
+        ]
+      }
+    },
+    "/users/": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "get_get_users",
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/{id}": {
+      "parameters": [
+        {
+          "description": "The ID of the user",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "put_user_item",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "tags": [
+          "users"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "get_user_item",
+        "tags": [
+          "users"
         ]
       }
     }
