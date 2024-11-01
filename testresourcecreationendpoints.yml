@@ -1,0 +1,675 @@
+{
+  "swagger": "2.0",
+  "basePath": "/",
+  "paths": {
+    "/assignments/": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AssignmentWithLTI"
+              }
+            }
+          }
+        },
+        "operationId": "get_assignment_list",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "assignments"
+        ]
+      },
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          }
+        },
+        "operationId": "post_assignment_list",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Assignment"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "assignments"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "TA39 API",
+    "version": "1.0",
+    "description": "TA39 API Description"
+  },
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "login",
+      "description": "Login operations"
+    },
+    {
+      "name": "users",
+      "description": "User operations"
+    },
+    {
+      "name": "assignments",
+      "description": "Assignment operations"
+    },
+    {
+      "name": "submissions",
+      "description": "Submissions operations"
+    },
+    {
+      "name": "files",
+      "description": "File operations"
+    },
+    {
+      "name": "rubrics",
+      "description": "Rubrics operations"
+    },
+    {
+      "name": "feedback_templates",
+      "description": "FeedbackTemplates operations"
+    },
+    {
+      "name": "analysis_history",
+      "description": "Analysis History operations"
+    },
+    {
+      "name": "lti",
+      "description": "LTI APIs"
+    },
+    {
+      "name": "classroom_attachments",
+      "description": "Classroom Attachments related operations"
+    }
+  ],
+  "definitions": {
+    "NewUser": {
+      "required": [
+        "email",
+        "first_name",
+        "last_name",
+        "password"
+      ],
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "description": "First name"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Last name"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email"
+        },
+        "password": {
+          "type": "string",
+          "description": "Password"
+        },
+        "school": {
+          "type": "string",
+          "description": "School"
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "Phone number"
+        },
+        "address": {
+          "type": "string",
+          "description": "Address"
+        },
+        "city": {
+          "type": "string",
+          "description": "City"
+        },
+        "district": {
+          "type": "string",
+          "description": "District"
+        },
+        "state": {
+          "type": "string",
+          "description": "State"
+        },
+        "grades": {
+          "type": "string",
+          "description": "Grades"
+        },
+        "subjects": {
+          "type": "string",
+          "description": "Subjects"
+        },
+        "tour_step": {
+          "type": "string",
+          "description": "Tour step"
+        }
+      },
+      "type": "object"
+    },
+    "ExistingUser": {
+      "required": [
+        "email",
+        "password"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "Email"
+        },
+        "password": {
+          "type": "string",
+          "description": "Password"
+        }
+      },
+      "type": "object"
+    },
+    "PasswordReset": {
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "Email"
+        }
+      },
+      "type": "object"
+    },
+    "PasswordResetVerified": {
+      "required": [
+        "password"
+      ],
+      "properties": {
+        "password": {
+          "type": "string",
+          "description": "New Password"
+        }
+      },
+      "type": "object"
+    },
+    "EmailVerification": {
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "Email"
+        }
+      },
+      "type": "object"
+    },
+    "EmailVerificationVerified": {
+      "required": [
+        "token"
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "Token"
+        }
+      },
+      "type": "object"
+    },
+    "User": {
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "The unique identifier of a user"
+        },
+        "first_name": {
+          "type": "string",
+          "description": "First name"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Last name"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email"
+        },
+        "school": {
+          "type": "string",
+          "description": "School"
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "Phone number"
+        },
+        "address": {
+          "type": "string",
+          "description": "Address"
+        },
+        "city": {
+          "type": "string",
+          "description": "City"
+        },
+        "district": {
+          "type": "string",
+          "description": "District"
+        },
+        "state": {
+          "type": "string",
+          "description": "State"
+        },
+        "grades": {
+          "type": "string",
+          "description": "Grades"
+        },
+        "subjects": {
+          "type": "string",
+          "description": "Subjects"
+        },
+        "old_password": {
+          "type": "string",
+          "description": "Old password"
+        },
+        "new_password": {
+          "type": "string",
+          "description": "New password"
+        },
+        "tour_step": {
+          "type": "string",
+          "description": "Tour step"
+        },
+        "email_verified": {
+          "type": "boolean",
+          "description": "Email verification status"
+        },
+        "personality": {
+          "type": "string",
+          "description": "Personality"
+        }
+      },
+      "type": "object"
+    },
+    "Assignment": {
+      "properties": {
+        "QuizID": {
+          "type": "integer",
+          "description": "The unique identifier of an assignment"
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the assignment"
+        },
+        "Grade": {
+          "type": "string",
+          "description": "The grade of the assignment"
+        },
+        "Course": {
+          "type": "string",
+          "description": "The course of the assignment"
+        },
+        "Subject": {
+          "type": "string",
+          "description": "The subject of the assignment"
+        },
+        "QuestionSet": {
+          "type": "object",
+          "description": "The question set of the assignment"
+        }
+      },
+      "type": "object"
+    },
+    "AssignmentWithLTI": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Assignment"
+        },
+        {
+          "properties": {
+            "lti_assignment_id": {
+              "type": "integer",
+              "description": "Whether the assignment is an LTI assignment"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "NewSubmission": {
+      "required": [
+        "AssignmentID"
+      ],
+      "properties": {
+        "AssignmentID": {
+          "type": "integer",
+          "description": "The ID of the assignment this submission is for"
+        },
+        "Collaborators": {
+          "type": "string",
+          "description": "The names of other students who collaborated on this submission"
+        },
+        "SubmissionFiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/File"
+          }
+        },
+        "StudentID": {
+          "type": "integer",
+          "description": "The ID of the student who submitted the assignment"
+        },
+        "StudentName": {
+          "type": "string",
+          "description": "The name of the student who submitted the assignment"
+        }
+      },
+      "type": "object"
+    },
+    "File": {
+      "required": [
+        "AssignmentID",
+        "StudentID"
+      ],
+      "properties": {
+        "AssignmentID": {
+          "type": "integer",
+          "description": "The ID of the assignment this file is associated with"
+        },
+        "StudentID": {
+          "type": "integer",
+          "description": "The ID of the student who submitted the assignment"
+        },
+        "Data": {
+          "type": "string",
+          "description": "The base64-encoded data of the file"
+        }
+      },
+      "type": "object"
+    },
+    "Submission": {
+      "required": [
+        "AssignmentID",
+        "StudentID"
+      ],
+      "properties": {
+        "SubmissionID": {
+          "type": "integer",
+          "description": "The unique identifier of a submission"
+        },
+        "AssignmentID": {
+          "type": "integer",
+          "description": "The ID of the assignment this submission is for"
+        },
+        "DateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time when the rubric was created"
+        },
+        "Collaborators": {
+          "type": "string",
+          "description": "The names of other students who collaborated on this submission"
+        },
+        "SubmissionFiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/File"
+          }
+        },
+        "StudentID": {
+          "type": "integer",
+          "description": "The ID of the student who submitted the assignment"
+        },
+        "RubricID": {
+          "type": "integer",
+          "description": "The ID of the associated rubric"
+        },
+        "FeedbackTemplateID": {
+          "type": "integer",
+          "description": "The unique identifier of a feedback template"
+        },
+        "StudentName": {
+          "type": "string",
+          "description": "The name of the student who submitted the assignment"
+        },
+        "Status": {
+          "type": "string",
+          "description": "The status of the submission"
+        },
+        "Analysis": {
+          "type": "string",
+          "description": "The Analysis of the submission"
+        }
+      },
+      "type": "object"
+    },
+    "Rubric": {
+      "properties": {
+        "RubricID": {
+          "type": "integer",
+          "description": "The unique identifier of a rubric"
+        },
+        "RubricTitle": {
+          "type": "string",
+          "description": "The title of the rubric"
+        },
+        "RubricDetails": {
+          "type": "string",
+          "description": "The description of the rubric"
+        }
+      },
+      "type": "object"
+    },
+    "FeedbackTemplate": {
+      "properties": {
+        "FeedbackTemplateID": {
+          "type": "integer",
+          "description": "The unique identifier of a feedback template"
+        },
+        "FeedbackTemplateDetails": {
+          "type": "string",
+          "description": "Details of the feedback template"
+        },
+        "FeedbackTemplateTitle": {
+          "type": "string",
+          "description": "Title of the feedback template"
+        }
+      },
+      "type": "object"
+    },
+    "AnalysisHistory": {
+      "required": [
+        "SubmissionID"
+      ],
+      "properties": {
+        "HistoryID": {
+          "type": "integer",
+          "description": "The unique identifier of an analysis history record"
+        },
+        "SubmissionID": {
+          "type": "integer",
+          "description": "The ID of the submission"
+        },
+        "AssignmentID": {
+          "type": "integer",
+          "description": "The ID of the assignment"
+        },
+        "Assignment": {
+          "description": "The assignment used for the analysis",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Assignment"
+            }
+          ]
+        },
+        "RubricID": {
+          "type": "integer",
+          "description": "The ID of the rubric"
+        },
+        "Rubric": {
+          "description": "The rubric used for the analysis",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Rubric"
+            }
+          ]
+        },
+        "FeedbackTemplateID": {
+          "type": "integer",
+          "description": "The unique identifier of a feedback template"
+        },
+        "FeedbackTemplate": {
+          "description": "The feedback template used for the analysis",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FeedbackTemplate"
+            }
+          ]
+        },
+        "Analysis": {
+          "type": "string",
+          "description": "The analysis text"
+        },
+        "CorrectedAnalysis": {
+          "type": "string",
+          "description": "The corrected analysis text"
+        },
+        "UserReview": {
+          "type": "string",
+          "description": "The user feedback text"
+        },
+        "AIReview": {
+          "type": "string",
+          "description": "AI generated feedback text"
+        },
+        "RunType": {
+          "type": "string",
+          "description": "Type of run, default is engine-1"
+        },
+        "ModifyDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date when the record was last modified"
+        },
+        "AnalysisDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date when the analysis was done"
+        },
+        "RunID": {
+          "type": "string",
+          "description": "The unique Run ID"
+        }
+      },
+      "type": "object"
+    },
+    "UserReview": {
+      "properties": {
+        "CorrectedAnalysis": {
+          "type": "string",
+          "description": "The corrected analysis text"
+        },
+        "UserReview": {
+          "type": "string",
+          "description": "The user feedback text"
+        }
+      },
+      "type": "object"
+    },
+    "LTISubmission": {
+      "properties": {
+        "Collaborators": {
+          "type": "string",
+          "description": "The names of other students who collaborated on this submission"
+        },
+        "SubmissionFiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/File"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ClassroomAttachment": {
+      "properties": {
+        "attachmentId": {
+          "type": "integer",
+          "description": "The unique identifier of the attachment"
+        },
+        "teacherId": {
+          "type": "integer",
+          "description": "The ID of the teacher"
+        },
+        "post_id": {
+          "type": "integer",
+          "description": "The post ID"
+        },
+        "gc_course_id": {
+          "type": "integer",
+          "description": "Google classroom course ID"
+        },
+        "gc_attachment_id": {
+          "type": "integer",
+          "description": "Google classroom attachment ID"
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the attachment"
+        },
+        "quizId": {
+          "type": "integer",
+          "description": "The ID of the quiz"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date when the attachment was created"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date when the attachment was last updated"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "responses": {
+    "ParseError": {
+      "description": "When a mask can't be parsed"
+    },
+    "MaskError": {
+      "description": "When any error occurs on mask"
+    }
+  }
+}
