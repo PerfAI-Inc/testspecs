@@ -1,0 +1,37 @@
+openapi: 3.0.0
+paths:
+  /api/v1/reports/all:
+    get:
+      operationId: ReportsController_getAllReports
+      parameters:
+        - name: page
+          in: query
+          required: true
+          schema:
+            type: integer
+            default: 1
+          description: The page number for pagination.
+        - name: pageSize
+          in: query
+          required: true
+          schema:
+            type: integer
+            default: 20
+          description: The number of items per page for pagination.
+        - name: report_type
+          in: query
+          required: true
+          schema:
+            type: string
+            default: all_report_type
+          description: The type of report to filter (e.g., 'all', 'COPPA', 'FERPA').
+        - name: date
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+          description: The date to filter reports by.
+      responses:
+        "200":
+          description: ""
