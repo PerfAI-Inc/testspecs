@@ -23,8 +23,13 @@ paths:
           required: true
           schema:
             type: string
+            enum:
+              - all_report_type
+              - coppa
+              - ferpa
+              - security
             default: all_report_type
-          description: The type of report to filter (e.g., 'all', 'COPPA', 'FERPA').
+          description: The type of report to filter (e.g., 'all', 'COPPA', 'FERPA', 'RoPA', 'Data Privacy').
         - name: date
           in: query
           required: false
