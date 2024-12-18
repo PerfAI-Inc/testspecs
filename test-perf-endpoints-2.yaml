@@ -38,11 +38,11 @@ paths:
 info:
   title: PerfAI Dashboard API
   description: PerfAI Dashboard API
-  version: '1.0'
+  version: "1.0"
   contact: {}
 tags:
   - name: API
-    description: ''
+    description: ""
 servers: []
 components:
   schemas:
@@ -145,7 +145,7 @@ components:
         skip_endpoints:
           type: string
         latestRun:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         org_id:
           type: string
         catalog_id:
@@ -259,7 +259,7 @@ components:
         skip_endpoints:
           type: string
         latest_run:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         org_id:
           type: string
         created_on:
@@ -279,7 +279,7 @@ components:
           format: date-time
           type: string
         buildDetails:
-          $ref: '#/components/schemas/BuildDetailsDto'
+          $ref: "#/components/schemas/BuildDetailsDto"
       required:
         - org_id
         - created_on
@@ -603,7 +603,7 @@ components:
         skip_endpoints:
           type: string
         latest_run:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         org_id:
           type: string
         catalog_id:
@@ -623,7 +623,7 @@ components:
           format: date-time
           type: string
         buildDetails:
-          $ref: '#/components/schemas/BuildDetailsDto'
+          $ref: "#/components/schemas/BuildDetailsDto"
       required:
         - org_id
         - catalog_id
@@ -817,9 +817,9 @@ components:
         skip_endpoints:
           type: string
         latestRun:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         tps:
-          $ref: '#/components/schemas/TPS'
+          $ref: "#/components/schemas/TPS"
         org_id:
           type: string
         catalog_id:
@@ -910,9 +910,9 @@ components:
         skip_endpoints:
           type: string
         latest_run:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         tps:
-          $ref: '#/components/schemas/TPS'
+          $ref: "#/components/schemas/TPS"
         org_id:
           type: string
         catalog_id:
@@ -932,7 +932,7 @@ components:
           format: date-time
           type: string
         buildDetails:
-          $ref: '#/components/schemas/BuildDetailsDto'
+          $ref: "#/components/schemas/BuildDetailsDto"
       required:
         - openapi_spec
         - org_id
@@ -1026,7 +1026,7 @@ components:
         skip_endpoints:
           type: string
         latestRun:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         org_id:
           type: string
         governance_email:
@@ -1093,7 +1093,7 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/ObjectId'
+          $ref: "#/components/schemas/ObjectId"
         productIds:
           type: array
           items:
@@ -1101,15 +1101,15 @@ components:
         awsRestIds:
           type: array
           items:
-            $ref: '#/components/schemas/AwsSpecDto'
+            $ref: "#/components/schemas/AwsSpecDto"
         muleSoftIds:
           type: array
           items:
-            $ref: '#/components/schemas/MuleSoftSpecDto'
+            $ref: "#/components/schemas/MuleSoftSpecDto"
         kongIds:
           type: array
           items:
-            $ref: '#/components/schemas/KongSpecDto'
+            $ref: "#/components/schemas/KongSpecDto"
       required:
         - id
     AuthDetailsDto:
@@ -1138,7 +1138,7 @@ components:
             - VERSION
             - CONTRACT
         appId:
-          $ref: '#/components/schemas/ObjectId'
+          $ref: "#/components/schemas/ObjectId"
         label:
           type: string
         openApiUrl:
@@ -1146,16 +1146,16 @@ components:
         basePath:
           type: string
         buildDetails:
-          $ref: '#/components/schemas/BuildDetailsDto'
+          $ref: "#/components/schemas/BuildDetailsDto"
         buildMode:
           type: string
           enum:
             - OK
             - TEST
         testAccount1:
-          $ref: '#/components/schemas/AuthDetailsDto'
+          $ref: "#/components/schemas/AuthDetailsDto"
         testAccount2:
-          $ref: '#/components/schemas/AuthDetailsDto'
+          $ref: "#/components/schemas/AuthDetailsDto"
         fail_on_new_leaks:
           type: boolean
           default: true
@@ -1239,7 +1239,7 @@ components:
         skip_endpoints:
           type: string
         latest_run:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         org_id:
           type: string
         created_on:
@@ -1261,7 +1261,7 @@ components:
         isGatewayApi:
           type: boolean
         gatewayDetails:
-          $ref: '#/components/schemas/GatewayDetails'
+          $ref: "#/components/schemas/GatewayDetails"
         dsr:
           type: boolean
         midnight_run:
@@ -1364,7 +1364,7 @@ components:
         skip_endpoints:
           type: string
         latestRun:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         org_id:
           type: string
         catalog_id:
@@ -1372,7 +1372,7 @@ components:
         das:
           type: array
           items:
-            $ref: '#/components/schemas/DAS'
+            $ref: "#/components/schemas/DAS"
         totalChecks:
           type: string
         created_on:
@@ -1479,13 +1479,13 @@ components:
         skip_endpoints:
           type: string
         latest_run:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         totalChecks:
           type: string
         das:
           type: array
           items:
-            $ref: '#/components/schemas/DAS'
+            $ref: "#/components/schemas/DAS"
         org_id:
           type: string
         catalog_id:
@@ -1509,7 +1509,7 @@ components:
         totalEndpoints:
           type: number
         buildDetails:
-          $ref: '#/components/schemas/BuildDetailsDto'
+          $ref: "#/components/schemas/BuildDetailsDto"
         source:
           type: string
         midnight_run:
@@ -1544,7 +1544,7 @@ components:
         run_number:
           type: number
         summary:
-          $ref: '#/components/schemas/Mixed'
+          $ref: "#/components/schemas/Mixed"
         created_date:
           format: date-time
           type: string
@@ -1552,7 +1552,7 @@ components:
           format: date-time
           type: string
         buildDetails:
-          $ref: '#/components/schemas/BuildDetailsDto'
+          $ref: "#/components/schemas/BuildDetailsDto"
       required:
         - org_id
         - app_id
@@ -1564,9 +1564,9 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/ObjectId'
+          $ref: "#/components/schemas/ObjectId"
         category_id:
-          $ref: '#/components/schemas/ObjectId'
+          $ref: "#/components/schemas/ObjectId"
       required:
         - id
         - category_id
@@ -1577,7 +1577,7 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/ObjectId'
+          $ref: "#/components/schemas/ObjectId"
         active:
           type: boolean
       required:
@@ -1587,9 +1587,9 @@ components:
       type: object
       properties:
         app_id:
-          $ref: '#/components/schemas/ObjectId'
+          $ref: "#/components/schemas/ObjectId"
         id:
-          $ref: '#/components/schemas/ObjectId'
+          $ref: "#/components/schemas/ObjectId"
       required:
         - app_id
         - id
@@ -1620,7 +1620,7 @@ components:
             - NONE
           type: string
         latestRun:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         org_id:
           type: string
         catalog_id:
@@ -1641,8 +1641,8 @@ components:
           type: string
         auto_release:
           enum:
-            - 'ON'
-            - 'OFF'
+            - "ON"
+            - "OFF"
           type: string
         apiName:
           type: string
@@ -1667,7 +1667,7 @@ components:
       type: object
       properties:
         latest_run:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
     VersionManagement:
       type: object
       properties:
@@ -1698,14 +1698,14 @@ components:
             - NONE
           type: string
         latest_run:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         metaData:
-          $ref: '#/components/schemas/META'
+          $ref: "#/components/schemas/META"
         auto_release:
-          default: 'ON'
+          default: "ON"
           enum:
-            - 'ON'
-            - 'OFF'
+            - "ON"
+            - "OFF"
           type: string
         org_id:
           type: string
@@ -1730,7 +1730,7 @@ components:
         totalEndpoints:
           type: number
         buildDetails:
-          $ref: '#/components/schemas/BuildDetailsDto'
+          $ref: "#/components/schemas/BuildDetailsDto"
         buildMode:
           type: object
         midnight_run:
@@ -1772,9 +1772,9 @@ components:
           format: date-time
           type: string
         summary:
-          $ref: '#/components/schemas/Mixed'
+          $ref: "#/components/schemas/Mixed"
         buildDetails:
-          $ref: '#/components/schemas/BuildDetailsDto'
+          $ref: "#/components/schemas/BuildDetailsDto"
       required:
         - org_id
         - app_id
@@ -1792,8 +1792,8 @@ components:
         autoRelease:
           type: string
           enum:
-            - 'ON'
-            - 'OFF'
+            - "ON"
+            - "OFF"
         semVer:
           type: string
           pattern: /^\d+\.\d+\.\d+$/
@@ -1839,7 +1839,7 @@ components:
             - NONE
           type: string
         latestRun:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         org_id:
           type: string
         catalog_id:
@@ -1941,9 +1941,9 @@ components:
             - NONE
           type: string
         latest_run:
-          $ref: '#/components/schemas/LatestRun'
+          $ref: "#/components/schemas/LatestRun"
         metaData:
-          $ref: '#/components/schemas/META'
+          $ref: "#/components/schemas/META"
         org_id:
           type: string
         catalog_id:
@@ -1973,7 +1973,7 @@ components:
         issuesCount:
           type: number
         buildDetails:
-          $ref: '#/components/schemas/BuildDetailsDto'
+          $ref: "#/components/schemas/BuildDetailsDto"
         midnight_run:
           type: boolean
         scheduleType:
@@ -2022,7 +2022,7 @@ components:
         run_number:
           type: number
         summary:
-          $ref: '#/components/schemas/Mixed'
+          $ref: "#/components/schemas/Mixed"
         created_date:
           format: date-time
           type: string
@@ -2030,7 +2030,7 @@ components:
           format: date-time
           type: string
         buildDetails:
-          $ref: '#/components/schemas/BuildDetailsDto'
+          $ref: "#/components/schemas/BuildDetailsDto"
       required:
         - org_id
         - app_id
@@ -2188,7 +2188,7 @@ components:
         field6:
           type: string
         account_id:
-          $ref: '#/components/schemas/ObjectId'
+          $ref: "#/components/schemas/ObjectId"
       required:
         - gateway
         - name
@@ -2211,7 +2211,7 @@ components:
       type: object
       properties:
         accId:
-          $ref: '#/components/schemas/ObjectId'
+          $ref: "#/components/schemas/ObjectId"
       required:
         - accId
     GetTokenDto:
