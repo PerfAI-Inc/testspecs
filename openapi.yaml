@@ -1,0 +1,1053 @@
+openapi: 3.0.1
+info:
+  title: FastAPI
+  version: 0.1.0
+paths:
+  /:
+    get:
+      summary: Index
+      operationId: index__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /lt-chatbot-interaction:
+    post:
+      summary: Chatbot Stream
+      operationId: chatbot_stream_lt_chatbot_interaction_post
+      parameters:
+        - required: false
+          schema:
+            type: integer
+            title: Attempt
+            default: 1
+          name: attempt
+          in: query
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LtChatbotInteractionRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /get-dialogue-response:
+    post:
+      summary: Get Dialogue Response
+      operationId: get_dialogue_response_get_dialogue_response_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CaseResponseRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /generate-completeness-report:
+    post:
+      summary: Generate Completeness Report
+      operationId: generate_completeness_report_generate_completeness_report_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatbotCompletenessReportRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /get-lta-themes-data:
+    post:
+      summary: Dashboard Data
+      operationId: dashboard_data_get_lta_themes_data_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilterRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /get-lta-ratings-trends:
+    post:
+      summary: Dashboard Trends
+      operationId: dashboard_trends_get_lta_ratings_trends_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LtaAnswerRatingsReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /add-faq:
+    post:
+      summary: Add Faq
+      operationId: add_faq_add_faq_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /delete-faq:
+    post:
+      summary: Delete Faq
+      operationId: delete_faq_delete_faq_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /update-faq:
+    post:
+      summary: Update Faq
+      operationId: update_faq_update_faq_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /add-kb-articles:
+    post:
+      summary: Add Kb Article
+      operationId: add_kb_article_add_kb_articles_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /delete-kb-articles:
+    post:
+      summary: Delete Kb Article
+      operationId: delete_kb_article_delete_kb_articles_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /update-kb-articles:
+    post:
+      summary: Update Kb Article
+      operationId: update_kb_article_update_kb_articles_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /add-pdf:
+    post:
+      summary: Add Pdf
+      operationId: add_pdf_add_pdf_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /delete-pdf:
+    post:
+      summary: Deleting Pdf
+      operationId: deleting_pdf_delete_pdf_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /update-pdf:
+    post:
+      summary: Updating Pdf
+      operationId: updating_pdf_update_pdf_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /add-webpage:
+    post:
+      summary: Adding Webpage
+      operationId: adding_webpage_add_webpage_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /delete-webpage:
+    post:
+      summary: Deleting Webpage
+      operationId: deleting_webpage_delete_webpage_post
+      parameters:
+        - required: false
+          schema:
+            type: boolean
+            title: Is Domain
+            default: false
+          name: is_domain
+          in: query
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /update-webpage:
+    post:
+      summary: Updating Webpage
+      operationId: updating_webpage_update_webpage_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /add-excel:
+    post:
+      summary: Add Excel
+      operationId: add_excel_add_excel_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /delete-excel:
+    post:
+      summary: Delete Excel
+      operationId: delete_excel_delete_excel_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /update-excel:
+    post:
+      summary: Updating Excel
+      operationId: updating_excel_update_excel_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /validate-domain:
+    post:
+      summary: Validate Domain
+      operationId: validate_domain_validate_domain_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateDomainUrlRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /add-domain:
+    post:
+      summary: Scan Add Domain To Pc
+      operationId: scan_add_domain_to_pc_add_domain_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /delete-domain:
+    post:
+      summary: Deleting Domain From Pc
+      operationId: deleting_domain_from_pc_delete_domain_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /update-domain:
+    post:
+      summary: Updating Domain In Pc
+      operationId: updating_domain_in_pc_update_domain_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDelUpdateReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /abort-domain-scan:
+    post:
+      summary: Abort Domain Scan
+      operationId: abort_domain_scan_abort_domain_scan_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateDomainUrlRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    AddDelUpdateReq:
+      properties:
+        is_domain_scan:
+          type: boolean
+          title: Is Domain Scan
+          default: false
+        webpage_url:
+          type: string
+          title: Webpage Url
+        metadata:
+          type: object
+          title: Metadata
+        IntentUniqueIds:
+          items:
+            type: integer
+          type: array
+          title: Intentuniqueids
+        ArticleIDs:
+          items:
+            type: integer
+          type: array
+          title: Articleids
+      type: object
+      title: AddDelUpdateReq
+    BaseNode:
+      properties:
+        id_:
+          type: string
+          title: 'Id '
+          description: Unique ID of the node.
+        embedding:
+          items:
+            type: number
+          type: array
+          title: Embedding
+          description: Embedding of the node.
+        extra_info:
+          type: object
+          title: Extra Info
+          description: A flat dictionary of metadata fields
+        excluded_embed_metadata_keys:
+          items:
+            type: string
+          type: array
+          title: Excluded Embed Metadata Keys
+          description: Metadata keys that are excluded from text for the embed model.
+        excluded_llm_metadata_keys:
+          items:
+            type: string
+          type: array
+          title: Excluded Llm Metadata Keys
+          description: Metadata keys that are excluded from text for the LLM.
+        relationships:
+          additionalProperties:
+            anyOf:
+              - $ref: '#/components/schemas/RelatedNodeInfo'
+              - items:
+                  $ref: '#/components/schemas/RelatedNodeInfo'
+                type: array
+          type: object
+          title: Relationships
+          description: A mapping of relationships to other node information.
+        class_name:
+          type: string
+          title: Class Name
+          default: base_component
+      type: object
+      title: BaseNode
+      description: |-
+        Base node Object.
+
+        Generic abstract interface for retrievable nodes
+    CaseResponseRequest:
+      properties:
+        case_id:
+          type: integer
+          title: Case Id
+        pc_index:
+          title: Pc Index
+        profile_id:
+          type: integer
+          title: Profile Id
+        namespace:
+          type: string
+          title: Namespace
+        case_text:
+          type: string
+          title: Case Text
+        user_input:
+          type: string
+          title: User Input
+        user_input_english:
+          type: string
+          title: User Input English
+        user_input_refined:
+          type: string
+          title: User Input Refined
+        user_input_for_retrieval:
+          type: string
+          title: User Input For Retrieval
+        user_input_for_prompt:
+          type: string
+          title: User Input For Prompt
+        user_type:
+          type: string
+          title: User Type
+        history:
+          type: string
+          title: History
+        category:
+          type: string
+          title: Category
+        district_name:
+          type: string
+          title: District Name
+        no_answer_msg:
+          type: string
+          title: No Answer Msg
+        chatbot_name:
+          type: string
+          title: Chatbot Name
+        retrieved_documents:
+          items:
+            $ref: '#/components/schemas/NodeWithScore'
+          type: array
+          title: Retrieved Documents
+          default: []
+        gpt_model_name:
+          type: string
+          title: Gpt Model Name
+          default: gpt-4o
+        language:
+          type: string
+          title: Language
+          default: english
+        cite_sources:
+          type: boolean
+          title: Cite Sources
+          default: false
+        template_type:
+          type: string
+          title: Template Type
+          default: prompt_dlg
+        response:
+          title: Response
+      type: object
+      required:
+        - case_id
+      title: CaseResponseRequest
+    ChatbotCompletenessReportRequest:
+      properties:
+        namespace:
+          type: string
+          title: Namespace
+        is_unittest:
+          type: boolean
+          title: Is Unittest
+          default: false
+      type: object
+      required:
+        - namespace
+      title: ChatbotCompletenessReportRequest
+    FilterRequest:
+      properties:
+        corp_no:
+          type: integer
+          title: Corp No
+        login_corp_no:
+          type: integer
+          title: Login Corp No
+        date_start:
+          type: string
+          format: date
+          title: Date Start
+        date_end:
+          type: string
+          format: date
+          title: Date End
+        theme_ids:
+          items:
+            type: integer
+          type: array
+          title: Theme Ids
+        customer_type:
+          items:
+            type: integer
+          type: array
+          title: Customer Type
+        topic:
+          items:
+            type: integer
+          type: array
+          title: Topic
+        dialogue_owner:
+          items:
+            type: integer
+          type: array
+          title: Dialogue Owner
+        min_cx_score:
+          type: integer
+          title: Min Cx Score
+        max_cx_score:
+          type: integer
+          title: Max Cx Score
+        dialogue_type:
+          items:
+            type: integer
+          type: array
+          title: Dialogue Type
+        entry_point:
+          items:
+            type: integer
+          type: array
+          title: Entry Point
+          default:
+            - 15
+        origin:
+          items:
+            type: integer
+          type: array
+          title: Origin
+        language:
+          items:
+            type: integer
+          type: array
+          title: Language
+        dialogue_status:
+          items:
+            type: integer
+          type: array
+          title: Dialogue Status
+        dialogue_priority:
+          items:
+            type: integer
+          type: array
+          title: Dialogue Priority
+        tags:
+          items:
+            type: integer
+          type: array
+          title: Tags
+        action_taken:
+          items:
+            type: integer
+          type: array
+          title: Action Taken
+        landing_page_and_tab:
+          items:
+            type: integer
+          type: array
+          title: Landing Page And Tab
+        min_dialogue_age:
+          type: integer
+          title: Min Dialogue Age
+        max_dialogue_age:
+          type: integer
+          title: Max Dialogue Age
+      type: object
+      required:
+        - corp_no
+        - login_corp_no
+        - date_start
+        - date_end
+      title: FilterRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    LtChatbotInteractionRequest:
+      properties:
+        namespace:
+          type: string
+          title: Namespace
+        user_input:
+          type: string
+          title: User Input
+        profile_id:
+          type: integer
+          title: Profile Id
+        history:
+          type: string
+          title: History
+        user_type:
+          type: string
+          title: User Type
+        category:
+          type: string
+          title: Category
+        gpt_model_name:
+          type: string
+          title: Gpt Model Name
+          default: gpt-4o
+        language:
+          type: string
+          title: Language
+          default: english
+        user_input_english:
+          type: string
+          title: User Input English
+        user_input_refined:
+          type: string
+          title: User Input Refined
+        user_input_for_retrieval:
+          type: string
+          title: User Input For Retrieval
+        user_input_for_prompt:
+          type: string
+          title: User Input For Prompt
+        is_salutation:
+          type: boolean
+          title: Is Salutation
+          default: false
+        chatbot_name:
+          type: string
+          title: Chatbot Name
+        district_name:
+          type: string
+          title: District Name
+        no_answer_msg:
+          type: string
+          title: No Answer Msg
+        cite_sources:
+          type: boolean
+          title: Cite Sources
+          default: true
+        template_type:
+          type: string
+          title: Template Type
+          default: prompt_chatbot
+        response:
+          title: Response
+      type: object
+      required:
+        - namespace
+        - user_input
+      title: LtChatbotInteractionRequest
+    LtaAnswerRatingsReq:
+      properties:
+        mainCorpNo:
+          type: integer
+          title: Maincorpno
+        loginCorpNo:
+          type: integer
+          title: Logincorpno
+        dateFilter:
+          type: integer
+          title: Datefilter
+        timezoneDiff:
+          type: integer
+          title: Timezonediff
+        startDate:
+          type: string
+          format: date
+          title: Startdate
+        endDate:
+          type: string
+          format: date
+          title: Enddate
+        isGlobalOrAdmin:
+          type: integer
+          title: Isglobaloradmin
+          default: 0
+        isSpanish:
+          type: integer
+          title: Isspanish
+          default: 0
+        dtLang:
+          items:
+            type: integer
+          type: array
+          title: Dtlang
+      type: object
+      required:
+        - mainCorpNo
+        - loginCorpNo
+        - dateFilter
+        - timezoneDiff
+        - dtLang
+      title: LtaAnswerRatingsReq
+    NodeWithScore:
+      properties:
+        node:
+          $ref: '#/components/schemas/BaseNode'
+        score:
+          type: number
+          title: Score
+        class_name:
+          type: string
+          title: Class Name
+          default: NodeWithScore
+      type: object
+      required:
+        - node
+      title: NodeWithScore
+      description: Base component object to capture class names.
+    ObjectType:
+      type: string
+      enum:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+      title: ObjectType
+      description: An enumeration.
+    RelatedNodeInfo:
+      properties:
+        node_id:
+          type: string
+          title: Node Id
+        node_type:
+          $ref: '#/components/schemas/ObjectType'
+        metadata:
+          type: object
+          title: Metadata
+        hash:
+          type: string
+          title: Hash
+        class_name:
+          type: string
+          title: Class Name
+          default: RelatedNodeInfo
+      type: object
+      required:
+        - node_id
+      title: RelatedNodeInfo
+      description: Base component object to capture class names.
+    ValidateDomainUrlRequest:
+      properties:
+        main_corp_no:
+          type: integer
+          title: Main Corp No
+        domain_url:
+          type: string
+          title: Domain Url
+        domain_id:
+          type: integer
+          title: Domain Id
+        ArticleIDs:
+          items:
+            type: integer
+          type: array
+          title: Articleids
+      type: object
+      title: ValidateDomainUrlRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+      title: ValidationError
