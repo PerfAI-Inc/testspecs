@@ -1,0 +1,4836 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "FastAPI",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/v1/api/p1/search/filesSearch/": {
+      "post": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Company File Search",
+        "operationId": "company_file_search_v1_api_p1_search_filesSearch__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilesearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/search/articleSearch/": {
+      "post": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Article Search",
+        "operationId": "article_search_v1_api_p1_search_articleSearch__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArticleSearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticleResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/search/projectFileSearch/": {
+      "post": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Project File Search",
+        "operationId": "project_file_search_v1_api_p1_search_projectFileSearch__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectSearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/search/articleFileSummary/": {
+      "post": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Article File Summary",
+        "operationId": "article_file_summary_v1_api_p1_search_articleFileSummary__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArticleFileSearchSummarizationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/search/ArticleSummary/": {
+      "post": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Article Summary",
+        "operationId": "article_summary_v1_api_p1_search_ArticleSummary__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArticleSummaryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/search/rfiSummary/": {
+      "post": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Rfi Summary",
+        "operationId": "rfi_summary_v1_api_p1_search_rfiSummary__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectRFIRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/search/hashtagsSearch/": {
+      "post": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Hashtag Search",
+        "operationId": "hashtag_search_v1_api_p1_search_hashtagsSearch__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HashTagSearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/v1/api/p1/search/addHashtag/": {
+      "post": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Hashtag Add",
+        "operationId": "hashtag_add_v1_api_p1_search_addHashtag__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HashTagAddRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/v1/api/p1/search/getArticlesWithHashtag/": {
+      "post": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Get Articles With Hashtag",
+        "operationId": "get_articles_with_hashtag_v1_api_p1_search_getArticlesWithHashtag__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetArticlesWithHashtagRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/v1/api/p1/files/filesDelete/": {
+      "post": {
+        "tags": [
+          "documentFiles"
+        ],
+        "summary": "File Delete",
+        "operationId": "file_delete_v1_api_p1_files_filesDelete__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteFilesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/files/deleteFiles/": {
+      "delete": {
+        "tags": [
+          "documentFiles"
+        ],
+        "summary": "File Delete In S3And Oss",
+        "operationId": "file_delete_in_s3and_oss_v1_api_p1_files_deleteFiles__delete",
+        "parameters": [
+          {
+            "name": "s3_key",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "S3 Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/files/uploadFiles/": {
+      "post": {
+        "tags": [
+          "documentFiles"
+        ],
+        "summary": "Upload Files",
+        "operationId": "upload_files_v1_api_p1_files_uploadFiles__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUploadRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/files/verifyAttachmentFiles/": {
+      "put": {
+        "tags": [
+          "documentFiles"
+        ],
+        "summary": "Verify Attachment Files",
+        "operationId": "verify_attachment_files_v1_api_p1_files_verifyAttachmentFiles__put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileAttachmentVerifyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/files/moveFiles/": {
+      "post": {
+        "tags": [
+          "documentFiles"
+        ],
+        "summary": "Move Files From A To B Router",
+        "operationId": "move_files_from_a_to_b_router_v1_api_p1_files_moveFiles__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoveFilesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/files/moveDirectory/": {
+      "post": {
+        "tags": [
+          "documentFiles"
+        ],
+        "summary": "Move Directory From A To B Router",
+        "operationId": "move_directory_from_a_to_b_router_v1_api_p1_files_moveDirectory__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoveDirectoryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/files/getDocuments/": {
+      "post": {
+        "tags": [
+          "documentFiles"
+        ],
+        "summary": "Get Documents",
+        "operationId": "get_documents_v1_api_p1_files_getDocuments__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetDirectoryFilesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/files/renameFile/": {
+      "put": {
+        "tags": [
+          "documentFiles"
+        ],
+        "summary": "Rename File",
+        "operationId": "rename_file_v1_api_p1_files_renameFile__put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RenameFileRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/files/tempFileURI/": {
+      "get": {
+        "tags": [
+          "documentFiles"
+        ],
+        "summary": "Temp File Uri Generate",
+        "operationId": "temp_file_uri_generate_v1_api_p1_files_tempFileURI__get",
+        "parameters": [
+          {
+            "name": "uri",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Uri"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/genai/promptBedrock/": {
+      "post": {
+        "tags": [
+          "genAI"
+        ],
+        "summary": "Prompt With Bed Rock",
+        "operationId": "prompt_with_bed_rock_v1_api_p1_genai_promptBedrock__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GptPrompt"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/genai/generateSummary/": {
+      "post": {
+        "tags": [
+          "genAI"
+        ],
+        "summary": "Generate Summary",
+        "operationId": "generate_summary_v1_api_p1_genai_generateSummary__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SummaryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/genai/generateArticleFromFile/": {
+      "post": {
+        "tags": [
+          "genAI"
+        ],
+        "summary": "Generate Summary For File",
+        "operationId": "generate_summary_for_file_v1_api_p1_genai_generateArticleFromFile__post",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Company Id"
+            }
+          },
+          {
+            "name": "stream_response",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "false",
+              "title": "Stream Response"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_generate_summary_for_file_v1_api_p1_genai_generateArticleFromFile__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/genai/chatWithBedrockWithAttachments/": {
+      "post": {
+        "tags": [
+          "genAI"
+        ],
+        "summary": "Chat With Bedrock With Files",
+        "description": "Generate a summary for the uploaded files.\n\n- **user_prompt**: The prompt provided by the user.\n- **company_id**: The ID of the company making the request.\n- **files**: A list of files to upload. Supported formats: pdf, csv, doc, docx, xls, xlsx, html, txt, md.\n- **model_name**: The name of the model to use for generating the summary. Default is Sonnet 3 Model.\n- **request**: The request object (optional).\n\n- **Other Notes**: supported file uploads only for cohere and anthropic models. The file extension must be one\nof the following: pdf, csv, doc, docx, xls, xlsx, html, txt, md, png, webp, jpeg, gif\n\nThis endpoint processes the uploaded files and generates a summary based on the provided user prompt.",
+        "operationId": "chat_with_bedrock_with_files_v1_api_p1_genai_chatWithBedrockWithAttachments__post",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Company Id"
+            }
+          },
+          {
+            "name": "model_name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "anthropic.claude-3-sonnet-20240229-v1:0",
+              "title": "Model Name"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_chat_with_bedrock_with_files_v1_api_p1_genai_chatWithBedrockWithAttachments__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/user/userExistingCompany/": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Promptwithbedrock",
+        "operationId": "promptWithBedRock_v1_api_p1_user_userExistingCompany__get",
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Username"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/chat/chatWithArticles/": {
+      "post": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Chat With Articles",
+        "operationId": "chat_with_articles_v1_api_p1_chat_chatWithArticles__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatWithArticlesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/chat/chatWithBedrock/": {
+      "post": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Chat With Bedrock",
+        "operationId": "chat_with_bedrock_v1_api_p1_chat_chatWithBedrock__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatWithBedrockRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/chat/getChatHistory/": {
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Get User Chat History",
+        "operationId": "get_user_chat_history_v1_api_p1_chat_getChatHistory__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/UserChatHistory"
+                  },
+                  "type": "array",
+                  "title": "Response 200 Get User Chat History V1 Api P1 Chat Getchathistory  Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/insights/getInsightsSearch/": {
+      "post": {
+        "tags": [
+          "insights"
+        ],
+        "summary": "Search Insights",
+        "operationId": "search_insights_v1_api_p1_insights_getInsightsSearch__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetInsightsSearchSummary"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsightsSearchSummaryResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/insights/getInsightsSearchMetadata/": {
+      "post": {
+        "tags": [
+          "insights"
+        ],
+        "summary": "Search Insights Metadata",
+        "operationId": "search_insights_metadata_v1_api_p1_insights_getInsightsSearchMetadata__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetInsightsSearchSummary"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsightMetaDataResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/hashtag/hashtagsSearch/": {
+      "post": {
+        "tags": [
+          "hashTags"
+        ],
+        "summary": "Hashtag Search",
+        "operationId": "hashtag_search_v1_api_p1_hashtag_hashtagsSearch__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HashTagSearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Response Hashtag Search V1 Api P1 Hashtag Hashtagssearch  Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/hashtag/addHashtag/": {
+      "post": {
+        "tags": [
+          "hashTags"
+        ],
+        "summary": "Hashtag Add",
+        "operationId": "hashtag_add_v1_api_p1_hashtag_addHashtag__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HashTagAddRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/hashtag/getArticlesWithHashtag/": {
+      "post": {
+        "tags": [
+          "hashTags"
+        ],
+        "summary": "Get Articles With Hashtag",
+        "operationId": "get_articles_with_hashtag_v1_api_p1_hashtag_getArticlesWithHashtag__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetArticlesWithHashtagRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticleResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/p1/hashtag/getAllHashtags/": {
+      "get": {
+        "tags": [
+          "hashTags"
+        ],
+        "summary": "Get All Hash Tags",
+        "operationId": "get_all_hash_tags_v1_api_p1_hashtag_getAllHashtags__get",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Company Id"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 100,
+              "title": "Page Size"
+            }
+          },
+          {
+            "name": "page_offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "title": "Page Offset"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/genai": {
+      "post": {
+        "summary": "Prompt With Bed Rock",
+        "operationId": "prompt_with_bed_rock_v1_api_genai_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GptPrompt"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/api/healthCheck/": {
+      "get": {
+        "summary": "Healthcheck",
+        "operationId": "healthCheck_v1_api_healthCheck__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/healthCheck": {
+      "get": {
+        "summary": "Healthcheck",
+        "operationId": "healthCheck_healthCheck_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActivityLog": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
+          "date": {
+            "type": "string",
+            "title": "Date"
+          },
+          "userName": {
+            "type": "string",
+            "title": "Username"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "date",
+          "userName",
+          "description"
+        ],
+        "title": "ActivityLog"
+      },
+      "Article": {
+        "properties": {
+          "articleId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Articleid",
+            "description": "Unique identifier for the article. used in opensearch only."
+          },
+          "_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": " Id",
+            "description": "Unique identifier for the article."
+          },
+          "companyId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Companyid",
+            "description": "Company ID associated with the article.",
+            "default": ""
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Title",
+            "description": "Title of the article.",
+            "default": ""
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Description",
+            "description": "Description of the article.",
+            "default": ""
+          },
+          "createdBy": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Createdby",
+            "description": "Username of the creator.",
+            "default": ""
+          },
+          "lastUpdatedAt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Lastupdatedat",
+            "description": "Timestamp when the article was last updated."
+          },
+          "createdAt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Createdat",
+            "description": "Timestamp when the article was created.",
+            "default": ""
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Status",
+            "description": "Status of the article (e.g., published, draft).",
+            "default": ""
+          },
+          "publishedAt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Publishedat",
+            "description": "Timestamp when the article was published.",
+            "default": "[]"
+          },
+          "coverPhotoFileName": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Coverphotofilename",
+            "description": "Name of the cover photo associated with the article.",
+            "default": ""
+          },
+          "labels": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Labels",
+            "description": "List of keywords or tags for the article.",
+            "default": []
+          },
+          "topics": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Topics",
+            "description": "List of topics related to the article.",
+            "default": []
+          },
+          "divisions": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Divisions",
+            "description": "List of divisions relevant to the article.",
+            "default": []
+          },
+          "specSections": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Specsections",
+            "description": "List of specialized sections for the article.",
+            "default": []
+          },
+          "attachments": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Attachments"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Attachments",
+            "description": "List of file attachments associated with the article.",
+            "default": []
+          },
+          "hasAttachments": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Hasattachments",
+            "description": "Indicates if the article has any attachments.",
+            "default": false
+          },
+          "autoDraftFlag": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Autodraftflag",
+            "description": "Indicates if the article is an auto-draft."
+          },
+          "noteRelativePathToShare": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Noterelativepathtoshare",
+            "description": "Path to share notes with others.",
+            "default": ""
+          },
+          "userViewed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Userviewed",
+            "description": "Indicates if the user has viewed the article.",
+            "default": false
+          },
+          "userLiked": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Userliked",
+            "description": "Indicates if the user has liked the article.",
+            "default": false
+          },
+          "totalViews": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Totalviews",
+            "description": "Total number of views for the article.",
+            "default": 0
+          },
+          "totalLikes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Totallikes",
+            "description": "Total number of likes for the article.",
+            "default": 0
+          },
+          "totalComments": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Totalcomments",
+            "description": "Total number of comments for the article.",
+            "default": 0
+          },
+          "comments": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Comments",
+            "description": "List of comments associated with the article.",
+            "default": []
+          },
+          "commentsId": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Commentsid",
+            "description": "List of comment IDs associated with the article.",
+            "default": []
+          },
+          "isDraft": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Isdraft",
+            "description": "Indicates if the article is a draft.",
+            "default": false
+          },
+          "originIndicator": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Originindicator",
+            "description": "Origin indicator for the article (e.g., social media).",
+            "default": ""
+          },
+          "playListArticleIds": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Playlistarticleids",
+            "description": "List of IDs associated with playlist articles.",
+            "default": []
+          },
+          "userNameToDisplay": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Usernametodisplay",
+            "description": "Username to display in the article.",
+            "default": ""
+          },
+          "userNameTitleToDisplay": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Usernametitletodisplay",
+            "description": "Username title to display in the article.",
+            "default": ""
+          },
+          "userNameExpYearsToDisplay": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Usernameexpyearstodisplay",
+            "description": "Username experience years to display in the article.",
+            "default": ""
+          },
+          "isArticleBookMarked": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Isarticlebookmarked",
+            "description": "Indicates if the user has bookmarked the article.",
+            "default": false
+          },
+          "project_phase": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Project Phase",
+            "description": "Project phase associated with the article.",
+            "default": ""
+          },
+          "projectId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Projectid",
+            "description": "project Id."
+          },
+          "embedding": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Embedding",
+            "description": "Embedding for the article's description.",
+            "default": []
+          },
+          "comments_embedding": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Comments Embedding",
+            "description": "Embedding for the article's comments.",
+            "default": []
+          },
+          "publishedBy": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Publishedby",
+            "description": "Username of the publisher.",
+            "default": ""
+          },
+          "profileImageURL": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Profileimageurl",
+            "description": "user Profile image to show in article ",
+            "default": ""
+          },
+          "primaryCompanyName": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Primarycompanyname",
+            "description": "Primary company name associated with the user.",
+            "default": ""
+          },
+          "scopes": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Scopes",
+            "description": "List of scopes for the article (e.g., accessibility, permissions).",
+            "default": []
+          },
+          "relevance_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Relevance Score",
+            "description": "Relevance score for the article.",
+            "default": 0
+          },
+          "activityLog": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ActivityLog"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Activitylog",
+            "description": "List of activity logs for the article.",
+            "default": []
+          },
+          "region": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Region",
+            "description": "Region associated with the article."
+          },
+          "customFields": {
+            "anyOf": [
+              {
+                "type": "object"
+              }
+            ],
+            "title": "Customfields",
+            "description": "Custom fields associated with the article.",
+            "default": {}
+          },
+          "targetGroups": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Targetgroups",
+            "description": "List of target groups for the article.",
+            "default": []
+          },
+          "articleType": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Articletype",
+            "description": "Type of the article (e.g., QUESTION, POST, SUGGESTION)."
+          },
+          "assignedBy": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Assignedby",
+            "description": "User who assigned the article."
+          },
+          "owner": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Owner",
+            "description": "Owner of the article."
+          },
+          "taskStatus": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Taskstatus",
+            "description": "Status of the task associated with the article."
+          },
+          "dueDate": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Duedate",
+            "description": "Due date for the task associated with the article."
+          }
+        },
+        "type": "object",
+        "title": "Article",
+        "description": "Represents an article with various attributes and metadata."
+      },
+      "ArticleCommentIdAttachmentIdMap": {
+        "properties": {
+          "commentId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Commentid"
+          },
+          "attachmentIds": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Attachmentids"
+          }
+        },
+        "type": "object",
+        "title": "ArticleCommentIdAttachmentIdMap"
+      },
+      "ArticleFileSearchSummarizationRequest": {
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "The unique identifier of the company making the request."
+          },
+          "novaSearchKeyword": {
+            "type": "string",
+            "title": "Novasearchkeyword",
+            "description": "The keyword to search for in the articles."
+          },
+          "novaSearchType": {
+            "type": "string",
+            "enum": [
+              "articleSummarization"
+            ],
+            "title": "Novasearchtype",
+            "description": "use the keyword articleSummarization"
+          },
+          "articleId": {
+            "type": "string",
+            "title": "Articleid",
+            "description": "The unique identifier of the article to retrieve summarization for."
+          },
+          "attachmentFileName": {
+            "type": "string",
+            "title": "Attachmentfilename",
+            "description": "The name of the file attached to the article, if any."
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Prompt",
+            "description": "An optional prompt to guide the summarization model.",
+            "default": ""
+          },
+          "pageContent": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Pagecontent",
+            "description": "Whether to include the full content of the page in the summary."
+          },
+          "semanticSearch": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Semanticsearch",
+            "description": "Whether to use semantic search techniques in the article retrieval.",
+            "default": false
+          },
+          "exactMatch": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Exactmatch",
+            "description": "Whether to perform an exact match search for the keyword.",
+            "default": false
+          },
+          "queryExpansion": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Queryexpansion",
+            "description": "Whether to expand the search query with related terms.",
+            "default": false
+          },
+          "termExpansion": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Termexpansion",
+            "description": "Whether to expand the search query with related terms.",
+            "default": true
+          },
+          "chunkSentences": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Chunksentences",
+            "description": "Whether to summarize each sentence independently.",
+            "default": true
+          },
+          "streamResponse": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Streamresponse",
+            "description": "Whether to stream the summary responses instead of waiting for a batch.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "companyId",
+          "novaSearchKeyword",
+          "novaSearchType",
+          "articleId",
+          "attachmentFileName",
+          "pageContent"
+        ],
+        "title": "ArticleFileSearchSummarizationRequest"
+      },
+      "ArticleResponseModel": {
+        "properties": {
+          "articles": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ArticleWithMetadata"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Articles",
+            "description": "A list of article metadata, including title, description, and more."
+          },
+          "totalHits": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              }
+            ],
+            "title": "Totalhits",
+            "description": "The total number of hits or results from the search query.",
+            "default": 0
+          },
+          "llmResponse": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1024,
+                "minLength": 0
+              }
+            ],
+            "title": "Llmresponse",
+            "description": "The response from the Language Model (LLM), if applicable.",
+            "default": ""
+          },
+          "pageSize": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Pagesize",
+            "description": "The number of articles per page in the search results.",
+            "default": 10
+          },
+          "pageNo": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Pageno",
+            "description": "The page number of the search results.",
+            "default": 0
+          },
+          "llm_key_words": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Llm Key Words",
+            "description": "The key words from the LLM response.",
+            "default": []
+          }
+        },
+        "type": "object",
+        "title": "ArticleResponseModel"
+      },
+      "ArticleSearchRequest": {
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "The unique identifier for the company."
+          },
+          "novaSearchKeyword": {
+            "type": "string",
+            "title": "Novasearchkeyword",
+            "description": "The keyword to search articles with in NOVA."
+          },
+          "novaSearchType": {
+            "type": "string",
+            "title": "Novasearchtype",
+            "description": "The type of search operation to perform on NOVA."
+          },
+          "semanticSearch": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Semanticsearch",
+            "description": "Flag indicating whether a semantic search should be performed.",
+            "default": true
+          },
+          "termExpansion": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Termexpansion",
+            "description": "Flag indicating whether term expansion should be applied to the search keyword.",
+            "default": false
+          },
+          "fileSearch": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Filesearch",
+            "description": "Flag indicating whether a search should be performed in attached files.",
+            "default": false
+          },
+          "exactMatch": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Exactmatch",
+            "description": "Flag indicating whether an exact match should be found instead of a partial one.",
+            "default": false
+          },
+          "articleIds": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Articleids",
+            "description": "List of specific article IDs to fetch in the response.",
+            "default": []
+          },
+          "attachmentFileNames": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Attachmentfilenames",
+            "description": "List of file names associated with articles that should be searched for.",
+            "default": []
+          },
+          "queryExpansion": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Queryexpansion",
+            "description": "Flag indicating whether query expansion techniques should be used to improve the search accuracy.",
+            "default": false
+          },
+          "pageSize": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Pagesize",
+            "description": "The number of articles to return in the response.",
+            "default": 100
+          },
+          "pageNo": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Pageno",
+            "description": "The page number of the response.",
+            "default": 0
+          },
+          "companyIdsToSearch": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Companyidstosearch",
+            "description": "List of company Ids to check search articles in.",
+            "default": []
+          },
+          "filters": {
+            "items": {
+              "$ref": "#/components/schemas/QueryFilters"
+            },
+            "type": "array",
+            "title": "Filters",
+            "description": "Article field filters",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "companyId",
+          "novaSearchKeyword",
+          "novaSearchType"
+        ],
+        "title": "ArticleSearchRequest"
+      },
+      "ArticleSummaryRequest": {
+        "properties": {
+          "articleIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Articleids",
+            "description": "A list of article IDs to retrieve summaries for."
+          },
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "The unique identifier of the company making the request."
+          },
+          "novaSearchKeyword": {
+            "type": "string",
+            "title": "Novasearchkeyword",
+            "description": "The keyword to search for in the articles."
+          }
+        },
+        "type": "object",
+        "required": [
+          "articleIds",
+          "companyId",
+          "novaSearchKeyword"
+        ],
+        "title": "ArticleSummaryRequest"
+      },
+      "ArticleWithMetadata": {
+        "properties": {
+          "articleId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Articleid",
+            "description": "Unique identifier for the article. used in opensearch only."
+          },
+          "_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": " Id",
+            "description": "Unique identifier for the article."
+          },
+          "companyId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Companyid",
+            "description": "Company ID associated with the article.",
+            "default": ""
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Title",
+            "description": "Title of the article.",
+            "default": ""
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Description",
+            "description": "Description of the article.",
+            "default": ""
+          },
+          "createdBy": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Createdby",
+            "description": "Username of the creator.",
+            "default": ""
+          },
+          "lastUpdatedAt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Lastupdatedat",
+            "description": "Timestamp when the article was last updated."
+          },
+          "createdAt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Createdat",
+            "description": "Timestamp when the article was created.",
+            "default": ""
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Status",
+            "description": "Status of the article (e.g., published, draft).",
+            "default": ""
+          },
+          "publishedAt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Publishedat",
+            "description": "Timestamp when the article was published.",
+            "default": "[]"
+          },
+          "coverPhotoFileName": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Coverphotofilename",
+            "description": "Name of the cover photo associated with the article.",
+            "default": ""
+          },
+          "labels": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Labels",
+            "description": "List of keywords or tags for the article.",
+            "default": []
+          },
+          "topics": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Topics",
+            "description": "List of topics related to the article.",
+            "default": []
+          },
+          "divisions": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Divisions",
+            "description": "List of divisions relevant to the article.",
+            "default": []
+          },
+          "specSections": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Specsections",
+            "description": "List of specialized sections for the article.",
+            "default": []
+          },
+          "attachments": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Attachments"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Attachments",
+            "description": "List of file attachments associated with the article.",
+            "default": []
+          },
+          "hasAttachments": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Hasattachments",
+            "description": "Indicates if the article has any attachments.",
+            "default": false
+          },
+          "autoDraftFlag": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Autodraftflag",
+            "description": "Indicates if the article is an auto-draft."
+          },
+          "noteRelativePathToShare": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Noterelativepathtoshare",
+            "description": "Path to share notes with others.",
+            "default": ""
+          },
+          "userViewed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Userviewed",
+            "description": "Indicates if the user has viewed the article.",
+            "default": false
+          },
+          "userLiked": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Userliked",
+            "description": "Indicates if the user has liked the article.",
+            "default": false
+          },
+          "totalViews": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Totalviews",
+            "description": "Total number of views for the article.",
+            "default": 0
+          },
+          "totalLikes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Totallikes",
+            "description": "Total number of likes for the article.",
+            "default": 0
+          },
+          "totalComments": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Totalcomments",
+            "description": "Total number of comments for the article.",
+            "default": 0
+          },
+          "comments": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Comments",
+            "description": "List of comments associated with the article.",
+            "default": []
+          },
+          "commentsId": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Commentsid",
+            "description": "List of comment IDs associated with the article.",
+            "default": []
+          },
+          "isDraft": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Isdraft",
+            "description": "Indicates if the article is a draft.",
+            "default": false
+          },
+          "originIndicator": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Originindicator",
+            "description": "Origin indicator for the article (e.g., social media).",
+            "default": ""
+          },
+          "playListArticleIds": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Playlistarticleids",
+            "description": "List of IDs associated with playlist articles.",
+            "default": []
+          },
+          "userNameToDisplay": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Usernametodisplay",
+            "description": "Username to display in the article.",
+            "default": ""
+          },
+          "userNameTitleToDisplay": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Usernametitletodisplay",
+            "description": "Username title to display in the article.",
+            "default": ""
+          },
+          "userNameExpYearsToDisplay": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Usernameexpyearstodisplay",
+            "description": "Username experience years to display in the article.",
+            "default": ""
+          },
+          "isArticleBookMarked": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Isarticlebookmarked",
+            "description": "Indicates if the user has bookmarked the article.",
+            "default": false
+          },
+          "project_phase": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Project Phase",
+            "description": "Project phase associated with the article.",
+            "default": ""
+          },
+          "projectId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Projectid",
+            "description": "project Id."
+          },
+          "embedding": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Embedding",
+            "description": "Embedding for the article's description.",
+            "default": []
+          },
+          "comments_embedding": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Comments Embedding",
+            "description": "Embedding for the article's comments.",
+            "default": []
+          },
+          "publishedBy": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Publishedby",
+            "description": "Username of the publisher.",
+            "default": ""
+          },
+          "profileImageURL": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Profileimageurl",
+            "description": "user Profile image to show in article ",
+            "default": ""
+          },
+          "primaryCompanyName": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Primarycompanyname",
+            "description": "Primary company name associated with the user.",
+            "default": ""
+          },
+          "scopes": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Scopes",
+            "description": "List of scopes for the article (e.g., accessibility, permissions).",
+            "default": []
+          },
+          "relevance_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Relevance Score",
+            "description": "Relevance score for the article.",
+            "default": 0
+          },
+          "activityLog": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ActivityLog"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Activitylog",
+            "description": "List of activity logs for the article.",
+            "default": []
+          },
+          "region": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Region",
+            "description": "Region associated with the article."
+          },
+          "customFields": {
+            "anyOf": [
+              {
+                "type": "object"
+              }
+            ],
+            "title": "Customfields",
+            "description": "Custom fields associated with the article.",
+            "default": {}
+          },
+          "targetGroups": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Targetgroups",
+            "description": "List of target groups for the article.",
+            "default": []
+          },
+          "articleType": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Articletype",
+            "description": "Type of the article (e.g., QUESTION, POST, SUGGESTION)."
+          },
+          "assignedBy": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Assignedby",
+            "description": "User who assigned the article."
+          },
+          "owner": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Owner",
+            "description": "Owner of the article."
+          },
+          "taskStatus": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Taskstatus",
+            "description": "Status of the task associated with the article."
+          },
+          "dueDate": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Duedate",
+            "description": "Due date for the task associated with the article."
+          },
+          "commentAttachmentIds": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ArticleCommentIdAttachmentIdMap"
+                },
+                "type": "array"
+              },
+              {
+                "$ref": "#/components/schemas/ArticleCommentIdAttachmentIdMap"
+              }
+            ],
+            "title": "Commentattachmentids",
+            "description": "A mapping of article IDs to their corresponding comment attachment IDs."
+          },
+          "ArticleSourceCompanyName": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 255,
+                "minLength": 1
+              }
+            ],
+            "title": "Articlesourcecompanyname",
+            "description": "The name of the company that published or sourced the article.",
+            "default": ""
+          },
+          "ArticleSourceCompanyLogo": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Articlesourcecompanylogo",
+            "description": "The URL of the company logo that sourced or published the article."
+          },
+          "projectName": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Projectname",
+            "description": "The project name associated with the article."
+          },
+          "userId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Userid",
+            "description": "The user ID associated with the article."
+          },
+          "commentsArray": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Comments"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Commentsarray",
+            "description": "List of comments associated with the article."
+          }
+        },
+        "type": "object",
+        "title": "ArticleWithMetadata"
+      },
+      "Attachments": {
+        "properties": {
+          "fileName": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Filename",
+            "description": "File name",
+            "default": ""
+          },
+          "fileType": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Filetype",
+            "description": "File type (e.g. PDF, DOCX)",
+            "default": ""
+          },
+          "fileURL": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Fileurl",
+            "description": "URL of the file",
+            "default": ""
+          },
+          "mimeType": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Mimetype",
+            "description": "MIME type of the file"
+          },
+          "fileSize": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Filesize",
+            "description": "Size of the file in bytes",
+            "default": 0
+          },
+          "thumbnailOpenUrl": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Thumbnailopenurl",
+            "description": "URL to open the thumbnail",
+            "default": ""
+          },
+          "createdAt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Createdat",
+            "description": "Date and time when the attachment was created",
+            "default": ""
+          },
+          "articleOpenUrl": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Articleopenurl",
+            "description": "URL to open the article related to this attachment",
+            "default": ""
+          },
+          "generatePreSignedURLFlag": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Generatepresignedurlflag",
+            "description": "Boolean indicating whether to generate a pre-signed URL",
+            "default": false
+          },
+          "pageNo": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Pageno",
+            "description": "Page numbers in the document where this attachment is located"
+          },
+          "pageContent": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Pagecontent",
+            "description": "Contents of each page in the document",
+            "default": []
+          },
+          "_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": " Id",
+            "description": "Unique identifier for this attachment"
+          },
+          "isFileUploaded": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Isfileuploaded",
+            "description": "Boolean indicating whether the file has been uploaded",
+            "default": false
+          },
+          "fileUploaded": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Fileuploaded",
+            "description": "Boolean indicating whether the file has been uploaded successfully",
+            "default": false
+          },
+          "documentPDF": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Documentpdf",
+            "description": "Path to the PDF document",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "Attachments"
+      },
+      "Body_chat_with_bedrock_with_files_v1_api_p1_genai_chatWithBedrockWithAttachments__post": {
+        "properties": {
+          "user_prompt": {
+            "type": "string",
+            "title": "User Prompt",
+            "description": "User prompt"
+          },
+          "files": {
+            "items": {
+              "type": "string",
+              "format": "binary"
+            },
+            "type": "array",
+            "title": "Files",
+            "description": "List of files to upload"
+          }
+        },
+        "type": "object",
+        "required": [
+          "user_prompt"
+        ],
+        "title": "Body_chat_with_bedrock_with_files_v1_api_p1_genai_chatWithBedrockWithAttachments__post"
+      },
+      "Body_generate_summary_for_file_v1_api_p1_genai_generateArticleFromFile__post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File",
+            "description": "A file read as UploadFile"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_generate_summary_for_file_v1_api_p1_genai_generateArticleFromFile__post"
+      },
+      "ChatHistoryForBWGPT": {
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "user",
+              "assistant"
+            ],
+            "title": "Role"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content"
+          }
+        },
+        "type": "object",
+        "required": [
+          "role",
+          "content"
+        ],
+        "title": "ChatHistoryForBWGPT"
+      },
+      "ChatWithArticlesRequest": {
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "The unique identifier of the company making the request."
+          },
+          "novaSearchKeyword": {
+            "type": "string",
+            "title": "Novasearchkeyword",
+            "description": "The keyword to search for in the articles."
+          },
+          "novaSearchType": {
+            "type": "string",
+            "enum": [
+              "chatWithArticle"
+            ],
+            "title": "Novasearchtype",
+            "description": "use the keyword chatWithFile"
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Prompt",
+            "description": "An optional prompt to guide the summarization model.",
+            "default": ""
+          },
+          "chatId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Chatid",
+            "description": "The unique identifier of the chat session."
+          },
+          "streamResponse": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Streamresponse",
+            "description": "Whether to stream the summary responses instead of waiting for a batch.",
+            "default": false
+          },
+          "max_articles_to_send_llm": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Max Articles To Send Llm",
+            "description": "The maximum number of articles to send to the LLM for summarization.",
+            "default": 10
+          },
+          "llmModel": {
+            "type": "string",
+            "enum": [
+              "titan",
+              "cohere"
+            ],
+            "title": "Llmmodel",
+            "description": "The LLM model to use for embeddings.",
+            "default": "titan"
+          },
+          "companyIdsToSearch": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Companyidstosearch",
+            "description": "List of company Ids to check search articles in."
+          }
+        },
+        "type": "object",
+        "required": [
+          "companyId",
+          "novaSearchKeyword",
+          "novaSearchType"
+        ],
+        "title": "ChatWithArticlesRequest"
+      },
+      "ChatWithBedrockRequestModel": {
+        "properties": {
+          "user_query": {
+            "type": "string",
+            "title": "User Query",
+            "description": "user query to prompt"
+          },
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "user company id"
+          },
+          "chatId": {
+            "type": "string",
+            "title": "Chatid",
+            "description": "chat session Id"
+          },
+          "chatUserRole": {
+            "type": "string",
+            "enum": [
+              "user",
+              "admin"
+            ],
+            "title": "Chatuserrole",
+            "description": "chat user role",
+            "default": "user"
+          },
+          "llm_model_name": {
+            "type": "string",
+            "title": "Llm Model Name",
+            "description": "model name",
+            "default": "anthropic.claude-3-sonnet-20240229-v1:0"
+          },
+          "temperature": {
+            "type": "number",
+            "title": "Temperature",
+            "description": "Temperature parameter for controlling the randomness of generated text",
+            "default": 0
+          },
+          "token_size": {
+            "type": "integer",
+            "title": "Token Size",
+            "description": "Maximum number of tokens to return in the response",
+            "default": 500
+          },
+          "responseType": {
+            "type": "string",
+            "enum": [
+              "promptHistory",
+              "chat"
+            ],
+            "title": "Responsetype",
+            "description": "response type",
+            "default": "chat"
+          }
+        },
+        "type": "object",
+        "required": [
+          "user_query",
+          "companyId"
+        ],
+        "title": "ChatWithBedrockRequestModel"
+      },
+      "Comments": {
+        "properties": {
+          "_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": " Id"
+          },
+          "companyId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Companyid",
+            "default": ""
+          },
+          "articleId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Articleid",
+            "default": ""
+          },
+          "commentText": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Commenttext",
+            "default": ""
+          },
+          "commentedAt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ],
+            "title": "Commentedat",
+            "default": ""
+          },
+          "attachments": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Attachments"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Attachments",
+            "default": []
+          },
+          "hasAttachments": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Hasattachments"
+          },
+          "commentAuthorDisplayName": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Commentauthordisplayname"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "title": "Comments"
+      },
+      "DeleteFilesRequest": {
+        "properties": {
+          "fileIdsList": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Fileidslist",
+            "description": "A list of unique identifiers of the files to be deleted."
+          },
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "Unique identifier of the company. Required for all requests."
+          }
+        },
+        "type": "object",
+        "required": [
+          "fileIdsList",
+          "companyId"
+        ],
+        "title": "DeleteFilesRequest"
+      },
+      "FileAttachmentVerifyRequest": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "ID",
+            "description": "Unique identifier of the attachment to be verified"
+          },
+          "fileMD5Hash": {
+            "type": "string",
+            "title": "File MD5 Hash",
+            "description": "The MD5 hash of the file to be verified"
+          },
+          "MimeType": {
+            "type": "string",
+            "title": "Mime Type",
+            "description": "The MIME type of the file to be verified"
+          },
+          "companyId": {
+            "type": "string",
+            "title": "Company ID",
+            "description": "The unique identifier of the company associated with the attachment"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "fileMD5Hash",
+          "MimeType",
+          "companyId"
+        ],
+        "title": "FileAttachmentVerifyRequest"
+      },
+      "FileUploadRequest": {
+        "properties": {
+          "filesList": {
+            "items": {
+              "$ref": "#/components/schemas/FilesDataBasic"
+            },
+            "type": "array",
+            "title": "File Data",
+            "description": "A list containing FileDataBasic objects representing each file to be uploaded"
+          },
+          "companyId": {
+            "type": "string",
+            "title": "Company ID",
+            "description": "The unique identifier of the company to which the files will be uploaded"
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "company",
+              "project"
+            ],
+            "title": "Level",
+            "description": "Specifies the level at which the files will be uploaded, i.e., either at a company or project level"
+          }
+        },
+        "type": "object",
+        "required": [
+          "filesList",
+          "companyId",
+          "level"
+        ],
+        "title": "FileUploadRequest"
+      },
+      "FilesDataBasic": {
+        "properties": {
+          "documentName": {
+            "type": "string",
+            "title": "Documentname"
+          },
+          "documentType": {
+            "type": "string",
+            "title": "Documenttype"
+          },
+          "documentDirectory": {
+            "type": "string",
+            "title": "Documentdirectory"
+          },
+          "projectId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Projectid"
+          },
+          "documentSize": {
+            "type": "integer",
+            "title": "Documentsize"
+          }
+        },
+        "type": "object",
+        "required": [
+          "documentName",
+          "documentType",
+          "documentDirectory",
+          "documentSize"
+        ],
+        "title": "FilesDataBasic"
+      },
+      "FilesearchRequest": {
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "The unique identifier of the company making the request."
+          },
+          "novaSearchKeyword": {
+            "type": "string",
+            "title": "Novasearchkeyword",
+            "description": "The keyword to search for in the files."
+          },
+          "novaSearchType": {
+            "type": "string",
+            "title": "Novasearchtype",
+            "description": "The type of search, such as 'text' or 'metadata'."
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Prompt",
+            "description": "An optional prompt to guide the processing.",
+            "default": ""
+          },
+          "directoryToSearch": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Directorytosearch",
+            "description": "A list of directories to search for files in."
+          },
+          "filesToSearch": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Filestosearch",
+            "description": "A list of specific files to search within the company's storage."
+          },
+          "searchScope": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Searchscope",
+            "description": "The scope of the search, either 'company' or 'network'.",
+            "default": "company"
+          },
+          "vectorSearch": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Vectorsearch",
+            "description": "Whether to perform a vector search instead of a regular text search.",
+            "default": false
+          },
+          "summarization": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Summarization",
+            "description": "Whether to return summaries for the searched files.",
+            "default": false
+          },
+          "termExpansion": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Termexpansion",
+            "description": "Whether to expand search terms with related words.",
+            "default": true
+          },
+          "exactMatch": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Exactmatch",
+            "description": "Whether to perform exact match searches.",
+            "default": false
+          },
+          "pageContent": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Pagecontent",
+            "description": "Whether to include the full content of the files in the search.",
+            "default": true
+          },
+          "queryExpansion": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Queryexpansion",
+            "description": "Whether to expand the search query with related terms.",
+            "default": false
+          },
+          "streamResponse": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Streamresponse",
+            "description": "Whether to stream the response instead of waiting for a batch.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "companyId",
+          "novaSearchKeyword",
+          "novaSearchType"
+        ],
+        "title": "FilesearchRequest"
+      },
+      "GetArticlesWithHashtagRequest": {
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "The unique identifier of the company."
+          },
+          "hashTags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Hashtags",
+            "description": "The list of hashTags to add."
+          }
+        },
+        "type": "object",
+        "required": [
+          "companyId",
+          "hashTags"
+        ],
+        "title": "GetArticlesWithHashtagRequest"
+      },
+      "GetDirectoryFilesRequest": {
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "Unique identifier of the company. Required for all requests."
+          },
+          "path": {
+            "type": "string",
+            "title": "Path",
+            "description": "The file system path to get the files from. Required for all requests."
+          },
+          "projectId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Projectid",
+            "description": "Unique identifier of the project (optional)."
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "company",
+              "project"
+            ],
+            "title": "Level",
+            "description": "Scope of the request: 'company' or 'project'. Required for all requests."
+          }
+        },
+        "type": "object",
+        "required": [
+          "companyId",
+          "path",
+          "level"
+        ],
+        "title": "GetDirectoryFilesRequest"
+      },
+      "GetInsightSummaryMasterFormatRequest": {
+        "properties": {
+          "specSection": {
+            "type": "string",
+            "title": "Specsection",
+            "description": "Spec Section"
+          },
+          "specCategory": {
+            "type": "string",
+            "title": "Speccategory",
+            "description": "Spec Category"
+          },
+          "division": {
+            "type": "string",
+            "title": "Division",
+            "description": "Division"
+          },
+          "filters": {
+            "items": {
+              "$ref": "#/components/schemas/QueryFilters"
+            },
+            "type": "array",
+            "title": "Filters",
+            "description": "Query Filters",
+            "default": [],
+            "deprecated": true
+          }
+        },
+        "type": "object",
+        "title": "GetInsightSummaryMasterFormatRequest"
+      },
+      "GetInsightSummaryUniFormatRequest": {
+        "properties": {
+          "uniFormatL3": {
+            "type": "string",
+            "title": "Uniformatl3",
+            "description": "Uni Format L3"
+          },
+          "uniFormatL2": {
+            "type": "string",
+            "title": "Uniformatl2",
+            "description": "Uni Format L2"
+          },
+          "uniFormatL1": {
+            "type": "string",
+            "title": "Uniformatl1",
+            "description": "Uni Format L1"
+          },
+          "Filters": {
+            "items": {
+              "$ref": "#/components/schemas/QueryFilters"
+            },
+            "type": "array",
+            "title": "Filters",
+            "description": "Query Filters",
+            "default": [],
+            "deprecated": true
+          }
+        },
+        "type": "object",
+        "title": "GetInsightSummaryUniFormatRequest"
+      },
+      "GetInsightsSearchSummary": {
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "Company Id"
+          },
+          "projectId": {
+            "type": "string",
+            "title": "Projectid",
+            "description": "Project Id"
+          },
+          "filters": {
+            "items": {
+              "$ref": "#/components/schemas/QueryFilters"
+            },
+            "type": "array",
+            "title": "Filters",
+            "description": "Query Filters",
+            "default": []
+          },
+          "MasterFormatFilters": {
+            "$ref": "#/components/schemas/GetInsightSummaryMasterFormatRequest",
+            "description": "Master Format Filters. At least one of the filters must be sent in response. "
+          },
+          "UniFormatFilters": {
+            "$ref": "#/components/schemas/GetInsightSummaryUniFormatRequest",
+            "description": "Uni Format Filters. At least one of the filters must be sent in response. "
+          },
+          "novaSearchKeyWord": {
+            "type": "string",
+            "title": "Novasearchkeyword",
+            "description": "Nova Search Keyword"
+          },
+          "groupBy": {
+            "type": "string",
+            "title": "Groupby",
+            "description": "Group By Field"
+          },
+          "term_expansions": {
+            "type": "boolean",
+            "title": "Term Expansions",
+            "description": "Term Expansions",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "companyId",
+          "novaSearchKeyWord"
+        ],
+        "title": "GetInsightsSearchSummary"
+      },
+      "GptPrompt": {
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "title": "Prompt"
+          }
+        },
+        "type": "object",
+        "required": [
+          "prompt"
+        ],
+        "title": "GptPrompt"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HashTagAddRequest": {
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "The unique identifier of the company."
+          },
+          "hashTags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Hashtags",
+            "description": "The list of hashTags to add."
+          }
+        },
+        "type": "object",
+        "required": [
+          "companyId",
+          "hashTags"
+        ],
+        "title": "HashTagAddRequest"
+      },
+      "HashTagSearchRequest": {
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "The unique identifier of the company."
+          },
+          "novaSearchKeyword": {
+            "type": "string",
+            "title": "Novasearchkeyword",
+            "description": "The keyword to search for in the RFI."
+          },
+          "novaSearchType": {
+            "type": "string",
+            "enum": [
+              "hashTagSearch"
+            ],
+            "title": "Novasearchtype",
+            "description": "use the keyword hashTagSearch"
+          }
+        },
+        "type": "object",
+        "required": [
+          "companyId",
+          "novaSearchKeyword",
+          "novaSearchType"
+        ],
+        "title": "HashTagSearchRequest"
+      },
+      "InsightGroupedMetaData": {
+        "properties": {
+          "groupByFieldName": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Groupbyfieldname",
+            "description": "The name of the field to group by"
+          },
+          "totalLevels": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Totallevels",
+            "description": "The total number of levels"
+          },
+          "metaData": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/MetaData"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Metadata",
+            "description": "List of metadata objects"
+          }
+        },
+        "type": "object",
+        "title": "InsightGroupedMetaData"
+      },
+      "InsightGroupingObject": {
+        "properties": {
+          "groupByFieldName": {
+            "type": "string",
+            "title": "Groupbyfieldname",
+            "description": "field on which grouping is done"
+          },
+          "groupByFieldValue": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Groupbyfieldvalue",
+            "description": "value of the field on which grouping is done"
+          },
+          "insightsCount": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Insightscount",
+            "description": "Count of Insights"
+          },
+          "insights": {
+            "items": {
+              "$ref": "#/components/schemas/Insights"
+            },
+            "type": "array",
+            "title": "Insights",
+            "description": "List of Insights"
+          }
+        },
+        "type": "object",
+        "title": "InsightGroupingObject"
+      },
+      "InsightMetaDataResponse": {
+        "properties": {
+          "insightsGroupedMetaData": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/InsightGroupedMetaData"
+              }
+            ],
+            "description": "List of metadata objects"
+          }
+        },
+        "type": "object",
+        "title": "InsightMetaDataResponse"
+      },
+      "Insights": {
+        "properties": {
+          "_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": " Id"
+          },
+          "companyId": {
+            "type": "string",
+            "title": "Companyid"
+          },
+          "division": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Division",
+            "description": "Division of the company"
+          },
+          "specCategory": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Speccategory",
+            "description": "Name of the Spec Category"
+          },
+          "specSection": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Specsection",
+            "description": "Name of the Spec Section"
+          },
+          "RefArticleId": {
+            "type": "string",
+            "title": "Refarticleid"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "Title of the insight"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description of the article"
+          },
+          "suggestionType": {
+            "type": "string",
+            "title": "Suggestiontype",
+            "description": "Type of suggestion"
+          },
+          "nonProprietarySynopsis": {
+            "type": "string",
+            "title": "Nonproprietarysynopsis",
+            "description": "Non-proprietary synopsis of the article"
+          },
+          "nonProprietaryTitle": {
+            "type": "string",
+            "title": "Nonproprietarytitle",
+            "description": "Non-proprietary title of the article"
+          },
+          "createdAt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Createdat"
+          },
+          "updatedAt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Updatedat"
+          },
+          "createdBy": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Createdby"
+          },
+          "uniformat_l1": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Uniformat L1",
+            "description": "Uniformat Level 1 classification"
+          },
+          "uniformat_l2": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Uniformat L2",
+            "description": "Uniformat Level 2 classification"
+          },
+          "uniformat_l3": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Uniformat L3",
+            "description": "Uniformat Level 3 classification"
+          },
+          "buildingSystem": {
+            "type": "string",
+            "title": "Buildingsystem",
+            "description": "Main building system"
+          },
+          "buildingSubSystem": {
+            "type": "string",
+            "title": "Buildingsubsystem",
+            "description": "Subsystem within the main building system"
+          },
+          "buildingSystemComponent": {
+            "type": "string",
+            "title": "Buildingsystemcomponent",
+            "description": "Specific component within the building subsystem"
+          },
+          "insightType": {
+            "type": "string",
+            "title": "Insighttype",
+            "description": "Insight Type"
+          },
+          "refInsightId": {
+            "type": "string",
+            "title": "Refinsightid",
+            "description": "Reference InsightId from which a insight is derived"
+          },
+          "refCompanyId": {
+            "type": "string",
+            "title": "Refcompanyid",
+            "description": "Reference CompanyId from which a insight is derived"
+          },
+          "suitablePhases": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Suitablephases",
+            "description": "List of suitable phases"
+          },
+          "suggestionTypes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Suggestiontypes",
+            "description": "List of suggestion types"
+          },
+          "attachments": {
+            "items": {
+              "$ref": "#/components/schemas/Attachments"
+            },
+            "type": "array",
+            "title": "Attachments",
+            "description": "List of attachments",
+            "default": []
+          },
+          "isDraft": {
+            "type": "boolean",
+            "title": "Isdraft",
+            "description": "Is the insight draft or not",
+            "default": false
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "Status of the insight"
+          },
+          "userNameToDisplay": {
+            "type": "string",
+            "title": "Usernametodisplay",
+            "description": "User name to display"
+          },
+          "userNameTitleToDisplay": {
+            "type": "string",
+            "title": "Usernametitletodisplay",
+            "description": "User title to display"
+          },
+          "originIndicator": {
+            "type": "string",
+            "title": "Originindicator",
+            "description": "Origin Indicator"
+          },
+          "isBookmarked": {
+            "type": "boolean",
+            "title": "Isbookmarked",
+            "description": "Is the insight bookmarked or not",
+            "default": false
+          },
+          "sourceObjectId": {
+            "type": "string",
+            "title": "Sourceobjectid",
+            "description": "Source Object Id"
+          },
+          "sourceObjectType": {
+            "type": "string",
+            "title": "Sourceobjecttype",
+            "description": "Source Object Type"
+          },
+          "PlaylistInsightIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Playlistinsightids",
+            "description": "List of Playlist Insight Ids",
+            "default": []
+          },
+          "publishedBy": {
+            "type": "string",
+            "title": "Publishedby",
+            "description": "Published By"
+          },
+          "publishedAt": {
+            "type": "string",
+            "title": "Publishedat",
+            "description": "Published At"
+          },
+          "articleInfo": {
+            "$ref": "#/components/schemas/Article",
+            "description": "Article Info"
+          },
+          "region": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Region",
+            "description": "Region"
+          },
+          "projectPhases": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Projectphases",
+            "description": "Project Phases"
+          }
+        },
+        "type": "object",
+        "title": "Insights"
+      },
+      "InsightsSearchSummaryResponse": {
+        "properties": {
+          "insightGroupByList": {
+            "items": {
+              "$ref": "#/components/schemas/InsightGroupingObject"
+            },
+            "type": "array",
+            "title": "Insightgroupbylist",
+            "description": "List of Insights"
+          },
+          "insightsList": {
+            "items": {
+              "$ref": "#/components/schemas/Insights"
+            },
+            "type": "array",
+            "title": "Insightslist",
+            "description": "List of Insights"
+          }
+        },
+        "type": "object",
+        "title": "InsightsSearchSummaryResponse"
+      },
+      "MetaData": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "The title of the metadata"
+          },
+          "count": {
+            "type": "integer",
+            "title": "Count",
+            "description": "The count associated with the metadata"
+          },
+          "children": {
+            "items": {
+              "$ref": "#/components/schemas/MetaData"
+            },
+            "type": "array",
+            "title": "Children",
+            "description": "List of child metadata"
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Summary",
+            "description": "Summary, applicable only for leaf nodes"
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "count"
+        ],
+        "title": "MetaData"
+      },
+      "MoveDirectoryRequest": {
+        "properties": {
+          "sourcePath": {
+            "type": "string",
+            "title": "Source Path",
+            "description": "The path of the source directory to be moved"
+          },
+          "destinationPath": {
+            "type": "string",
+            "title": "Destination Path",
+            "description": "The path where the directory will be moved to"
+          },
+          "companyId": {
+            "type": "string",
+            "title": "Company ID",
+            "description": "The unique identifier of the company associated with the directory"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sourcePath",
+          "destinationPath",
+          "companyId"
+        ],
+        "title": "MoveDirectoryRequest"
+      },
+      "MoveFilesRequest": {
+        "properties": {
+          "fileIdsList": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "File IDs",
+            "description": "A list containing the unique identifiers of files to be moved or copied"
+          },
+          "destinationPath": {
+            "type": "string",
+            "title": "Destination Path",
+            "description": "The path where the files will be moved or copied to"
+          },
+          "projectId": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Project ID",
+            "description": "The unique identifier of the project to which the files belong, if applicable."
+          },
+          "companyId": {
+            "type": "string",
+            "title": "Company ID",
+            "description": "The unique identifier of the company associated with the files"
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "company",
+              "project"
+            ],
+            "title": "Level",
+            "description": "Specifies whether this request is for moving or copying files at a company or project level"
+          }
+        },
+        "type": "object",
+        "required": [
+          "fileIdsList",
+          "destinationPath",
+          "companyId",
+          "level"
+        ],
+        "title": "MoveFilesRequest"
+      },
+      "ProjectRFIRequest": {
+        "properties": {
+          "projectIdRFIsList": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Projectidrfislist",
+            "description": "The map of project IDs to the hits of their associated RFI IDs. send the list of 'pmRFIId' for each project"
+          },
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "The unique identifier of the company."
+          },
+          "novaSearchKeyword": {
+            "type": "string",
+            "title": "Novasearchkeyword",
+            "description": "The keyword to search for in the RFI."
+          }
+        },
+        "type": "object",
+        "required": [
+          "projectIdRFIsList",
+          "companyId",
+          "novaSearchKeyword"
+        ],
+        "title": "ProjectRFIRequest"
+      },
+      "ProjectSearchRequest": {
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "The unique identifier of the company making the request."
+          },
+          "novaSearchKeyword": {
+            "type": "string",
+            "title": "Novasearchkeyword",
+            "description": "The keyword to search for in the files."
+          },
+          "novaSearchType": {
+            "type": "string",
+            "title": "Novasearchtype",
+            "description": "The type of search, such as 'text' or 'metadata'."
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Prompt",
+            "description": "An optional prompt to guide the processing.",
+            "default": ""
+          },
+          "directoryToSearch": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Directorytosearch",
+            "description": "A list of directories to search for files in."
+          },
+          "filesToSearch": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Filestosearch",
+            "description": "A list of specific files to search within the company's storage."
+          },
+          "searchScope": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Searchscope",
+            "description": "The scope of the search, either 'company' or 'project'.",
+            "default": "company"
+          },
+          "vectorSearch": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Vectorsearch",
+            "description": "Whether to perform a vector search instead of a regular text search.",
+            "default": false
+          },
+          "summarization": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Summarization",
+            "description": "Whether to return summaries for the searched files.",
+            "default": false
+          },
+          "termExpansion": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Termexpansion",
+            "description": "Whether to expand search terms with related words.",
+            "default": true
+          },
+          "exactMatch": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Exactmatch",
+            "description": "Whether to perform exact match searches.",
+            "default": false
+          },
+          "pageContent": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Pagecontent",
+            "description": "Whether to include the full content of the files in the search.",
+            "default": true
+          },
+          "queryExpansion": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Queryexpansion",
+            "description": "Whether to expand the search query with related terms.",
+            "default": false
+          },
+          "streamResponse": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Streamresponse",
+            "description": "Whether to stream the response instead of waiting for a batch.",
+            "default": false
+          },
+          "projectId": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Projectid",
+            "description": "A list of project IDs to search within."
+          },
+          "files": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Files",
+            "description": "A list of specific files to search within the projects."
+          },
+          "projectDirectory": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Projectdirectory",
+            "description": "A list of project directories to search for files in."
+          }
+        },
+        "type": "object",
+        "required": [
+          "companyId",
+          "novaSearchKeyword",
+          "novaSearchType"
+        ],
+        "title": "ProjectSearchRequest"
+      },
+      "QueryFilters": {
+        "properties": {
+          "filterName": {
+            "type": "string",
+            "title": "Filtername",
+            "description": "The name of the filter."
+          },
+          "filterValues": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Filtervalues",
+            "description": "The values of the filter."
+          }
+        },
+        "type": "object",
+        "required": [
+          "filterName",
+          "filterValues"
+        ],
+        "title": "QueryFilters"
+      },
+      "RenameFileRequest": {
+        "properties": {
+          "fileId": {
+            "type": "string",
+            "title": "Fileid"
+          },
+          "newFileName": {
+            "type": "string",
+            "title": "Newfilename"
+          },
+          "companyId": {
+            "type": "string",
+            "title": "Companyid"
+          }
+        },
+        "type": "object",
+        "required": [
+          "fileId",
+          "newFileName",
+          "companyId"
+        ],
+        "title": "RenameFileRequest"
+      },
+      "SummaryRequest": {
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "title": "Companyid",
+            "description": "The unique identifier of the company making the request."
+          },
+          "web_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Web Url",
+            "description": "The URL of the webpage to summarize."
+          },
+          "summary_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Summary Text",
+            "description": "The text to summarize."
+          },
+          "stream_response": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Stream Response",
+            "description": "Whether to stream the summary responses",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "companyId"
+        ],
+        "title": "SummaryRequest"
+      },
+      "UserChatHistory": {
+        "properties": {
+          "chatId": {
+            "type": "string",
+            "title": "Chatid"
+          },
+          "chatHistory": {
+            "items": {
+              "$ref": "#/components/schemas/ChatHistoryForBWGPT"
+            },
+            "type": "array",
+            "title": "Chathistory"
+          }
+        },
+        "type": "object",
+        "title": "UserChatHistory"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
