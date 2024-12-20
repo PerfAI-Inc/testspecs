@@ -98,7 +98,7 @@ paths:
           description: Unauthorized
         '500':
           description: Internal server error
-    /api/v1/reports/health:
+  /api/v1/reports/health:
     get:
       summary: Get reports in a date range
       security:
