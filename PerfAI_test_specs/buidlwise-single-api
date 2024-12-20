@@ -1,0 +1,30 @@
+openapi: 3.0.1
+info:
+  title: FastAPI
+  version: 0.1.0
+paths:
+  /v1/api/p1/search/articleSearch/:
+    post:
+      tags:
+        - search
+      summary: Article Search
+      operationId: article_search_v1_api_p1_search_articleSearch__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArticleSearchRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArticleResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
