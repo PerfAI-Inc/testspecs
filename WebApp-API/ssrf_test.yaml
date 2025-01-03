@@ -43,6 +43,49 @@ paths:
                 properties:
                   status:
                     type: string
+  /api/v1/compliance/billing/integrations/policies:
+    post:
+      summary: Test SSRF Endpoint
+      parameters:
+        - in: path
+          name: url
+          required: true
+          schema:
+            type: string
+          description: The URL parameter
+        - in: query
+          name: url_1
+          required: true
+          schema:
+            type: string
+          description: A required query parameter
+        - in: query
+          name: url_2
+          required: true
+          schema:
+            type: string
+          description: A required query parameter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url_1:
+                  type: string
+                url_2:
+                  type: number
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
 info:
   title: PerfAI Dashboard API
   description: PerfAI Dashboard API
