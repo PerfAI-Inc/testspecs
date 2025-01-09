@@ -1,0 +1,234 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Settings Api",
+    "contact": {}
+  },
+  "host": "Lets-talk",
+  "basePath": "/SettingsApi/api",
+  "securityDefinitions": {},
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/TopicsManager/GetMessageTitle": {
+      "get": {
+        "summary": "/api/TopicsManager/GetMessageTitle",
+        "tags": ["GetMessageTitle"],
+        "operationId": "/api/TopicsManager/GetMessageTitle",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/Success85"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "id": "<long>",
+                  "name": "<string>"
+                },
+                {
+                  "id": "<long>",
+                  "name": "<string>"
+                }
+              ]
+            },
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "security": [],
+  "tags": [
+    {
+      "name": "GetButtonsData"
+    },
+    {
+      "name": "CheckTranslationExist"
+    },
+    {
+      "name": "insertupdate"
+    },
+    {
+      "name": "delete"
+    },
+    {
+      "name": "search"
+    },
+    {
+      "name": "list"
+    },
+    {
+      "name": "BingTranslate"
+    },
+    {
+      "name": "GetAllBlockContents"
+    },
+    {
+      "name": "GetTimeInterval"
+    },
+    {
+      "name": "TranslatorLanguage"
+    },
+    {
+      "name": "GetCustomButtonsAndSections"
+    },
+    {
+      "name": "GetDefaultSearchAndWelcomeMsg"
+    },
+    {
+      "name": "GetPreviewLink"
+    },
+    {
+      "name": "CopyTranslationToOtherLps"
+    },
+    {
+      "name": "UploadFile"
+    },
+    {
+      "name": "DeleteFile"
+    },
+    {
+      "name": "SaveFiles"
+    },
+    {
+      "name": "GetLTAProfiles"
+    },
+    {
+      "name": "GetAllResourcesAndFAQs"
+    },
+    {
+      "name": "GetProfileDetails"
+    },
+    {
+      "name": "SaveProfile"
+    },
+    {
+      "name": "UpdateProfile"
+    },
+    {
+      "name": "DeleteProfile"
+    },
+    {
+      "name": "GetDataLoad"
+    },
+    {
+      "name": "GetTopicsManagerDashboard"
+    },
+    {
+      "name": "GetFilterDataTopicManager"
+    },
+    {
+      "name": "GetFilterDetails"
+    },
+    {
+      "name": "GetFilterActive"
+    },
+    {
+      "name": "GetMessageTitle"
+    },
+    {
+      "name": "GetSectionData"
+    },
+    {
+      "name": "InsertUpdateTopicSection"
+    },
+    {
+      "name": "SortSecsAndTops"
+    },
+    {
+      "name": "GetTopicTeam"
+    },
+    {
+      "name": "GetTopicStatistics"
+    },
+    {
+      "name": "InsertUpdateTopic"
+    },
+    {
+      "name": "BulkUpdateSectionOwner"
+    },
+    {
+      "name": "BulkUpdateTopicOwner"
+    },
+    {
+      "name": "BulkUpdateTopicTeamMembers"
+    },
+    {
+      "name": "BulkUpdateTopicLPs"
+    },
+    {
+      "name": "BulkRemoveTopicIntroMsg"
+    },
+    {
+      "name": "BulkUpdateTopicIntroMsg"
+    },
+    {
+      "name": "BulkUpdateSectionTopicStatus"
+    },
+    {
+      "name": "CopyTopics"
+    },
+    {
+      "name": "BulkUpdateSecTopicVisibility"
+    },
+    {
+      "name": "BulkDeleteSectionTopic"
+    },
+    {
+      "name": "BulkCopyTopicIntroMsg"
+    },
+    {
+      "name": "GetBulkTopicTeam"
+    },
+    {
+      "name": "BulkCommon"
+    },
+    {
+      "name": "DownloadTopicData"
+    },
+    {
+      "name": "FileUpload"
+    },
+    {
+      "name": "GetUserLogs"
+    },
+    {
+      "name": "GetFilterActions"
+    },
+    {
+      "name": "InsertUserActivityLogs"
+    },
+    {
+      "name": "GetUserPermsLangs"
+    },
+    {
+      "name": "SavePermissions"
+    }
+  ]
+}
