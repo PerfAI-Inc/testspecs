@@ -43,11 +43,12 @@ paths:
                 properties:
                   status:
                     type: string
-  /test_Sensitive_Business_Endpoint/policies/compliance/billing:
+  /simple_get:
     get:
-      summary: Test SSRF Endpoint
+      summary: Simple Get
+      description: Returns a simple success status.
       responses:
-        "200":
+        '200':
           description: Successful response
           content:
             application/json:
@@ -56,6 +57,22 @@ paths:
                 properties:
                   status:
                     type: string
+                    example: success
+  /logout:
+    post:
+      summary: Logout
+      description: Logs out the user and returns a success status.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
 info:
   title: PerfAI Dashboard API
   description: PerfAI Dashboard API
