@@ -43,7 +43,7 @@ paths:
                 properties:
                   status:
                     type: string
-  /simple_get:
+  /api/v1/perf/engine/simple_get:
     get:
       summary: Simple Get
       description: Returns a simple success status.
@@ -58,7 +58,7 @@ paths:
                   status:
                     type: string
                     example: success
-  /logout:
+  /api/v1/perf/engine/logout:
     post:
       summary: Logout
       description: Logs out the user and returns a success status.
