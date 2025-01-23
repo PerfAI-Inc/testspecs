@@ -33,6 +33,8 @@ paths:
                   type: string
                 url_2:
                   type: number
+                date:
+                  type: number
       responses:
         "200":
           description: Successful response
