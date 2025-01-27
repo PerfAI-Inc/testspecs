@@ -1,6 +1,6 @@
 openapi: 3.0.0
 paths:
-  /api/v1/perf/engine/test_SSRF_Endpoint/{project_id}:
+  /api/v1/perf/engine/test_SSRF_Endpoint/{project_id}/org/{org_id}/tenant/{tenant_id}:
     post:
       summary: Test SSRF Endpoint
       parameters:
