@@ -33,7 +33,7 @@ paths:
                   type: string
                 url_2:
                   type: number
-                date:
+                create_date:
                   type: number
       responses:
         "200":
