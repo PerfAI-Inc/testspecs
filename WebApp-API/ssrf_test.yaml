@@ -10,6 +10,18 @@ paths:
           schema:
             type: string
           description: Id of the project
+        - in: path
+          name: org_id
+          required: true
+          schema:
+            type: string
+          description: Id of the org
+        - in: path
+          name: tenant_id
+          required: true
+          schema:
+            type: string
+          description: id of the tenant
         - in: query
           name: url_1
           required: true
