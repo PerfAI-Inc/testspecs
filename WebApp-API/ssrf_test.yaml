@@ -1,15 +1,15 @@
 openapi: 3.0.0
 paths:
-  /api/v1/perf/engine/test_SSRF_Endpoint/{url}:
+  /api/v1/perf/engine/test_SSRF_Endpoint/{project_id}:
     post:
       summary: Test SSRF Endpoint
       parameters:
         - in: path
-          name: url
+          name: project_id
           required: true
           schema:
             type: string
-          description: The URL parameter
+          description: Id of the project
         - in: query
           name: url_1
           required: true
