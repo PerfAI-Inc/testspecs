@@ -67,6 +67,9 @@ paths:
                 properties:
                   status:
                     type: string
+                  id:
+                    type: string
+                    example: "123"
   /api/v1/perf/engine/simple_get:
     get:
       summary: Simple Get
@@ -82,9 +85,6 @@ paths:
                   status:
                     type: string
                     example: success
-                  id:
-                    type: string
-                    example: "123"
   /api/v1/perf/engine/logout:
     post:
       summary: Logout
