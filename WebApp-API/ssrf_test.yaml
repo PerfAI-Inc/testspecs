@@ -47,6 +47,16 @@ paths:
                   type: number
                 create_date:
                   type: number
+                modified_date:
+                  type: number
+                created_by:
+                  type: string
+                modified_by:
+                  type: string
+                tenant:
+                  type: string
+                role:
+                  type: string
       responses:
         "200":
           description: Successful response
