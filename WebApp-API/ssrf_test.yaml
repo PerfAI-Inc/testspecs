@@ -85,6 +85,9 @@ paths:
                   status:
                     type: string
                     example: success
+                  id:
+                    type: string
+                    example: "123"
   /api/v1/perf/engine/logout:
     post:
       summary: Logout
