@@ -1,79 +1,124 @@
 openapi: 3.0.0
 paths:
-  /api/v1/perf/engine/test_SSRF_Endpoint/{project_id}/org/{org_id}/tenant/{tenant_id}:
-    post:
-      summary: Test SSRF Endpoint
-      parameters:
-        - in: path
-          name: project_id
-          required: true
-          schema:
-            type: string
-          description: Id of the project
-        - in: path
-          name: org_id
-          required: true
-          schema:
-            type: string
-          description: Id of the org
-        - in: path
-          name: tenant_id
-          required: true
-          schema:
-            type: string
-          description: id of the tenant
-        - in: query
-          name: url_1
-          required: true
-          schema:
-            type: string
-          description: A required query parameter
-        - in: query
-          name: url_2
-          required: true
-          schema:
-            type: string
-          description: A required query parameter
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                url_1:
-                  type: string
-                url_2:
-                  type: number
-                create_date:
-                  type: number
-                modified_date:
-                  type: number
-                created_by:
-                  type: string
-                modified_by:
-                  type: string
-                tenant:
-                  type: string
-                role:
-                  type: string
-      responses:
-        "200":
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                  id:
-                    type: string
-                    example: "123"
-  /api/v1/perf/engine/simple_get:
+  # /api/v1/perf/engine/test_SSRF_Endpoint/{project_id}/org/{org_id}/tenant/{tenant_id}:
+  #   post:
+  #     summary: Test SSRF Endpoint
+  #     parameters:
+  #       - in: path
+  #         name: project_id
+  #         required: true
+  #         schema:
+  #           type: string
+  #         description: Id of the project
+  #       - in: path
+  #         name: org_id
+  #         required: true
+  #         schema:
+  #           type: string
+  #         description: Id of the org
+  #       - in: path
+  #         name: tenant_id
+  #         required: true
+  #         schema:
+  #           type: string
+  #         description: id of the tenant
+  #       - in: query
+  #         name: url_1
+  #         required: true
+  #         schema:
+  #           type: string
+  #         description: A required query parameter
+  #       - in: query
+  #         name: url_2
+  #         required: true
+  #         schema:
+  #           type: string
+  #         description: A required query parameter
+  #     requestBody:
+  #       required: true
+  #       content:
+  #         application/json:
+  #           schema:
+  #             type: object
+  #             properties:
+  #               url_1:
+  #                 type: string
+  #               url_2:
+  #                 type: number
+  #               create_date:
+  #                 type: number
+  #               modified_date:
+  #                 type: number
+  #               created_by:
+  #                 type: string
+  #               modified_by:
+  #                 type: string
+  #               tenant:
+  #                 type: string
+  #               role:
+  #                 type: string
+  #     responses:
+  #       "200":
+  #         description: Successful response
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 status:
+  #                   type: string
+  #                 id:
+  #                   type: string
+  #                   example: "123"
+  # /api/v1/perf/engine/simple_get:
+  #   get:
+  #     summary: Simple Get
+  #     description: Returns a simple success status.
+  #     responses:
+  #       '200':
+  #         description: Successful response
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 status:
+  #                   type: string
+  #                   example: success
+  #                 id:
+  #                   type: string
+  #                   example: "123"
+  # /api/v1/perf/engine/logout:
+  #   post:
+  #     summary: Logout
+  #     description: Logs out the user and returns a success status.
+  #     responses:
+  #       '200':
+  #         description: Successful response
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 status:
+  #                   type: string
+  #                   example: success
+  /api/v1/perf/engine/date_range:
     get:
-      summary: Simple Get
-      description: Returns a simple success status.
+      summary: Get date range
+      parameters:
+        - in: query
+          name: start
+          required: true
+          schema:
+            type: string
+          description: Start date
+        - in: query
+          name: end
+          required: true
+          schema:
+            type: string
+          description: End date
       responses:
         '200':
           description: Successful response
@@ -82,27 +127,19 @@ paths:
               schema:
                 type: object
                 properties:
-                  status:
+                  start:
                     type: string
-                    example: success
-                  id:
+                    example: '2025-01-01'
+                  end:
                     type: string
-                    example: "123"
-  /api/v1/perf/engine/logout:
-    post:
-      summary: Logout
-      description: Logs out the user and returns a success status.
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
+                    example: '2025-01-31'
+                  message:
                     type: string
-                    example: success
+                    example: 'Date range received successfully'
+        '400':
+          description: Bad request
+        '500':
+          description: Internal server error
 info:
   title: PerfAI Dashboard API
   description: PerfAI Dashboard API
