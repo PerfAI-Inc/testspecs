@@ -1,0 +1,133 @@
+openapi: 3.0.0
+info:
+  title: Search Detection Test API
+  description: API specification designed to test the SearchDataLeakGenerator
+  version: 1.0.0
+  contact:
+    name: Testing Team
+    email: testing@example.com
+servers:
+  - url: https://api.dev.perfai.ai
+    description: Development testing server
+tags:
+  - name: search
+    description: Search operations
+  - name: user
+    description: User operations
+  - name: product
+    description: Product operations
+  - name: admin
+    description: Administrative operations
+  - name: engine
+    description: PerfAI Engine operations
+
+paths:
+  /api/v1/perf/engine/search:
+    post:
+      summary: Engine Search
+      description: Search functionality within the engine
+      operationId: engineSearch
+      tags:
+        - engine
+        - search
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                filters:
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                    type:
+                      type: string
+                pagination:
+                  type: object
+                  properties:
+                    page:
+                      type: integer
+                    size:
+                      type: integer
+      responses:
+        "200":
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SearchResults"
+
+  /api/v1/perf/engine/tests:
+    get:
+      summary: List Tests
+      description: Get a list of all tests
+      operationId: listTests
+      tags:
+        - engine
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+        - name: sort
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of tests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  tests:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        status:
+                          type: string
+                  sensitiveData:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        apiKey:
+                          type: string
+                        userIdentifier:
+                          type: string
+
+components:
+  schemas:
+    SearchResults:
+      type: object
+      properties:
+        total:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        results:
+          type: array
+          items:
+            type: object
