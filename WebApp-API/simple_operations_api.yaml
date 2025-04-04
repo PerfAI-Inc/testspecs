@@ -1,0 +1,196 @@
+openapi: 3.0.0
+info:
+  title: Patient History Records API
+  description: API specification designed to test patient record operations
+  version: 1.0.0
+  contact:
+    name: Testing Team
+    email: testing@example.com
+servers:
+  - url: https://api.dev.perfai.ai
+    description: Development testing server
+tags:
+  - name: engine
+    description: PerfAI Engine operations
+
+paths:
+  /api/v1/perf/engine/patient/history/record:
+    get:
+      summary: Get Patient Record
+      description: Retrieves a patient history record
+      operationId: simpleGet
+      tags:
+        - engine
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimpleGetResponse"
+
+  /api/v1/perf/engine/patient/history/record/modify:
+    post:
+      summary: Create Patient Record
+      description: Creates a new patient history record
+      operationId: simplePost
+      tags:
+        - engine
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GenericRequestData"
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimplePostResponse"
+
+  /api/v1/perf/engine/patient/history/record/modify/{id}:
+    delete:
+      summary: Delete Patient Record
+      description: Removes a patient history record by ID
+      operationId: simpleDelete
+      tags:
+        - engine
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimpleDeleteResponse"
+
+  /api/v1/perf/engine/patient/history/record/update/{id}:
+    put:
+      summary: Update Patient Record
+      description: Completely updates a patient history record by ID
+      operationId: simplePut
+      tags:
+        - engine
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GenericRequestData"
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimplePutResponse"
+
+  /api/v1/perf/engine/patient/history/record/update/modify/{id}:
+    patch:
+      summary: Partially Update Patient Record
+      description: Partially updates a patient history record by ID
+      operationId: simplePatch
+      tags:
+        - engine
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GenericRequestData"
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimplePatchResponse"
+
+components:
+  schemas:
+    GenericRequestData:
+      type: object
+      additionalProperties: true
+      description: Any JSON data that can be passed to the endpoint
+
+    SimpleGetResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        id:
+          type: string
+          example: "123"
+
+    SimplePostResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        id:
+          type: string
+          example: "123"
+        data:
+          type: object
+          additionalProperties: true
+          description: The data that was sent in the request
+
+    SimpleDeleteResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        deleted:
+          type: string
+          description: The ID of the deleted resource
+          example: "123"
+
+    SimplePutResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        id:
+          type: string
+          example: "123"
+        updated:
+          type: object
+          additionalProperties: true
+          description: The updated data
+
+    SimplePatchResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        id:
+          type: string
+          example: "123"
+        patched:
+          type: object
+          additionalProperties: true
+          description: The patched data
