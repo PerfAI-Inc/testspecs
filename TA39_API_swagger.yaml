@@ -1,0 +1,2085 @@
+swagger: "2.0"
+basePath: /
+paths:
+  /analysis_history/credits_used:
+    parameters:
+      - description: The ID of the quiz/assignment
+        name: quiz_id
+        type: string
+        in: query
+    get:
+      responses:
+        "200":
+          description: Success
+      operationId: get_analysis_history_credits
+      tags:
+        - analysis_history
+
+  /analysis_history/user_review/{history_id}:
+    parameters:
+      - description: The ID of the analysis history
+        name: history_id
+        in: path
+        required: true
+        type: integer
+    put:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/UserReview"
+      operationId: put_analysis_history_update
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/UserReview"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - analysis_history
+
+  /analysis_history/{quiz_id}/credits_used:
+    parameters:
+      - description: The ID of the quiz/assignment
+        name: quiz_id
+        in: path
+        required: true
+        type: integer
+    get:
+      responses:
+        "200":
+          description: Success
+      operationId: get_analysis_history_credits
+      tags:
+        - analysis_history
+
+  /analysis_history/{submission_id}:
+    parameters:
+      - description: The ID of the submission
+        name: submission_id
+        in: path
+        required: true
+        type: integer
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/AnalysisHistory"
+      operationId: get_analysis_history_list
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - analysis_history
+
+  /analysis_history/{submission_id}/{user_id}:
+    parameters:
+      - description: The ID of the submission
+        name: submission_id
+        in: path
+        required: true
+        type: integer
+      - description: The ID of the user
+        name: user_id
+        in: path
+        required: true
+        type: integer
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/AnalysisHistory"
+      operationId: get_analysis_history_by_user
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - analysis_history
+
+  /assignments/:
+    post:
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/Assignment"
+      operationId: post_assignment_list
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Assignment"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - assignments
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/AssignmentWithLTI"
+      operationId: get_assignment_list
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - assignments
+
+  /assignments/classroom/{id}:
+    parameters:
+      - description: The ID of the assignment for classroom
+        name: id
+        in: path
+        required: true
+        type: integer
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Assignment"
+      operationId: get_assignment_item
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - assignments
+
+  /assignments/course_id/{course_id}/course_work_id/{course_work_id}/assignment_id/{assignment_id}/attachment_id/{attachment_id}:
+    parameters:
+      - description: The course_id given by google
+        name: id
+        type: string
+        in: query
+      - description: The course_work_id is post_id given by user
+        name: course_work_id
+        in: path
+        required: true
+        type: integer
+      - description: The assignment_id is created assignment
+        name: assignment_id
+        in: path
+        required: true
+        type: integer
+      - description: This is Google classroom attachment_id
+        name: attachment_id
+        in: path
+        required: true
+        type: integer
+      - name: course_id
+        in: path
+        required: true
+        type: integer
+    post:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Assignment"
+      operationId: post_assignment_item_by_user
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Assignment"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - assignments
+
+  /assignments/delete/course_id/{course_id}/course_work_id/{course_work_id}/assignment_id/{assignment_id}/attachment_id/{attachment_id}:
+    parameters:
+      - description: The course_id given by google
+        name: id
+        type: string
+        in: query
+      - description: The course_work_id is post_id given by user
+        name: course_work_id
+        in: path
+        required: true
+        type: integer
+      - description: The assignment_id is created assignment
+        name: assignment_id
+        in: path
+        required: true
+        type: integer
+      - description: This is Google classroom attachment_id
+        name: attachment_id
+        in: path
+        required: true
+        type: integer
+      - name: course_id
+        in: path
+        required: true
+        type: integer
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_assignment_item_by_user
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Assignment"
+      tags:
+        - assignments
+
+  /assignments/folder/{folder_id}:
+    parameters:
+      - name: folder_id
+        in: path
+        required: true
+        type: integer
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/AssignmentWithLTI"
+      operationId: get_assignments_by_folder
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - assignments
+
+  /assignments/orphaned-lti-cleanup/{quiz_id}:
+    parameters:
+      - description: The ID of the assignment used to retrieve and delete the classroom attachment.
+        name: quiz_id
+        in: path
+        required: true
+        type: integer
+    delete:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/StandardResponse"
+      summary: Delete an orphaned Google Classroom attachment
+      description: "Args:\n    quiz_id: The ID of the assignment whose attachment is to be cleaned up.\n    current_user: The user who created the assignment.\n\nReturns:\n    tuple: A tuple containing a message and an HTTP status code.\n        - 204 No Content: When the orphaned attachment is successfully deleted.\n        - 200 OK: When the attachment is still linked to a Google Classroom assignment, indicating that no deletion was performed.\n        - 400 Bad Request: If synchronization with Google Classroom fails due to missing or invalid course/work IDs.\n        - 401 Unauthorized: If the user is not authenticated.\n        - 404 Not Found: If no attachments are found for the given quiz ID."
+      operationId: delete_orphaned_lti_attachment_cleanup
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - assignments
+
+  /assignments/student/detail/course_id/{course_id}/course_work_id/{course_work_id}/item_id/{item_id}/assignment_id/{assignment_id}/login_hint/{login_hint}:
+    parameters:
+      - description: The course_id given by google
+        name: id
+        type: string
+        in: query
+      - description: The course_work_id is post_id given by user
+        name: course_work_id
+        in: path
+        required: true
+        type: integer
+      - description: The assignment_id is created assignment
+        name: assignment_id
+        in: path
+        required: true
+        type: integer
+      - description: This is Google classroom attachment_id
+        name: attachment_id
+        type: string
+        in: query
+      - name: course_id
+        in: path
+        required: true
+        type: integer
+      - name: item_id
+        in: path
+        required: true
+        type: integer
+      - name: login_hint
+        in: path
+        required: true
+        type: string
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_assignment_item_by_user
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Assignment"
+      tags:
+        - assignments
+
+  /assignments/teacher/detail/course_id/{course_id}/course_work_id/{course_work_id}/assignment_id/{assignment_id}/attachment_id/{attachment_id}:
+    parameters:
+      - description: The course_id given by google
+        name: id
+        type: string
+        in: query
+      - description: The course_work_id is post_id given by user
+        name: course_work_id
+        in: path
+        required: true
+        type: integer
+      - description: The assignment_id is created assignment
+        name: assignment_id
+        in: path
+        required: true
+        type: integer
+      - description: This is Google classroom attachment_id
+        name: attachment_id
+        in: path
+        required: true
+        type: integer
+      - name: course_id
+        in: path
+        required: true
+        type: integer
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_assignment_item_by_user
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Assignment"
+      tags:
+        - assignments
+
+  /assignments/{id}:
+    parameters:
+      - description: The ID of the assignment
+        name: id
+        in: path
+        required: true
+        type: integer
+    delete:
+      responses:
+        "200":
+          description: Success
+      operationId: delete_assignment_item
+      tags:
+        - assignments
+    put:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Assignment"
+      operationId: put_assignment_item
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Assignment"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - assignments
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/AssignmentWithLTI"
+      operationId: get_assignment_item
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - assignments
+
+  /assignments/{id}/move/{folder_id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - name: folder_id
+        in: path
+        required: true
+        type: integer
+    put:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Assignment"
+      operationId: put_move_assignment
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - assignments
+
+  /assignments/{id}/report/{type}:
+    parameters:
+      - description: The ID of the assignment
+        name: id
+        in: path
+        required: true
+        type: integer
+      - description: The type of the report
+        name: type
+        in: path
+        required: true
+        type: string
+    get:
+      responses:
+        "200":
+          description: Success
+      operationId: get_assignment_report
+      tags:
+        - assignments
+
+  /assignments/{id}/{userId}:
+    parameters:
+      - description: The ID of the assignment
+        name: id
+        in: path
+        required: true
+        type: integer
+      - description: The ID of the teacher who created the assignment
+        name: userId
+        in: path
+        required: true
+        type: integer
+    delete:
+      responses:
+        "200":
+          description: Success
+      operationId: delete_assignment_item_by_user
+      tags:
+        - assignments
+    put:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Assignment"
+      operationId: put_assignment_item_by_user
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Assignment"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - assignments
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/AssignmentWithLTI"
+      operationId: get_assignment_item_by_user
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - assignments
+
+  /classroom/:
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ClassroomAttachment"
+      operationId: get_classroom_attachments_list
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - classroom_attachments
+
+  /classroom/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ClassroomAttachment"
+      operationId: get_classroom_attachments_list
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - classroom_attachments
+
+  /classroom/{id}/{gc_course_id}/{gc_attachment_id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - name: gc_course_id
+        in: path
+        required: true
+        type: integer
+      - name: gc_attachment_id
+        in: path
+        required: true
+        type: integer
+    put:
+      responses:
+        "200":
+          description: Success
+      operationId: put_classroom_attachments_list
+      tags:
+        - classroom_attachments
+
+  /email_verification:
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_email_verification
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/EmailVerification"
+      tags:
+        - login
+
+  /email_verification_verified/{token}:
+    parameters:
+      - name: token
+        in: path
+        required: true
+        type: string
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_email_verification_verified
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/EmailVerificationVerified"
+      tags:
+        - login
+
+  /feedback_templates/:
+    post:
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/FeedbackTemplate"
+      operationId: post_feedback_template_list
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/FeedbackTemplate"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - feedback_templates
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/FeedbackTemplate"
+      operationId: get_feedback_template_list
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - feedback_templates
+
+  /feedback_templates/{id}:
+    parameters:
+      - description: The ID of the feedback template
+        name: id
+        in: path
+        required: true
+        type: integer
+    delete:
+      responses:
+        "200":
+          description: Success
+      operationId: delete_feedback_template_item
+      tags:
+        - feedback_templates
+    put:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/FeedbackTemplate"
+      operationId: put_feedback_template_item
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/FeedbackTemplate"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - feedback_templates
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/FeedbackTemplate"
+      operationId: get_feedback_template_item
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - feedback_templates
+
+  /files/assignment/{assignment_id}:
+    parameters:
+      - description: The ID of the assignment
+        name: assignment_id
+        in: path
+        required: true
+        type: integer
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/File"
+      operationId: get_assignment_files
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - files
+
+  /files/{created_by}/quiz/{quiz_id}:
+    parameters:
+      - description: The ID of the user who created the assignment
+        name: created_by
+        in: path
+        required: true
+        type: integer
+      - description: The ID of the quiz
+        name: quiz_id
+        in: path
+        required: true
+        type: integer
+    post:
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/File"
+      operationId: post_file_list
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/File"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - files
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/File"
+      operationId: get_file_list
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - files
+
+  /files/{id}:
+    parameters:
+      - description: The ID of the file
+        name: id
+        in: path
+        required: true
+        type: integer
+    delete:
+      responses:
+        "200":
+          description: Success
+      operationId: delete_file_item
+      tags:
+        - files
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/File"
+      operationId: get_file_item
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - files
+
+  /folders/:
+    post:
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/Folder"
+      operationId: post_folder_list
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Folder"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - folders
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Folder"
+      operationId: get_folder_list
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - folders
+
+  /folders/with-assignment-count:
+    get:
+      responses:
+        "200":
+          description: Success
+      operationId: get_folder_list_with_count
+      tags:
+        - folders
+
+  /folders/{id}:
+    parameters:
+      - description: The ID of the folder
+        name: id
+        in: path
+        required: true
+        type: integer
+    delete:
+      responses:
+        "200":
+          description: Success
+      operationId: delete_folder_item
+      tags:
+        - folders
+    put:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Folder"
+      operationId: put_folder_item
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Folder"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - folders
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Folder"
+      operationId: get_folder_item
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - folders
+
+  /login/application:
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_login
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/ExistingUser"
+      tags:
+        - login
+
+  /login/google:
+    get:
+      responses:
+        "302":
+          description: Redirect to Google for authentication
+      summary: Redirect to Google for authentication
+      operationId: get_google_login
+      tags:
+        - login
+
+  /login/google/authorized:
+    get:
+      responses:
+        "302":
+          description: Handle the authorization callback from Google
+      summary: Handle the authorization callback from Google
+      operationId: get_google_authorized
+      tags:
+        - login
+
+  /logout:
+    get:
+      responses:
+        "302":
+          description: Logout the current user
+      summary: Logout the current user
+      operationId: get_logout
+      tags:
+        - login
+
+  /lti/assignments:
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_lti_assignments
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Assignment"
+      tags:
+        - lti
+
+  /lti/assignments/{id}:
+    parameters:
+      - description: The related LTI assignment ID
+        name: id
+        in: path
+        required: true
+        type: integer
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/AssignmentWithLTI"
+      operationId: get_lti_assignment
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - lti
+
+  /lti/assignments/{id}/submissions:
+    parameters:
+      - description: The related LTI assignment ID
+        name: id
+        in: path
+        required: true
+        type: integer
+    post:
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/LTISubmission"
+      operationId: post_lti_assignment_submission
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/LTISubmission"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - lti
+
+  /lti/deeplinking:
+    delete:
+      responses:
+        "200":
+          description: Success
+      operationId: delete_deep_linking
+      tags:
+        - lti
+    get:
+      responses:
+        "200":
+          description: Success
+      operationId: get_deep_linking
+      tags:
+        - lti
+
+  /lti/file/download/{token}:
+    parameters:
+      - description: The file token
+        name: token
+        in: path
+        required: true
+        type: string
+    get:
+      responses:
+        "200":
+          description: Success
+      operationId: get_lti_file_download
+      tags:
+        - lti
+
+  /lti/launch:
+    get:
+      responses:
+        "200":
+          description: Success
+      operationId: get_launch_info
+      tags:
+        - lti
+
+  /lti/login:
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_login_lti
+      tags:
+        - lti
+
+  /lti/publish/{id}:
+    parameters:
+      - description: The submission ID
+        name: id
+        in: path
+        required: true
+        type: integer
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_lti_publish_submission
+      tags:
+        - lti
+
+  /lti/submission:
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Submission"
+      operationId: get_lti_context_submission
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - lti
+
+  /lti/user:
+    get:
+      responses:
+        "200":
+          description: Success
+      operationId: get_user_info
+      tags:
+        - lti
+
+  /password_reset:
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_password_reset
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/PasswordReset"
+      tags:
+        - login
+
+  /password_reset_verified/{token}:
+    parameters:
+      - name: token
+        in: path
+        required: true
+        type: string
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_password_reset_verified
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/PasswordResetVerified"
+      tags:
+        - login
+
+  /register:
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_register
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/NewUser"
+      tags:
+        - login
+
+  /rubrics/:
+    post:
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/Rubric"
+      operationId: post_rubric_list
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Rubric"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - rubrics
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Rubric"
+      operationId: get_rubric_list
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - rubrics
+
+  /rubrics/{id}:
+    parameters:
+      - description: The ID of the rubric
+        name: id
+        in: path
+        required: true
+        type: integer
+    delete:
+      responses:
+        "200":
+          description: Success
+      operationId: delete_rubric_item
+      tags:
+        - rubrics
+    put:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Rubric"
+      operationId: put_rubric_item
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Rubric"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - rubrics
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Rubric"
+      operationId: get_rubric_item
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - rubrics
+
+  /submissions/report/{type}:
+    parameters:
+      - description: The type of the report
+        name: type
+        in: path
+        required: true
+        type: string
+    post:
+      responses:
+        "200":
+          description: Success
+      operationId: post_submission_report
+      tags:
+        - submissions
+
+  /submissions/{created_by}/quiz/{quiz_id}:
+    parameters:
+      - description: The ID of the user who created the assignment
+        name: created_by
+        in: path
+        required: true
+        type: integer
+      - description: The ID of the quiz
+        name: quiz_id
+        in: path
+        required: true
+        type: integer
+    post:
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/NewSubmission"
+      operationId: post_submission_list
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/NewSubmission"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - submissions
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Submission"
+      operationId: get_submission_list
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - submissions
+
+  /submissions/{created_by}/quiz/{quiz_id}/doc_submissions:
+    parameters:
+      - description: The ID of the user who created the assignment
+        name: created_by
+        in: path
+        required: true
+        type: integer
+      - description: The ID of the quiz
+        name: quiz_id
+        in: path
+        required: true
+        type: integer
+    post:
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/NewSubmission"
+      operationId: post_submission_list
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/NewSubmission"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - submissions
+
+  /submissions/{created_by}/quiz/{quiz_id}/student/{student_name}:
+    parameters:
+      - description: The ID of the user who created the assignment
+        name: created_by
+        in: path
+        required: true
+        type: integer
+      - description: The ID of the quiz
+        name: quiz_id
+        in: path
+        required: true
+        type: integer
+      - description: The name of the student
+        name: student_name
+        in: path
+        required: true
+        type: string
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Submission"
+      operationId: get_submission_by_student
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - submissions
+
+  /submissions/{id}:
+    parameters:
+      - description: The ID of the submission
+        name: id
+        in: path
+        required: true
+        type: integer
+    delete:
+      responses:
+        "200":
+          description: Success
+      operationId: delete_submission_item
+      tags:
+        - submissions
+    put:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Submission"
+      operationId: put_submission_item
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/Submission"
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - submissions
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Submission"
+      operationId: get_submission_item
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - submissions
+
+  /submissions/{id}/report/{type}/teacher/{teacherId}:
+    parameters:
+      - description: The ID of the submission
+        name: id
+        in: path
+        required: true
+        type: integer
+      - description: The type of the report
+        name: type
+        in: path
+        required: true
+        type: string
+      - description: Assignment created by teacher
+        name: teacherId
+        in: path
+        required: true
+        type: integer
+    get:
+      responses:
+        "200":
+          description: Success
+      operationId: get_submission_report_by_student
+      tags:
+        - submissions
+
+  /submissions/{submission_id}/gcsubmission/{assignmentId}:
+    parameters:
+      - description: The GC submission id
+        name: submission_id
+        in: path
+        required: true
+        type: string
+      - name: assignmentId
+        in: path
+        required: true
+        type: integer
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Submission"
+      operationId: get_submission_by_gc_id
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - submissions
+
+  /submissions/{submission_id}/googledoc/{assignmentId}/login_hint/{login_hint}:
+    parameters:
+      - description: The GC submission id
+        name: submission_id
+        in: path
+        required: true
+        type: string
+      - name: assignmentId
+        in: path
+        required: true
+        type: integer
+      - name: login_hint
+        in: path
+        required: true
+        type: string
+    get:
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Submission"
+      operationId: get_submission_by_gc_id
+      parameters:
+        - name: X-Fields
+          in: header
+          type: string
+          format: mask
+          description: An optional fields mask
+      tags:
+        - submissions
+
+  /users/:
+    get:
+      responses:
+        "200":
+          description: Success
+      operationId: get_get_users
+      tags:
+        - users
+
+  /users/authorized:
+    get:
+      responses:
+        "200":
+          description: Success
+      summary: Returns user data only if the Google OAuth token is valid
+      description: "Returns:\n    200 OK with user data if the token is valid.\n    401 Unauthorized if the token is expired or invalid, or refresh token is invalid.\n    500 Internal Server Error for unexpected errors."
+      operationId: get_get_users
+      tags:
+        - users
+
+  /users/check_scopes:
+    get:
+      responses:
+        "200":
+          description: Success
+      summary: Validate scopes as a fallback, redirect to re-consent if missing
+      operationId: get_check_scopes
+      tags:
+        - users
+
+  /users/{id}:
+    parameters:
+      - description: The ID of the user
+        name: id
+        in: path
+        required: true
+        type: integer
+    put:
+      responses:
+        "200":
+          description: Success
+      operationId: put_user_item
+      parameters:
+        - name: payload
+          required: true
+          in: body
+          schema:
+            $ref: "#/definitions/User"
+      tags:
+        - users
+    get:
+      responses:
+        "200":
+          description: Success
+      operationId: get_user_item
+      tags:
+        - users
+
+info:
+  title: TA39 API
+  version: "1.0"
+  description: TA39 API Description
+
+produces:
+  - application/json
+consumes:
+  - application/json
+
+tags:
+  - name: login
+    description: Login operations
+  - name: users
+    description: User operations
+  - name: assignments
+    description: Assignment operations
+  - name: submissions
+    description: Submissions operations
+  - name: files
+    description: File operations
+  - name: rubrics
+    description: Rubrics operations
+  - name: feedback_templates
+    description: FeedbackTemplates operations
+  - name: analysis_history
+    description: Analysis History operations
+  - name: lti
+    description: LTI APIs
+  - name: classroom_attachments
+    description: Classroom Attachments related operations
+  - name: folders
+    description: Folder operations
+
+definitions:
+  NewUser:
+    required:
+      - email
+      - first_name
+      - last_name
+      - password
+    properties:
+      first_name:
+        type: string
+        description: First name
+      last_name:
+        type: string
+        description: Last name
+      email:
+        type: string
+        description: Email
+      password:
+        type: string
+        description: Password
+      school:
+        type: string
+        description: School
+      phone_number:
+        type: string
+        description: Phone number
+      address:
+        type: string
+        description: Address
+      city:
+        type: string
+        description: City
+      district:
+        type: string
+        description: District
+      state:
+        type: string
+        description: State
+      grades:
+        type: string
+        description: Grades
+      subjects:
+        type: string
+        description: Subjects
+      tour_step:
+        type: string
+        description: Tour step
+    type: object
+
+  ExistingUser:
+    required:
+      - email
+      - password
+    properties:
+      email:
+        type: string
+        description: Email
+      password:
+        type: string
+        description: Password
+    type: object
+
+  PasswordReset:
+    required:
+      - email
+    properties:
+      email:
+        type: string
+        description: Email
+    type: object
+
+  PasswordResetVerified:
+    required:
+      - password
+    properties:
+      password:
+        type: string
+        description: New Password
+    type: object
+
+  EmailVerification:
+    required:
+      - email
+    properties:
+      email:
+        type: string
+        description: Email
+    type: object
+
+  EmailVerificationVerified:
+    required:
+      - token
+    properties:
+      token:
+        type: string
+        description: Token
+    type: object
+
+  User:
+    required:
+      - email
+    properties:
+      id:
+        type: integer
+        description: The unique identifier of a user
+      first_name:
+        type: string
+        description: First name
+      last_name:
+        type: string
+        description: Last name
+      email:
+        type: string
+        description: Email
+      school:
+        type: string
+        description: School
+      phone_number:
+        type: string
+        description: Phone number
+      address:
+        type: string
+        description: Address
+      city:
+        type: string
+        description: City
+      district:
+        type: string
+        description: District
+      state:
+        type: string
+        description: State
+      grades:
+        type: string
+        description: Grades
+      subjects:
+        type: string
+        description: Subjects
+      old_password:
+        type: string
+        description: Old password
+      new_password:
+        type: string
+        description: New password
+      tour_step:
+        type: string
+        description: Tour step
+      email_verified:
+        type: boolean
+        description: Email verification status
+      personality:
+        type: string
+        description: Personality
+    type: object
+
+  Assignment:
+    properties:
+      QuizID:
+        type: integer
+        description: The unique identifier of an assignment
+      Name:
+        type: string
+        description: The name of the assignment
+      Grade:
+        type: string
+        description: The grade of the assignment
+      Course:
+        type: string
+        description: The course of the assignment
+      Subject:
+        type: string
+        description: The subject of the assignment
+      QuestionSet:
+        type: object
+        description: The question set of the assignment
+    type: object
+
+  AssignmentWithLTI:
+    allOf:
+      - $ref: "#/definitions/Assignment"
+      - properties:
+          lti_assignment_id:
+            type: integer
+            description: Whether the assignment is an LTI assignment
+        type: object
+
+  StandardResponse:
+    properties:
+      error:
+        type: string
+        description: Error message indicating the reason for the failure
+      message:
+        type: string
+        description: Message indicating the result of the operation
+    type: object
+
+  NewSubmission:
+    required:
+      - AssignmentID
+    properties:
+      AssignmentID:
+        type: integer
+        description: The ID of the assignment this submission is for
+      Collaborators:
+        type: string
+        description: The names of other students who collaborated on this submission
+      SubmissionFiles:
+        type: array
+        items:
+          $ref: "#/definitions/File"
+      StudentID:
+        type: string
+        description: The ID of the student who submitted the assignment
+      StudentName:
+        type: string
+        description: The name of the student who submitted the assignment
+    type: object
+
+  File:
+    required:
+      - AssignmentID
+      - StudentID
+    properties:
+      AssignmentID:
+        type: integer
+        description: The ID of the assignment this file is associated with
+      StudentID:
+        type: integer
+        description: The ID of the student who submitted the assignment
+      Data:
+        type: string
+        description: The base64-encoded data of the file
+    type: object
+
+  Submission:
+    required:
+      - AssignmentID
+      - StudentID
+    properties:
+      SubmissionID:
+        type: integer
+        description: The unique identifier of a submission
+      AssignmentID:
+        type: integer
+        description: The ID of the assignment this submission is for
+      DateCreated:
+        type: string
+        format: date-time
+        description: Date and time when the rubric was created
+      Collaborators:
+        type: string
+        description: The names of other students who collaborated on this submission
+      SubmissionFiles:
+        type: array
+        items:
+          $ref: "#/definitions/File"
+      StudentID:
+        type: string
+        description: The ID of the student who submitted the assignment
+      RubricID:
+        type: integer
+        description: The ID of the associated rubric
+      FeedbackTemplateID:
+        type: integer
+        description: The unique identifier of a feedback template
+      StudentName:
+        type: string
+        description: The name of the student who submitted the assignment
+      Status:
+        type: string
+        description: The status of the submission
+      Analysis:
+        type: string
+        description: The Analysis of the submission
+    type: object
+
+  Rubric:
+    properties:
+      RubricID:
+        type: integer
+        description: The unique identifier of a rubric
+      RubricTitle:
+        type: string
+        description: The title of the rubric
+      RubricDetails:
+        type: string
+        description: The description of the rubric
+    type: object
+
+  FeedbackTemplate:
+    properties:
+      FeedbackTemplateID:
+        type: integer
+        description: The unique identifier of a feedback template
+      FeedbackTemplateDetails:
+        type: string
+        description: Details of the feedback template
+      FeedbackTemplateTitle:
+        type: string
+        description: Title of the feedback template
+    type: object
+
+  AnalysisHistory:
+    required:
+      - SubmissionID
+    properties:
+      HistoryID:
+        type: integer
+        description: The unique identifier of an analysis history record
+      SubmissionID:
+        type: integer
+        description: The ID of the submission
+      AssignmentID:
+        type: integer
+        description: The ID of the assignment
+      Assignment:
+        description: The assignment used for the analysis
+        allOf:
+          - $ref: "#/definitions/Assignment"
+      RubricID:
+        type: integer
+        description: The ID of the rubric
+      Rubric:
+        description: The rubric used for the analysis
+        allOf:
+          - $ref: "#/definitions/Rubric"
+      FeedbackTemplateID:
+        type: integer
+        description: The unique identifier of a feedback template
+      FeedbackTemplate:
+        description: The feedback template used for the analysis
+        allOf:
+          - $ref: "#/definitions/FeedbackTemplate"
+      Analysis:
+        type: string
+        description: The analysis text
+      CorrectedAnalysis:
+        type: string
+        description: The corrected analysis text
+      UserReview:
+        type: string
+        description: The user feedback text
+      AIReview:
+        type: string
+        description: AI generated feedback text
+      RunType:
+        type: string
+        description: Type of run, default is engine-1
+      ModifyDate:
+        type: string
+        format: date-time
+        description: The date when the record was last modified
+      AnalysisDate:
+        type: string
+        format: date-time
+        description: The date when the analysis was done
+      RunID:
+        type: string
+        description: The unique Run ID
+    type: object
+
+  UserReview:
+    properties:
+      CorrectedAnalysis:
+        type: string
+        description: The corrected analysis text
+      UserReview:
+        type: string
+        description: The user feedback text
+    type: object
+
+  LTISubmission:
+    properties:
+      Collaborators:
+        type: string
+        description: The names of other students who collaborated on this submission
+      SubmissionFiles:
+        type: array
+        items:
+          $ref: "#/definitions/File"
+    type: object
+
+  ClassroomAttachment:
+    properties:
+      attachmentId:
+        type: integer
+        description: The unique identifier of the attachment
+      teacherId:
+        type: integer
+        description: The ID of the teacher
+      post_id:
+        type: integer
+        description: The post ID
+      gc_course_id:
+        type: integer
+        description: Google classroom course ID
+      gc_attachment_id:
+        type: integer
+        description: Google classroom attachment ID
+      status:
+        type: string
+        description: The status of the attachment
+      quizId:
+        type: integer
+        description: The ID of the quiz
+      created_at:
+        type: string
+        format: date-time
+        description: Date when the attachment was created
+      updated_at:
+        type: string
+        format: date-time
+        description: Date when the attachment was last updated
+    type: object
+
+  Folder:
+    required:
+      - Title
+    properties:
+      FolderID:
+        type: integer
+        description: The unique identifier of a folder
+      user_id:
+        type: integer
+        description: The unique identifier of a user
+      Title:
+        type: string
+        description: Title of the folder
+      Description:
+        type: string
+        description: Description of the folder
+      DateCreated:
+        type: string
+        format: date-time
+        description: Date when the folder was created
+      DateModified:
+        type: string
+        format: date-time
+        description: Date when the folder was last modified
+    type: object
+
+responses:
+  ParseError:
+    description: When a mask can't be parsed
+  MaskError:
+    description: When any error occurs on mask
